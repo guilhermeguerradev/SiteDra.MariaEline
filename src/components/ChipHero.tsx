@@ -9,7 +9,7 @@ const estilos = {
   mobile:
     "gap-3 rounded-[18px] border-creme/25 bg-creme/10 px-[18px] py-3 text-[15px]",
   desktop:
-    "gap-3 rounded-[20px] border-creme/35 bg-petroleo/35 px-5 py-3.5 text-[15px] backdrop-blur-[14px]",
+    "gap-3 rounded-[20px] border-creme/35 bg-petroleo/75 px-5 py-3.5 text-[15px] backdrop-blur-[14px]",
 } as const;
 
 const tamanhoIcone = {

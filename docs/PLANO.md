@@ -40,11 +40,11 @@ Objetivo: o código entra no GitHub já com as regras de qualidade ativas. Nenhu
 
 ## Etapa 3 — Qualidade
 
-- [x] Teste de fumaça com Playwright: página carrega, botões de WhatsApp com o número certo, nenhum link quebrado (18 testes passando, desktop e 360px)
+- [x] Teste de fumaça com Playwright: página carrega, botões de WhatsApp com o número certo, nenhum link quebrado (24 execuções passando, desktop e 360px)
 - [x] Testes de `src/domain/` (dados válidos) (14 testes unitários)
-- [ ] Lighthouse com a meta a confirmar
-- [ ] Revisão de acessibilidade: contraste, teclado, texto alternativo
-- [ ] Revisão em 360px
+- [x] Lighthouse com a meta a confirmar (medido: 100 nas quatro categorias, mobile e desktop; meta de 90+ proposta em D12, aguardando confirmação)
+- [x] Revisão de acessibilidade: contraste, teclado, texto alternativo (axe sem violações; contraste corrigido nos chips, D11; foco visível)
+- [x] Revisão em 360px (captura de tela com viewport real e testes em 360px)
 
 ## Etapa 4 — Publicar (adiada)
 
