@@ -79,9 +79,9 @@ Ordem sugerida, da mais pronta para a mais sensível:
 
 ### 5.3 Sobre (`#sobre`)
 
-- [ ] Foto `raio-x` (a Dra. analisando um raio-x), recortada e otimizada.
-- [ ] 🔴 Confirmar o texto do design e as credenciais: formada pela UFJF, especialista em Saúde da Família (UFJF/HU), aperfeiçoamento em Cirurgia Oral (Suprema), preceptora na Estácio.
-- [ ] 🔴 Confirmar que a frase "Prevenir antes de doer é a minha forma de cuidar." pode ser usada.
+- [x] Foto `raio-x` (a Dra. analisando um raio-x), em `public/images/sobre.jpg` (D20).
+- [ ] 🔴 Texto do design usado a pedido da dona do projeto (D20). A Dra. ainda deve conferir as credenciais: formada pela UFJF, especialista em Saúde da Família (UFJF/HU), aperfeiçoamento em Cirurgia Oral (Suprema), preceptora na Estácio.
+- [x] Frase "Prevenir antes de doer é a minha forma de cuidar." usada como no design (D20).
 
 ### 5.4 Família e Consultório (`#familia`, `#consultorio`)
 

@@ -17,6 +17,7 @@ export const itensNavegacao: readonly ItemNavegacao[] = [
 // Ao criar uma seção nova, acrescente o id aqui e o link aparece no menu.
 export const secoesExistentes: readonly string[] = [
   "inicio",
+  "sobre",
   "tratamentos",
   "contato",
 ];

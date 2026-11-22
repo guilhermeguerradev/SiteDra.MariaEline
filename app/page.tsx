@@ -3,8 +3,9 @@ import { DadosEstruturados } from "@/src/components/DadosEstruturados";
 import { Header } from "@/src/components/Header";
 import { Hero } from "@/src/components/Hero";
 import { ProgressoRolagem } from "@/src/components/ProgressoRolagem";
-import { Tratamentos } from "@/src/components/Tratamentos";
 import { Rodape } from "@/src/components/Rodape";
+import { Sobre } from "@/src/components/Sobre";
+import { Tratamentos } from "@/src/components/Tratamentos";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
+        <Sobre />
         <Tratamentos />
         <Contato />
       </main>
