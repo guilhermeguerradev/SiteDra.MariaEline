@@ -1,0 +1,45 @@
+# Dependências
+node_modules/
+.pnp
+.pnp.js
+
+# Build do Next.js
+.next/
+out/
+build/
+
+# Ambiente e segredos (nunca commitar)
+.env
+.env.*
+!.env.example
+
+# Testes
+coverage/
+playwright-report/
+test-results/
+*.tsbuildinfo
+
+# Vercel
+.vercel
+
+# Configurações pessoais do Claude Code (não versionar)
+.claude/settings.local.json
+
+# Sistema operacional e editores
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Obs.: CLAUDE.md e docs/ NÃO são ignorados de propósito.
+# Eles são versionados junto com o código.
+
+# Fotos de pessoas reais: fora do repositório público até haver autorização (ver DECISOES D07)
+docs/design/img/
