@@ -53,7 +53,7 @@ Esta etapa só começa com decisão da dona do projeto sobre hospedagem e domín
 - [x] 🔴 Domínio: dispensado por enquanto, endereço do próprio host (DECISOES D13)
 - [ ] 🔴 Confirmar o host gratuito que permita uso comercial (recomendado: Cloudflare Pages, D13) e conferir os termos
 - [ ] Conectar o repositório ao host escolhido (build `npm run build`, saída `out`)
-- [ ] Apontar o domínio (adiado até existir um domínio)
+- [ ] Definir `NEXT_PUBLIC_SITE_URL` no host com o endereço final (D14); apontar o domínio próprio quando existir
 - [ ] Google Meu Negócio: a dona do projeto cria ou confirma o perfil
 - [ ] Revisão final no celular junto com a Dra. Maria Eline
 
