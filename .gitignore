@@ -43,3 +43,7 @@ pnpm-debug.log*
 
 # Fotos de pessoas reais: fora do repositório público até haver autorização (ver DECISOES D07)
 docs/design/img/
+
+# Originais das fotos enviadas pela dona do projeto (pacientes e famílias), fora do Git.
+# Ver DECISOES D17.
+/img/

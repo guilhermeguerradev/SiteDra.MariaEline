@@ -123,6 +123,27 @@
   animation: dica-rolagem 1.8s cubic-bezier(0.6, 0, 0.4, 1) infinite;
 }
 
+@keyframes revelar {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Revela o bloco ao entrar na tela. Só onde o navegador sabe animar pela
+   rolagem; nos outros o conteúdo simplesmente aparece, sem depender de JS. */
+@utility revelar {
+  @supports (animation-timeline: view()) {
+    animation: revelar linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 35%;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto !important;

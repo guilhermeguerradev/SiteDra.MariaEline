@@ -8,6 +8,7 @@ export const contatosSchema = z.object({
   email: z.email(),
   endereco: z.object({
     logradouro: z.string().min(1),
+    complemento: z.string().min(1).optional(),
     bairro: z.string().min(1),
     cidade: z.string().min(1),
     uf: z.string().length(2),
@@ -23,6 +24,7 @@ export const contatos: Contatos = contatosSchema.parse({
   email: "mariaelinemuniz@gmail.com",
   endereco: {
     logradouro: "Av. Barão do Rio Branco, 2872",
+    complemento: "Sl 1007",
     bairro: "Centro",
     cidade: "Juiz de Fora",
     uf: "MG",
