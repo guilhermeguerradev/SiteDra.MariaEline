@@ -67,9 +67,9 @@ Ordem sugerida, da mais pronta para a mais sensível:
 
 ### 5.1 Tratamentos (`#tratamentos`)
 
-- [ ] Seção com os 8 serviços. Os textos já estão no PRD, palavra por palavra, e batem com o design.
-- [ ] Botão "Agendar avaliação +" aponta para o WhatsApp.
-- [ ] Layout em 360px e em desktop, sem foto (o design não usa).
+- [x] Seção com os 8 serviços. Os textos já estão no PRD, palavra por palavra, e batem com o design (teste lê o PRD).
+- [x] Botão "Agendar avaliação +" aponta para o WhatsApp.
+- [x] Layout em 360px e em desktop, sem foto (o design não usa). Ver D18.
 
 ### 5.2 Contato (`#contato`)
 
