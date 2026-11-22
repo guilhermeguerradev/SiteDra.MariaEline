@@ -21,6 +21,8 @@ const eslintConfig = defineConfig([
     "next-env.d.ts",
     // Referência de design (runtime gerado pelo Claude Design), não é código do site.
     "docs/**",
+    "playwright-report/**",
+    "test-results/**",
   ]),
 ]);
 
