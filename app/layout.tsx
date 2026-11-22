@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
 import { cabecalho, hero } from "@/src/domain/hero";
+import { obterUrlSite } from "@/src/domain/site";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -10,14 +11,33 @@ const outfit = Outfit({
   display: "swap",
 });
 
+const urlSite = obterUrlSite();
+const titulo = `${cabecalho.nome} | ${cabecalho.descricao}`;
+
 export const metadata: Metadata = {
-  title: `${cabecalho.nome} | ${cabecalho.descricao}`,
+  title: titulo,
   description: hero.frase,
+  // Com a URL do site, o Next resolve og:image e links canônicos como absolutos.
+  ...(urlSite && {
+    metadataBase: new URL(urlSite),
+    alternates: { canonical: "/" },
+  }),
   openGraph: {
-    title: `${cabecalho.nome} | ${cabecalho.descricao}`,
+    title: titulo,
     description: hero.frase,
     type: "website",
     locale: "pt_BR",
+    ...(urlSite && {
+      url: "/",
+      images: [
+        {
+          url: hero.foto.src,
+          width: 1280,
+          height: 854,
+          alt: hero.foto.alt,
+        },
+      ],
+    }),
   },
 };
 

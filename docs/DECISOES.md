@@ -94,3 +94,12 @@ Decisões propostas. Confirme antes de criar o projeto. Decisão substituída: m
 - **Consequência:** o endereço será o do host (ex.: `nome.pages.dev`). `og:image` e `metadataBase` só entram quando essa URL existir.
 - **Pendente 🔴:** a dona do projeto confirmar o serviço e criar a conta; conferir os termos comerciais do serviço escolhido.
 - **Como publicar (Cloudflare Pages):** conectar o repositório, comando de build `npm run build`, pasta de saída `out`, Node 22. Preview por PR é automático.
+
+## D14 — Endereço do site configurável por variável (`NEXT_PUBLIC_SITE_URL`)
+
+- **Contexto:** o endereço pode mudar de `nome.pages.dev` para um domínio próprio (ex.: `dramariaeline.com.br`) sem novo commit.
+- **Escolha (2026-11-22):** o endereço vem da variável `NEXT_PUBLIC_SITE_URL`, lida no build por `obterUrlSite()` (`src/domain/site.ts`), validada com Zod (só `http` e `https`; remove barra final e caminho).
+- **Com a variável:** `metadataBase`, canonical, `og:url`, `og:image` e `twitter`/Open Graph absolutos, `url` e `image` no JSON-LD, `robots.txt` com a linha `Sitemap` e `sitemap.xml` com a página.
+- **Sem a variável (ou inválida):** o site funciona igual, sem esses itens e com sitemap vazio.
+- **Como trocar de endereço:** alterar a variável no painel do host e refazer o deploy. Variável de produção só muda com confirmação da dona do projeto (CLAUDE.md, seção 10).
+- **Exemplo:** `.env.example`.
