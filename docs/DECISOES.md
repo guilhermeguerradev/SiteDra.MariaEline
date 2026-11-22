@@ -48,3 +48,14 @@ Decisões propostas. Confirme antes de criar o projeto. Decisão substituída: m
 - **Contexto:** o repositório é público (D05) e `docs/design/img/` contém fotos de famílias, crianças e resultados de tratamento.
 - **Escolha:** `docs/design/img/` está no `.gitignore`. As fotos ficam só na máquina local.
 - **Revisar quando:** houver autorização das pessoas retratadas para uso público. Fotos de tratamento ainda precisam respeitar as regras de publicidade do CFO.
+
+## D08 — Escopo da Etapa 1: só cabeçalho e hero
+
+- **Contexto:** o arquivo `Site Completo.dc.html` traz o site inteiro, mas o PRD limita o escopo a cabeçalho, hero e (a confirmar) rodapé.
+- **Escolha (2026-11-22):** manter o PRD. Só cabeçalho e hero. As demais seções do design ficam na fase futura.
+- **Consequência:** `docs/design/Site Completo.dc.html` é a referência visual de cabeçalho e hero. O resto do arquivo não é implementado.
+
+## D09 — Contatos do design confirmados como oficiais
+
+- **Escolha (2026-11-22):** a dona do projeto confirmou como oficiais os dados que estão no design: WhatsApp `5532988747651`, endereço Av. Barão do Rio Branco, 2872, Centro, Juiz de Fora - MG, Instagram `dramariaeline` e e-mail `mariaelinemuniz@gmail.com`.
+- **Consequência:** ficam em `src/domain/` como objetos tipados. Resolve as pendências 2 e 3 do PRD (seção 8). Cidade de atendimento: Juiz de Fora - MG.
