@@ -18,7 +18,7 @@ Objetivo: o código entra no GitHub já com as regras de qualidade ativas. Nenhu
 - [x] `.gitignore` com `.env` e `node_modules`
 - [x] gitleaks para impedir vazamento de chaves (local: acusa token falso, exit 1; CI: job verde no PR #1)
 - [x] Workflow de CI no GitHub Actions: lint, typecheck e testes em todo PR (verde no PR #1)
-- [ ] 🔴 Branch protection na `main`: exigir PR e CI verde (ver DECISOES D05)
+- [x] 🔴 Branch protection na `main`: exigir PR e CI verde (ver DECISOES D05) (ativa; push direto recusado em teste)
 - [x] Template de PR com campos: o que foi feito, escolhas 🟡, como testar
 
 ## Etapa 1 — Base visual
