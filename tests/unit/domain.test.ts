@@ -53,18 +53,21 @@ describe("navegação", () => {
     expect(secoesExistentes).toEqual([
       "inicio",
       "sobre",
+      "familia",
       "tratamentos",
       "prevenir",
+      "consultorio",
       "duvidas",
       "contato",
     ]);
     expect(itensVisiveis().map((i) => i.secao)).toEqual([
       "tratamentos",
       "sobre",
+      "familia",
       "duvidas",
       "contato",
     ]);
-    expect(secaoExiste("familia")).toBe(false);
+    expect(secaoExiste("resultados")).toBe(false);
     expect(secaoExiste("depoimentos")).toBe(false);
   });
 

@@ -85,9 +85,9 @@ Ordem sugerida, da mais pronta para a mais sensível:
 
 ### 5.4 Família e Consultório (`#familia`, `#consultorio`)
 
-- [ ] Fotos: `familia`, `crianca`, `mesa`, `atendimento`, `modelo`, `familia-espelho`, `espelho`.
-- [ ] 🔴 Autorização das pessoas retratadas, em especial da criança e da família (DECISOES D07 e D17).
-- [ ] 🔴 Confirmar os textos "Atendimento humanizado" e "Atendimento exclusivo" (ex.: "você é atendido sempre por mim, sem troca de profissional").
+- [x] Fotos: `familia`, `crianca`, `mesa`, `atendimento`, `modelo`, `familia-espelho`, `espelho`, em WebP otimizado (D22).
+- [x] 🔴 Autorização das pessoas retratadas confirmada pela dona do projeto (D22). Ela deve manter as autorizações arquivadas.
+- [x] Textos "Atendimento humanizado" e "Atendimento exclusivo" usados como no design (D22).
 
 ### 5.5 Por que prevenir (`#prevenir`) e Dúvidas (`#duvidas`)
 

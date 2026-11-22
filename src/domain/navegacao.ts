@@ -18,8 +18,10 @@ export const itensNavegacao: readonly ItemNavegacao[] = [
 export const secoesExistentes: readonly string[] = [
   "inicio",
   "sobre",
+  "familia",
   "tratamentos",
   "prevenir",
+  "consultorio",
   "duvidas",
   "contato",
 ];

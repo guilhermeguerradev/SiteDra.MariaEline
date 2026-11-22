@@ -116,17 +116,18 @@ test("o teclado alcança os botões e mostra o foco", async ({ page }) => {
   );
   expect(contorno).not.toBe("none");
 
-  const alcancados = new Set<string>();
-  for (let i = 0; i < 6; i++) {
+  // O menu tem um link por seção, então o WhatsApp chega depois deles.
+  // Percorre até 15 elementos e exige achar o WhatsApp.
+  const alcancados: string[] = [];
+  for (let i = 0; i < 15; i++) {
     const rotulo = await page.evaluate(
       () => document.activeElement?.getAttribute("href") ?? "",
     );
-    alcancados.add(rotulo);
+    alcancados.push(rotulo);
+    if (rotulo.startsWith("https://wa.me/")) break;
     await page.keyboard.press("Tab");
   }
-  expect([...alcancados].some((h) => h.startsWith("https://wa.me/"))).toBe(
-    true,
-  );
+  expect(alcancados.some((h) => h.startsWith("https://wa.me/"))).toBe(true);
 });
 
 test("imagens têm texto alternativo", async ({ page }) => {
@@ -160,13 +161,20 @@ test("o rodapé só lista seções que existem", async ({ page }) => {
   await expect(links).toHaveText([
     "Tratamentos",
     "Sobre",
+    "Família",
     "Dúvidas",
     "Contato",
   ]);
   const destinos = await links.evaluateAll((els) =>
     els.map((el) => el.getAttribute("href")),
   );
-  expect(destinos).toEqual(["#tratamentos", "#sobre", "#duvidas", "#contato"]);
+  expect(destinos).toEqual([
+    "#tratamentos",
+    "#sobre",
+    "#familia",
+    "#duvidas",
+    "#contato",
+  ]);
 });
 
 test("a seção Tratamentos mostra os 8 serviços com o texto do PRD", async ({

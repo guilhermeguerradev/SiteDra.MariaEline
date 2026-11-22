@@ -170,3 +170,13 @@ Decisões propostas. Confirme antes de criar o projeto. Decisão substituída: m
 - **Diferença em relação ao design:** a palavra "WhatsApp" na frase "Não encontrou a sua? Mande uma mensagem pelo WhatsApp." virou link para o WhatsApp (o texto é idêntico). O rótulo "DÚVIDAS FREQUENTES" usa `#4F6E78` (contraste AA), como em D18.
 - **Navegação:** `prevenir` e `duvidas` entraram em `secoesExistentes`. O link "Dúvidas" apareceu no cabeçalho, no menu do celular e no rodapé.
 - **Verificado:** Lighthouse 100 nas quatro categorias (mobile e desktop), 46 testes unitários e 63 de fumaça.
+
+## D22 — Seções Família e Consultório conforme o design, com fotos de pessoas
+
+- **Autorização confirmada pela dona do projeto (2026-11-22):** ela informou ter autorização por escrito dos responsáveis pelas crianças e adolescentes e da paciente que aparecem nas fotos, e pediu para usar todas como no design. Esta decisão **substitui** a restrição de D07 e D17 para as fotos `familia`, `crianca`, `familia-espelho` e `atendimento`. O Git não guarda as autorizações: a dona do projeto deve mantê-las arquivadas.
+- **Seções:** `#familia` ("Atendimento humanizado", com duas fotos) e `#consultorio` (4 fotos, "Atendimento exclusivo" e retrato da Dra.), com os textos do design, sem alterações. Ordem na página: Início, Sobre, Família, Tratamentos, Por que prevenir?, Consultório, Dúvidas, Contato.
+- **Imagens:** 7 fotos em WebP (291 KB no total, cerca de 60% menos que os JPEGs originais, de 761 KB), geradas por `scripts/otimizar-imagens.mjs` a partir de `docs/design/img/` (os originais seguem fora do Git). Carregam sob demanda.
+- **Textos alternativos:** descrevem a cena (ex.: "Dra. Maria Eline atendendo uma paciente"), em vez dos genéricos do design ("Atendimento", "Consultório").
+- **Diferenças em relação ao design:** rótulos das seções em `#4F6E78` (contraste AA sobre o fundo `#E6F0EC`; no design usam o azul claro ou 60% de opacidade, que reprovam), e listas semânticas (`ul`) para as perguntas e a galeria.
+- **Navegação:** `familia` e `consultorio` entraram em `secoesExistentes`. O link "Família" apareceu no cabeçalho, no menu do celular e no rodapé.
+- **Verificado:** Lighthouse 100 nas quatro categorias (mobile e desktop), 51 testes unitários e 71 de fumaça, com as fotos carregando e com texto alternativo.
