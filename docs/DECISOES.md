@@ -120,3 +120,10 @@ Decisões propostas. Confirme antes de criar o projeto. Decisão substituída: m
 - **Conteúdo do rodapé:** marca e descrição, CRO-MG 64493, aviso, contato (telefone, e-mail e endereço), Instagram, "© ano Dra. Maria Eline Muniz. Todos os direitos reservados." e "Responsável técnica: Dra. Maria Eline Muniz · CRO-MG 64493".
 - **Escolhas técnicas:** telefone e e-mail viram links `tel:` e `mailto:`; o endereço abre o Google Maps; o ano do © é o do build (`new Date().getFullYear()`).
 - **Resolve** as pendências 4 e 6 do PRD (seção 8).
+
+## D17 — Originais das fotos ficam em `img/` (fora do Git)
+
+- **Contexto (2026-11-22):** a dona do projeto colocou 11 fotos originais em `img/` (famílias, criança, clareamento, limpeza, restauração, extração e capturas de "feedback" de pacientes no Instagram).
+- **Escolha:** a pasta `img/` inteira está no `.gitignore`. O site atual só usa `public/images/hero.jpg` (a Dra., D10).
+- **Mapa dos recortes que o design usa na fase futura:** `clar-antes` e `clar-depois` vêm de `clareamento.jpeg`; `limpeza-ad` vem de `feedback + limpeza.jpeg`; `restauracao-ad` vem de `restauração.jpeg`. Os outros arquivos já existiam em `docs/design/img/` com outro nome.
+- **Antes de publicar qualquer uma:** 🔴 autorização por escrito de cada pessoa retratada (rosto, família, criança, `@` de Instagram nas capturas) e conferência das regras de publicidade do CFO para "antes e depois" e depoimentos. Se forem usadas, devem ser recortadas, sem textos de terceiros, e otimizadas.
