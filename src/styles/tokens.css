@@ -7,6 +7,10 @@
   --color-gelo: #e6f0ec;
   /* Texto secundário do PRD (seção 5); contraste AA sobre o creme. */
   --color-azul-escuro: #4f6e78;
+  /* Fundo da seção Contato (degradê) e do mapa. */
+  --color-ceu: #dceaf0;
+  --color-pessego: #f6e4d6;
+  --color-petroleo-claro: #2c4a50;
 
   --font-sans: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
 

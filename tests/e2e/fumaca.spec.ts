@@ -156,8 +156,12 @@ test("o rodapé mostra CRO, aviso, contatos e direitos", async ({ page }) => {
 
 test("o rodapé só lista seções que existem", async ({ page }) => {
   const menu = page.getByRole("contentinfo").getByRole("navigation");
-  await expect(menu.getByRole("link")).toHaveText(["Tratamentos"]);
-  await expect(menu.getByRole("link")).toHaveAttribute("href", "#tratamentos");
+  const links = menu.getByRole("link");
+  await expect(links).toHaveText(["Tratamentos", "Contato"]);
+  const destinos = await links.evaluateAll((els) =>
+    els.map((el) => el.getAttribute("href")),
+  );
+  expect(destinos).toEqual(["#tratamentos", "#contato"]);
 });
 
 test("a seção Tratamentos mostra os 8 serviços com o texto do PRD", async ({

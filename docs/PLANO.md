@@ -73,9 +73,9 @@ Ordem sugerida, da mais pronta para a mais sensível:
 
 ### 5.2 Contato (`#contato`)
 
-- [ ] Endereço, WhatsApp, e-mail, Instagram e botão "Agendar pelo WhatsApp" (dados confirmados em D09 e D16).
-- [ ] Mapa: link "Abrir rota" para o Google Maps, sem incorporar mapa.
-- [ ] 🔴 Confirmar os textos extras do design: "Prédio Empório Bahamas", "Atendo com hora marcada e horários flexíveis" e "Vamos cuidar do sorriso da sua família?".
+- [x] Endereço, WhatsApp, e-mail, Instagram e botão "Agendar pelo WhatsApp" (dados confirmados em D09 e D16).
+- [x] Mapa do Google incorporado como no design, com o link "Abrir rota" (D19).
+- [x] 🔴 Textos extras do design confirmados pela dona do projeto (D19).
 
 ### 5.3 Sobre (`#sobre`)
 
