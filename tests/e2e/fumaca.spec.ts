@@ -135,3 +135,90 @@ test("imagens têm texto alternativo", async ({ page }) => {
     .evaluateAll((els) => els.length);
   expect(semAlt).toBe(0);
 });
+
+test("o rodapé mostra CRO, aviso, contatos e direitos", async ({ page }) => {
+  const rodape = page.getByRole("contentinfo");
+  await expect(rodape).toContainText("CRO-MG 64493");
+  await expect(rodape).toContainText("Atendimento particular, sem convênios");
+  await expect(rodape).toContainText("Responsável técnica");
+  await expect(rodape).toContainText("Todos os direitos reservados");
+  await expect(
+    rodape.getByRole("link", { name: "(32) 98874-7651" }),
+  ).toHaveAttribute("href", `tel:+${contatos.whatsapp}`);
+  await expect(
+    rodape.getByRole("link", { name: contatos.email }),
+  ).toHaveAttribute("href", `mailto:${contatos.email}`);
+  await expect(rodape.getByRole("link", { name: "Instagram" })).toHaveAttribute(
+    "href",
+    contatos.instagram,
+  );
+});
+
+test("o rodapé só lista seções que existem", async ({ page }) => {
+  const menu = page.getByRole("contentinfo").getByRole("navigation");
+  await expect(menu.getByRole("link")).toHaveText(["Tratamentos"]);
+  await expect(menu.getByRole("link")).toHaveAttribute("href", "#tratamentos");
+});
+
+test("a seção Tratamentos mostra os 8 serviços com o texto do PRD", async ({
+  page,
+}) => {
+  const secao = page.locator("#tratamentos");
+  await expect(secao.getByRole("heading", { level: 2 })).toHaveText(
+    "Cuidado completo, do check-up à reabilitação",
+  );
+  await expect(secao.getByRole("heading", { level: 3 })).toHaveCount(8);
+  await expect(secao.getByRole("listitem")).toHaveCount(8);
+  await expect(secao).toContainText("Prevenção e check-up");
+  await expect(secao).toContainText(
+    "Consultas regulares para acompanhar a saúde bucal e agir antes de qualquer dor.",
+  );
+  await expect(secao).toContainText("Extrações, inclusive de sisos");
+  await expect(secao).toContainText("Clareamento dental");
+  await expect(
+    secao.getByRole("link", { name: "Agendar avaliação +" }),
+  ).toHaveAttribute("href", linkWhatsapp);
+});
+
+test("o link Tratamentos do menu leva à seção", async ({ page }, info) => {
+  if (info.project.name === "mobile-360") {
+    await page.getByRole("button", { name: "Menu" }).click();
+  }
+  await page
+    .getByRole("banner")
+    .getByRole("link", { name: "Tratamentos" })
+    .click();
+  await expect(page).toHaveURL(/#tratamentos$/);
+  await expect(page.locator("#tratamentos")).toBeInViewport();
+});
+
+test("no celular, o menu abre, fecha com Escape e informa o estado", async ({
+  page,
+}, info) => {
+  test.skip(info.project.name !== "mobile-360", "só no celular");
+  const botao = page.getByRole("button", { name: "Menu" });
+  await expect(botao).toHaveAttribute("aria-expanded", "false");
+  await botao.click();
+  await expect(botao).toHaveAttribute("aria-expanded", "true");
+  await expect(
+    page.locator("#menu-mobile").getByRole("link", { name: "Tratamentos" }),
+  ).toBeVisible();
+  await page.keyboard.press("Escape");
+  await expect(botao).toHaveAttribute("aria-expanded", "false");
+  await expect(page.locator("#menu-mobile")).toHaveCount(0);
+});
+
+test("no desktop não há botão de menu", async ({ page }, info) => {
+  test.skip(info.project.name !== "desktop", "só no desktop");
+  await expect(page.getByRole("button", { name: "Menu" })).toBeHidden();
+  await expect(page.getByRole("banner").getByRole("navigation")).toBeVisible();
+});
+
+test("o rodapé cabe na tela, sem rolagem horizontal", async ({ page }) => {
+  await page.getByRole("contentinfo").scrollIntoViewIfNeeded();
+  const { scrollWidth, clientWidth } = await page.evaluate(() => ({
+    scrollWidth: document.documentElement.scrollWidth,
+    clientWidth: document.documentElement.clientWidth,
+  }));
+  expect(scrollWidth).toBeLessThanOrEqual(clientWidth);
+});

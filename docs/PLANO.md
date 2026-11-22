@@ -48,15 +48,67 @@ Objetivo: o código entra no GitHub já com as regras de qualidade ativas. Nenhu
 
 ## Etapa 4 — Publicar
 
-Esta etapa só começa com decisão da dona do projeto sobre hospedagem e domínio.
+Hospedagem decidida em D13 e D15. Domínio próprio fica para depois.
 
 - [x] 🔴 Domínio: dispensado por enquanto, endereço do próprio host (DECISOES D13)
 - [ ] 🔴 Confirmar o host gratuito que permita uso comercial (recomendado: Cloudflare Pages, D13) e conferir os termos
-- [ ] Conectar o repositório ao host escolhido (build `npm run build`, saída `out`)
-- [ ] Definir `NEXT_PUBLIC_SITE_URL` no host com o endereço final (D14); apontar o domínio próprio quando existir
+- [x] Conectar o repositório ao host escolhido: Cloudflare Pages, no ar em https://dramariaeline.pages.dev (D15)
+- [x] Definir `NEXT_PUBLIC_SITE_URL` no host com o endereço final (D14); domínio próprio fica para depois
 - [ ] Google Meu Negócio: a dona do projeto cria ou confirma o perfil
 - [ ] Revisão final no celular junto com a Dra. Maria Eline
 
-## Fase futura (seções adicionais)
+## Etapa 5 — Seções adicionais (rascunho para aprovação)
 
-Entram depois, com nova rodada de PRD e PLANO. Ver PRD, "Fase futura".
+Fonte do conteúdo: `docs/design/Site Completo.dc.html`. Trabalhe uma seção por PR. Cada seção nova entra em `secoesExistentes` (`src/domain/navegacao.ts`), e o link dela aparece no menu e no rodapé sozinho.
+Regra para todas: o texto vem do PRD ou de confirmação da dona do projeto. Nada de inventar, e nada que prometa resultado de tratamento (regras de publicidade do CFO).
+🔴 = depende de decisão ou conteúdo da dona do projeto.
+
+Ordem sugerida, da mais pronta para a mais sensível:
+
+### 5.1 Tratamentos (`#tratamentos`)
+
+- [x] Seção com os 8 serviços. Os textos já estão no PRD, palavra por palavra, e batem com o design (teste lê o PRD).
+- [x] Botão "Agendar avaliação +" aponta para o WhatsApp.
+- [x] Layout em 360px e em desktop, sem foto (o design não usa). Ver D18.
+
+### 5.2 Contato (`#contato`)
+
+- [ ] Endereço, WhatsApp, e-mail, Instagram e botão "Agendar pelo WhatsApp" (dados confirmados em D09 e D16).
+- [ ] Mapa: link "Abrir rota" para o Google Maps, sem incorporar mapa.
+- [ ] 🔴 Confirmar os textos extras do design: "Prédio Empório Bahamas", "Atendo com hora marcada e horários flexíveis" e "Vamos cuidar do sorriso da sua família?".
+
+### 5.3 Sobre (`#sobre`)
+
+- [ ] Foto `raio-x` (a Dra. analisando um raio-x), recortada e otimizada.
+- [ ] 🔴 Confirmar o texto do design e as credenciais: formada pela UFJF, especialista em Saúde da Família (UFJF/HU), aperfeiçoamento em Cirurgia Oral (Suprema), preceptora na Estácio.
+- [ ] 🔴 Confirmar que a frase "Prevenir antes de doer é a minha forma de cuidar." pode ser usada.
+
+### 5.4 Família e Consultório (`#familia`, `#consultorio`)
+
+- [ ] Fotos: `familia`, `crianca`, `mesa`, `atendimento`, `modelo`, `familia-espelho`, `espelho`.
+- [ ] 🔴 Autorização das pessoas retratadas, em especial da criança e da família (DECISOES D07 e D17).
+- [ ] 🔴 Confirmar os textos "Atendimento humanizado" e "Atendimento exclusivo" (ex.: "você é atendido sempre por mim, sem troca de profissional").
+
+### 5.5 Por que prevenir (`#prevenir`) e Dúvidas (`#duvidas`)
+
+- [ ] Quatro cartões de "Por que prevenir?" e cinco perguntas frequentes (acordeão acessível, com teclado).
+- [ ] 🔴 Revisão da Dra. dos textos de saúde, em especial "Evita dor", "Economiza: prevenir custa bem menos do que tratar depois" e as respostas sobre siso e clareamento. Podem contar como promessa de resultado.
+
+### 5.6 Resultados (`#resultados`)
+
+- [ ] Recortes das fotos (D17), sem textos de terceiros, otimizados.
+- [ ] 🔴 Autorização por escrito de cada paciente.
+- [ ] 🔴 Conferir as regras de publicidade do CFO para "antes e depois" e "1 semana de clareamento".
+
+### 5.7 Depoimentos (`#depoimentos`)
+
+- [ ] Três depoimentos do design, com nome omitido ("Paciente · via WhatsApp").
+- [ ] 🔴 Autorização de cada pessoa que falou, inclusive a captura do Instagram com "@" de terceiros.
+- [ ] 🔴 Conferir se o CFO permite divulgar depoimentos elogiosos de pacientes.
+
+### Em todas as seções
+
+- [ ] Testes de fumaça, axe e teclado cobrindo a seção nova (hoje são 30 execuções).
+- [ ] Lighthouse mantido na meta (D12).
+- [ ] Imagens só em formato otimizado e com texto alternativo.
+- [ ] Nenhum link para seção inexistente, e o rodapé atualizado.
