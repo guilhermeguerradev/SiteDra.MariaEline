@@ -148,3 +148,12 @@ Decisões propostas. Confirme antes de criar o projeto. Decisão substituída: m
 - **Ajustes de acessibilidade e responsividade:** ícone do botão não encolhe em 360px; o cartão sobre o mapa quebra em linhas em telas estreitas; os dados usam lista de definição (`dl`).
 - **Navegação:** `contato` entrou em `secoesExistentes` (cabeçalho, menu do celular e rodapé).
 - **Verificado:** Lighthouse 100 nas quatro categorias (mobile e desktop), 36 testes unitários e 44 de fumaça.
+
+## D20 — Seção Sobre conforme o design, com credenciais a conferir
+
+- **Decisão (2026-11-22):** a dona do projeto pediu para seguir o design na escolha e no conteúdo da próxima seção. A seção `#sobre` usa o texto do design, sem alterações: título "Prevenir antes de doer é a minha forma de cuidar.", dois parágrafos e cinco etiquetas (Odontologia · UFJF; Especialista em Saúde da Família · UFJF/HU; Aperfeiçoamento em Cirurgia Oral · Suprema; Preceptora · Estácio; CRO-MG 64493).
+- **🔴 A conferir pela Dra. antes de depender dela:** as credenciais e os títulos de especialista são afirmações profissionais regulamentadas (regras de publicidade do CFO). O texto veio do design, e nenhum título foi acrescentado ou alterado por nós.
+- **Foto:** `public/images/sobre.jpg` (a Dra. analisando um raio-x, 854 × 1280, 105 KB), vinda de `img/raio-x.jpg` do design. Mostra só a própria profissional, sem pacientes (mesma lógica da foto do hero, D10).
+- **Correção de acessibilidade:** o indicador "Role para conhecer" do hero tinha `aria-label` diferente do texto visível (WCAG 2.5.3). O `aria-label` foi removido, e o texto visível é o nome acessível. O problema ficava escondido porque o link só aparece quando a seção Sobre existe.
+- **Navegação:** `sobre` entrou em `secoesExistentes` (cabeçalho, menu do celular, rodapé e o indicador do hero).
+- **Verificado:** Lighthouse 100 nas quatro categorias (mobile e desktop), 40 testes unitários e 53 de fumaça.

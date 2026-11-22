@@ -35,9 +35,6 @@ describe("seção Contato", () => {
 
   it("aparece na navegação", () => {
     expect(secaoExiste("contato")).toBe(true);
-    expect(itensVisiveis().map((i) => i.secao)).toEqual([
-      "tratamentos",
-      "contato",
-    ]);
+    expect(itensVisiveis().map((i) => i.secao)).toContain("contato");
   });
 });
