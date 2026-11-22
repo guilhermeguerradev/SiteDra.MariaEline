@@ -9,17 +9,17 @@ Objetivo: o código entra no GitHub já com as regras de qualidade ativas. Nenhu
 
 - [x] 🔴 Decidir visibilidade do repositório (ver DECISOES D05): opção B, público
 - [x] Criar o repositório no GitHub (`gh repo create`): já existia, `guilhermeguerradev/SiteDra.MariaEline`, público, `main` em `3ea1752`
-- [ ] Commit inicial só com a documentação: `CLAUDE.md`, `docs/`
-- [ ] Desligar atribuição de IA nos commits e PRs nas configurações do Claude Code
-- [ ] Criar projeto Next.js + TypeScript + Tailwind
-- [ ] ESLint com `@typescript-eslint/no-explicit-any` como "error"
-- [ ] Prettier para formatação
-- [ ] Scripts `lint`, `typecheck` e `test`
-- [ ] `.gitignore` com `.env` e `node_modules`
-- [ ] gitleaks para impedir vazamento de chaves
-- [ ] Workflow de CI no GitHub Actions: lint, typecheck e testes em todo PR
-- [ ] 🔴 Branch protection na `main`: exigir PR e CI verde (ver DECISOES D05)
-- [ ] Template de PR com campos: o que foi feito, escolhas 🟡, como testar
+- [x] Commit inicial só com a documentação: `CLAUDE.md`, `docs/` (`1e46f67`, sem `docs/design/img/`, ver DECISOES D07)
+- [x] Desligar atribuição de IA nos commits e PRs nas configurações do Claude Code (`.claude/settings.json`; commit conferido sem assinatura)
+- [x] Criar projeto Next.js + TypeScript + Tailwind (Next 16, `npm run build` ok)
+- [x] ESLint com `@typescript-eslint/no-explicit-any` como "error" (testado: `any` temporário gerou erro, exit 1)
+- [x] Prettier para formatação
+- [x] Scripts `lint`, `typecheck` e `test` (Vitest)
+- [x] `.gitignore` com `.env` e `node_modules`
+- [x] gitleaks para impedir vazamento de chaves (local: acusa token falso, exit 1; CI: job verde no PR #1)
+- [x] Workflow de CI no GitHub Actions: lint, typecheck e testes em todo PR (verde no PR #1)
+- [x] 🔴 Branch protection na `main`: exigir PR e CI verde (ver DECISOES D05) (ativa; push direto recusado em teste)
+- [x] Template de PR com campos: o que foi feito, escolhas 🟡, como testar
 
 ## Etapa 1 — Base visual
 

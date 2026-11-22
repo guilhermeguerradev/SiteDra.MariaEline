@@ -61,8 +61,8 @@ Famílias: pais, filhos e avós que chegam pelo celular. 🔴 Cidade ou bairro d
 ## 8. Pendências (🔴)
 
 1. Foto da família (substitui o PLACEHOLDER)
-2. Número de WhatsApp
-3. Cidade ou bairro de atendimento
+2. ~~Número de WhatsApp~~ resolvido em DECISOES D09
+3. ~~Cidade ou bairro de atendimento~~ resolvido em DECISOES D09 (Juiz de Fora - MG)
 4. Rodapé: confirmar CRO-MG e "Não aceita planos"
 5. Navegação: esconder ou manter os links de seções futuras (seção 6)
 6. Redação final de "Não aceita planos"
