@@ -54,11 +54,14 @@ describe("navegação", () => {
       "inicio",
       "sobre",
       "tratamentos",
+      "prevenir",
+      "duvidas",
       "contato",
     ]);
     expect(itensVisiveis().map((i) => i.secao)).toEqual([
       "tratamentos",
       "sobre",
+      "duvidas",
       "contato",
     ]);
     expect(secaoExiste("familia")).toBe(false);

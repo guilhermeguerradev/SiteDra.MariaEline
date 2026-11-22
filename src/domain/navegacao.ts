@@ -19,6 +19,8 @@ export const secoesExistentes: readonly string[] = [
   "inicio",
   "sobre",
   "tratamentos",
+  "prevenir",
+  "duvidas",
   "contato",
 ];
 

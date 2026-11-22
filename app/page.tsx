@@ -1,7 +1,9 @@
 import { Contato } from "@/src/components/Contato";
 import { DadosEstruturados } from "@/src/components/DadosEstruturados";
+import { Duvidas } from "@/src/components/Duvidas";
 import { Header } from "@/src/components/Header";
 import { Hero } from "@/src/components/Hero";
+import { Prevenir } from "@/src/components/Prevenir";
 import { ProgressoRolagem } from "@/src/components/ProgressoRolagem";
 import { Rodape } from "@/src/components/Rodape";
 import { Sobre } from "@/src/components/Sobre";
@@ -17,6 +19,8 @@ export default function Home() {
         <Hero />
         <Sobre />
         <Tratamentos />
+        <Prevenir />
+        <Duvidas />
         <Contato />
       </main>
       <Rodape />

@@ -91,8 +91,8 @@ Ordem sugerida, da mais pronta para a mais sensível:
 
 ### 5.5 Por que prevenir (`#prevenir`) e Dúvidas (`#duvidas`)
 
-- [ ] Quatro cartões de "Por que prevenir?" e cinco perguntas frequentes (acordeão acessível, com teclado).
-- [ ] 🔴 Revisão da Dra. dos textos de saúde, em especial "Evita dor", "Economiza: prevenir custa bem menos do que tratar depois" e as respostas sobre siso e clareamento. Podem contar como promessa de resultado.
+- [x] Quatro cartões de "Por que prevenir?" e cinco perguntas frequentes (acordeão nativo, acessível, com teclado). Ver D21.
+- [ ] 🔴 Textos do design usados a pedido da dona do projeto (D21). A Dra. ainda deve revisar: "Evita dor", "Economiza: prevenir custa bem menos do que tratar depois" e as respostas sobre siso e clareamento. Podem contar como promessa de resultado.
 
 ### 5.6 Resultados (`#resultados`)
 
