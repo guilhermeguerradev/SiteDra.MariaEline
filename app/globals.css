@@ -1,1 +1,16 @@
 @import "tailwindcss";
+@import "../src/styles/tokens.css";
+@import "../src/styles/animacoes.css";
+@import "../src/styles/componentes.css";
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--color-creme);
+  color: #3a3a3a;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}

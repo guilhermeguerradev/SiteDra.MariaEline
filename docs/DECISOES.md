@@ -59,3 +59,17 @@ Decisões propostas. Confirme antes de criar o projeto. Decisão substituída: m
 
 - **Escolha (2026-11-22):** a dona do projeto confirmou como oficiais os dados que estão no design: WhatsApp `5532988747651`, endereço Av. Barão do Rio Branco, 2872, Centro, Juiz de Fora - MG, Instagram `dramariaeline` e e-mail `mariaelinemuniz@gmail.com`.
 - **Consequência:** ficam em `src/domain/` como objetos tipados. Resolve as pendências 2 e 3 do PRD (seção 8). Cidade de atendimento: Juiz de Fora - MG.
+
+## D10 — Cabeçalho e hero seguem o design "Site Completo"
+
+- **Contexto:** o PRD descreve a variação 3 com foto da família e botão secundário "Como cuidamos da família". O arquivo de design indicado para implementação (`Site Completo.dc.html`) tem hero com foto da própria Dra. e outro conjunto de textos.
+- **Escolha (2026-11-22, a pedido da dona do projeto):** seguir o design. Diferenças em relação ao PRD:
+  - Foto do hero: a Dra. Maria Eline no consultório (`public/images/hero.jpg`, vinda de `img/cartao.jpg`), no lugar da foto da família. Foi autorizada para o repositório público porque é a própria profissional.
+  - Sem botão "Como cuidamos da família" (o design não o tem).
+  - Linha "Crianças · adolescentes · adultos · idosos" ao lado do botão, texto do design que não está no PRD.
+  - Botão principal "Agendar consulta +" e, no cabeçalho, "Agendar +".
+  - Fundo do hero `#233F45` (design), em vez do degradê claro descrito no PRD seção 5.
+- **Navegação:** o design tem 6 links de seções que ainda não existem. Ficam escondidos e voltam sozinhos quando a seção for acrescentada em `secoesExistentes` (`src/domain/navegacao.ts`). O menu hambúrguer mobile só aparece quando houver links.
+- **Agendar:** os botões "Agendar" abrem o WhatsApp (o design apontava para `#contato`, que não existe). Sem mensagem inicial, pois o texto não está no PRD.
+- **Animações:** reescritas em CSS (entrada em cascata, foto "respirando", chips flutuando, reflexo de luz, barra de rolagem). Não foram portados o efeito de máscara da foto na entrada nem o parallax do ponteiro. Tudo respeita `prefers-reduced-motion`.
+- **Ferramentas:** Prettier com `endOfLine: "auto"` (o Git no Windows converte para CRLF); alias `@/` configurado no Vitest.
