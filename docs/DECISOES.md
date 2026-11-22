@@ -36,7 +36,7 @@ Decisões propostas. Confirme antes de criar o projeto. Decisão substituída: m
 - **Recomendação:** B, se a dona do projeto aceitar que o código seja público. Caso contrário, A.
 - **Status:** ✅ decidida em 2026-11-22: **opção B (público + gratuito)**. O repositório `guilhermeguerradev/SiteDra.MariaEline` já existia e é público. Proteção da `main` será ativada na Etapa 0.
 
-## D06 — Hospedagem na Vercel por enquanto; domínio pendente
+## D06 — Hospedagem na Vercel por enquanto; domínio pendente (substituída por D13)
 
 - **Contexto:** a dona do projeto ainda não decidiu onde registrar o domínio. GitHub Pages foi considerado como alternativa.
 - **Escolha:** hospedagem na Vercel por enquanto, com preview automático por PR. A Etapa 4 do PLANO é feita depois dos primeiros itens.
@@ -85,3 +85,12 @@ Decisões propostas. Confirme antes de criar o projeto. Decisão substituída: m
 
 - **Medido em 2026-11-22 (build de produção local):** desempenho, acessibilidade, boas práticas e SEO em 100, no mobile e no desktop. LCP 0,9 s no mobile, CLS 0.
 - **Proposta de meta:** 90 ou mais nas quatro categorias. 🔴 Aguardando confirmação da dona do projeto (CLAUDE.md, seção 7).
+
+## D13 — Sem domínio por enquanto; site estático em host gratuito que permita uso comercial
+
+- **Contexto (2026-11-22):** a dona do projeto não terá domínio próprio por enquanto. O plano gratuito da Vercel (Hobby) é só para uso pessoal ou não comercial, e o site capta pacientes de um consultório particular, o que é uso comercial. Fontes: [Termos da Vercel](https://vercel.com/legal/terms) e [Fair Use Guidelines](https://vercel.com/docs/limits/fair-use-guidelines).
+- **Escolha:** host gratuito que permita uso comercial, com o site exportado como estático. Recomendação: **Cloudflare Pages** (plano gratuito, 500 builds por mês; fontes secundárias indicam que não há restrição comercial, mas **confirmar** no contrato da Cloudflare). Alternativa: Netlify (aceita projetos comerciais no plano gratuito segundo a equipe, mas pede plano Pro se o desenvolvedor cobrar o dono do negócio pelo site). Alternativa paga: Vercel Pro.
+- **Mudanças técnicas:** `output: "export"`, `images.unoptimized`, remoção de `cacheComponents` e `partialPrefetching` (não combinam com export estático), testes de fumaça servindo `out/`, ícone `app/icon.svg` (dente do logo) no lugar do favicon padrão do Next.
+- **Consequência:** o endereço será o do host (ex.: `nome.pages.dev`). `og:image` e `metadataBase` só entram quando essa URL existir.
+- **Pendente 🔴:** a dona do projeto confirmar o serviço e criar a conta; conferir os termos comerciais do serviço escolhido.
+- **Como publicar (Cloudflare Pages):** conectar o repositório, comando de build `npm run build`, pasta de saída `out`, Node 22. Preview por PR é automático.
