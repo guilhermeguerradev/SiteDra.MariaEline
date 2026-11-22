@@ -17,9 +17,9 @@ export default defineConfig({
     { name: "desktop", use: { viewport: { width: 1440, height: 900 } } },
     { name: "mobile-360", use: { viewport: { width: 360, height: 740 } } },
   ],
-  // Exige `npm run build` antes (o CI já faz).
+  // Serve o site exportado em out/. Exige `npm run build` antes (o CI já faz).
   webServer: {
-    command: `npx next start -p ${porta}`,
+    command: `npx serve out -l ${porta}`,
     url: `http://localhost:${porta}`,
     reuseExistingServer: !process.env.CI,
     timeout: 60_000,

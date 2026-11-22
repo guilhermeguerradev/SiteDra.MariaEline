@@ -6,7 +6,7 @@ Se uma regra conflitar com um pedido, avise antes de agir.
 ## 1. Contexto
 
 - **Site institucional de uma página (landing)** para a Dra. Maria Eline Muniz, cirurgiã-dentista (CRO-MG 64493). Atendimento particular, sem convênios.
-- **Stack:** Next.js + TypeScript + Tailwind CSS, hospedado na Vercel. Sem banco de dados no MVP. Decisões em `docs/DECISOES.md`.
+- **Stack:** Next.js + TypeScript + Tailwind CSS, site estático (`output: "export"`) em host gratuito que permita uso comercial (Vercel descartada, ver D13). Sem banco de dados no MVP. Decisões em `docs/DECISOES.md`.
 - **Fonte visual:** design feito no Claude Design, exportado para `docs/design/`.
 - **Fonte de texto e escopo:** `docs/prd.md`. Leia a seção relevante antes de implementar qualquer parte.
 - **Etapa atual:** `docs/PLANO.md`. Trabalhe só na etapa atual. Ao concluir um item, marque [x].
@@ -94,8 +94,8 @@ Direção das dependências: `app → components → domain`. `domain` nunca imp
 
 ## 10. Deploy
 
-- Cada merge na main publica em produção (Vercel). Cada PR gera uma URL de preview.
-- Domínio e plano pago: 🔴 pergunte antes. Confirmar nos termos da Vercel se o uso comercial exige plano pago.
+- Cada merge na main publica em produção, quando o host estiver conectado (D13). A pasta publicada é `out/` (`npm run build`).
+- Domínio e plano pago: 🔴 pergunte antes. Sem domínio próprio por enquanto: endereço fornecido pelo host. Conferir nos termos do host se o uso comercial é permitido.
 - Nunca altere variáveis de ambiente de produção sem confirmação.
 
 ## 11. Planejamento

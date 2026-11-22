@@ -46,14 +46,14 @@ Objetivo: o código entra no GitHub já com as regras de qualidade ativas. Nenhu
 - [x] Revisão de acessibilidade: contraste, teclado, texto alternativo (axe sem violações; contraste corrigido nos chips, D11; foco visível)
 - [x] Revisão em 360px (captura de tela com viewport real e testes em 360px)
 
-## Etapa 4 — Publicar (adiada)
+## Etapa 4 — Publicar
 
 Esta etapa só começa com decisão da dona do projeto sobre hospedagem e domínio.
 
-- [ ] 🔴 Escolher o domínio e definir onde registrar (ver DECISOES D06)
-- [ ] 🔴 Confirmar a hospedagem para uso comercial
-- [ ] Conectar o repositório à Vercel
-- [ ] Apontar o domínio
+- [x] 🔴 Domínio: dispensado por enquanto, endereço do próprio host (DECISOES D13)
+- [ ] 🔴 Confirmar o host gratuito que permita uso comercial (recomendado: Cloudflare Pages, D13) e conferir os termos
+- [ ] Conectar o repositório ao host escolhido (build `npm run build`, saída `out`)
+- [ ] Definir `NEXT_PUBLIC_SITE_URL` no host com o endereço final (D14); apontar o domínio próprio quando existir
 - [ ] Google Meu Negócio: a dona do projeto cria ou confirma o perfil
 - [ ] Revisão final no celular junto com a Dra. Maria Eline
 
