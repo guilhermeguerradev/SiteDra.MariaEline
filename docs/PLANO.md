@@ -16,10 +16,10 @@ Objetivo: o código entra no GitHub já com as regras de qualidade ativas. Nenhu
 - [x] Prettier para formatação
 - [x] Scripts `lint`, `typecheck` e `test` (Vitest)
 - [x] `.gitignore` com `.env` e `node_modules`
-- [ ] gitleaks para impedir vazamento de chaves
-- [ ] Workflow de CI no GitHub Actions: lint, typecheck e testes em todo PR
+- [x] gitleaks para impedir vazamento de chaves (local: acusa token falso, exit 1; CI: job verde no PR #1)
+- [x] Workflow de CI no GitHub Actions: lint, typecheck e testes em todo PR (verde no PR #1)
 - [ ] 🔴 Branch protection na `main`: exigir PR e CI verde (ver DECISOES D05)
-- [ ] Template de PR com campos: o que foi feito, escolhas 🟡, como testar
+- [x] Template de PR com campos: o que foi feito, escolhas 🟡, como testar
 
 ## Etapa 1 — Base visual
 
