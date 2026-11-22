@@ -110,3 +110,13 @@ Decisões propostas. Confirme antes de criar o projeto. Decisão substituída: m
 - **Verificado no ar:** HTTP 200, título e h1, 4 links de WhatsApp com o número certo, canonical, `og:url`, `og:image` e JSON-LD `Dentist` com a URL real, `robots.txt`, `sitemap.xml`, `icon.svg`, imagem do hero e 404 para páginas inexistentes. Lighthouse no endereço público: 100 nas quatro categorias (mobile: LCP 1,0 s; desktop: LCP 0,2 s).
 - **Fluxo Workers descartado:** daria `nome.<conta>.workers.dev` e exige `wrangler.jsonc` (PR #6, fechado sem merge).
 - **Pendente 🔴:** conferir os termos de uso comercial da Cloudflare no contrato oficial (fontes consultadas eram secundárias). Domínio próprio fica para depois: basta ligar o domínio no painel e atualizar `NEXT_PUBLIC_SITE_URL`.
+
+## D16 — Rodapé do design, sem menu, com aviso sobre planos
+
+- **Decisões da dona do projeto (2026-11-22):**
+  - Conteúdo: rodapé completo do design, **sem a coluna de navegação** enquanto as seções não existirem (volta sozinha quando `secoesExistentes` for atualizada).
+  - Aviso sobre planos: **"Atendimento particular, sem convênios"** (no lugar de "Não aceita planos"), logo abaixo do CRO-MG 64493.
+  - Endereço com a sala: **"Av. Barão do Rio Branco, 2872 · Sl 1007, Juiz de Fora – MG"** (o D09 tinha o endereço sem a sala; agora o campo `complemento` guarda "Sl 1007").
+- **Conteúdo do rodapé:** marca e descrição, CRO-MG 64493, aviso, contato (telefone, e-mail e endereço), Instagram, "© ano Dra. Maria Eline Muniz. Todos os direitos reservados." e "Responsável técnica: Dra. Maria Eline Muniz · CRO-MG 64493".
+- **Escolhas técnicas:** telefone e e-mail viram links `tel:` e `mailto:`; o endereço abre o Google Maps; o ano do © é o do build (`new Date().getFullYear()`).
+- **Resolve** as pendências 4 e 6 do PRD (seção 8).

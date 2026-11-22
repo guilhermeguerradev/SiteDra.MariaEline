@@ -16,7 +16,9 @@ export function montarDadosEstruturados(urlSite?: string) {
     sameAs: [contatos.instagram],
     address: {
       "@type": "PostalAddress",
-      streetAddress: endereco.logradouro,
+      streetAddress: [endereco.logradouro, endereco.complemento]
+        .filter(Boolean)
+        .join(", "),
       addressLocality: endereco.cidade,
       addressRegion: endereco.uf,
       addressCountry: "BR",

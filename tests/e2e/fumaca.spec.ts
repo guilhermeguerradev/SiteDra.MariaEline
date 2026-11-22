@@ -135,3 +135,36 @@ test("imagens têm texto alternativo", async ({ page }) => {
     .evaluateAll((els) => els.length);
   expect(semAlt).toBe(0);
 });
+
+test("o rodapé mostra CRO, aviso, contatos e direitos", async ({ page }) => {
+  const rodape = page.getByRole("contentinfo");
+  await expect(rodape).toContainText("CRO-MG 64493");
+  await expect(rodape).toContainText("Atendimento particular, sem convênios");
+  await expect(rodape).toContainText("Responsável técnica");
+  await expect(rodape).toContainText("Todos os direitos reservados");
+  await expect(
+    rodape.getByRole("link", { name: "(32) 98874-7651" }),
+  ).toHaveAttribute("href", `tel:+${contatos.whatsapp}`);
+  await expect(
+    rodape.getByRole("link", { name: contatos.email }),
+  ).toHaveAttribute("href", `mailto:${contatos.email}`);
+  await expect(rodape.getByRole("link", { name: "Instagram" })).toHaveAttribute(
+    "href",
+    contatos.instagram,
+  );
+});
+
+test("o rodapé não mostra menu de seções que não existem", async ({ page }) => {
+  await expect(
+    page.getByRole("contentinfo").getByRole("navigation"),
+  ).toHaveCount(0);
+});
+
+test("o rodapé cabe na tela, sem rolagem horizontal", async ({ page }) => {
+  await page.getByRole("contentinfo").scrollIntoViewIfNeeded();
+  const { scrollWidth, clientWidth } = await page.evaluate(() => ({
+    scrollWidth: document.documentElement.scrollWidth,
+    clientWidth: document.documentElement.clientWidth,
+  }));
+  expect(scrollWidth).toBeLessThanOrEqual(clientWidth);
+});

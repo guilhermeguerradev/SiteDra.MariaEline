@@ -17,7 +17,7 @@ Famílias: pais, filhos e avós que chegam pelo celular. 🔴 Cidade ou bairro d
 |---|---|---|
 | Cabeçalho | Nome, selo e botões Agendar e WhatsApp | Desenhado. 🔴 Links de navegação (ver seção 6) |
 | Hero | Foto ampla, título, frase, botões e selos | Desenhado. 🔴 Falta a foto |
-| Rodapé | Nome, CRO-MG 64493, "Não aceita planos" | 🔴 Não desenhado. Confirmar se entra e como |
+| Rodapé | Nome, CRO-MG 64493, aviso sobre planos, contatos | Feito (DECISOES D16) |
 
 ## 4. Conteúdo fixo
 
@@ -63,9 +63,9 @@ Famílias: pais, filhos e avós que chegam pelo celular. 🔴 Cidade ou bairro d
 1. Foto da família (substitui o PLACEHOLDER)
 2. ~~Número de WhatsApp~~ resolvido em DECISOES D09
 3. ~~Cidade ou bairro de atendimento~~ resolvido em DECISOES D09 (Juiz de Fora - MG)
-4. Rodapé: confirmar CRO-MG e "Não aceita planos"
+4. ~~Rodapé: confirmar CRO-MG e "Não aceita planos"~~ resolvido em DECISOES D16
 5. Navegação: esconder ou manter os links de seções futuras (seção 6)
-6. Redação final de "Não aceita planos"
+6. ~~Redação final de "Não aceita planos"~~ resolvido em DECISOES D16 ("Atendimento particular, sem convênios")
 
 ## Fase futura (não entra nas etapas atuais)
 
