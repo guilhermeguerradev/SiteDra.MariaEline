@@ -157,3 +157,16 @@ Decisões propostas. Confirme antes de criar o projeto. Decisão substituída: m
 - **Correção de acessibilidade:** o indicador "Role para conhecer" do hero tinha `aria-label` diferente do texto visível (WCAG 2.5.3). O `aria-label` foi removido, e o texto visível é o nome acessível. O problema ficava escondido porque o link só aparece quando a seção Sobre existe.
 - **Navegação:** `sobre` entrou em `secoesExistentes` (cabeçalho, menu do celular, rodapé e o indicador do hero).
 - **Verificado:** Lighthouse 100 nas quatro categorias (mobile e desktop), 40 testes unitários e 53 de fumaça.
+
+## D21 — Seções "Por que prevenir?" e "Dúvidas frequentes" conforme o design
+
+- **Decisão (2026-11-22):** a dona do projeto pediu para seguir o design. As seções `#prevenir` (4 benefícios numerados) e `#duvidas` (5 perguntas e respostas) usam os textos do design, sem alterações. Ordem na página, como no design: Início, Sobre, Tratamentos, Por que prevenir?, Dúvidas, Contato.
+- **🔴 A Dra. deve revisar antes de divulgar o site:** são textos de saúde e de consumo, que as regras de publicidade do CFO podem tratar como promessa de resultado ou apelo financeiro:
+  - "Evita dor" e "Problemas descobertos cedo raramente chegam a doer".
+  - "Economiza" e "Prevenir custa bem menos do que tratar depois".
+  - "Uma pequena restauração hoje evita um canal amanhã".
+  - Resposta sobre o siso ("você não sente dor durante") e sobre o clareamento ("Não. … o clareamento é seguro").
+- **Acordeão:** feito com `<details>` e `<summary>` nativos (teclado e leitores de tela sem JavaScript), com o atributo `name` para abrir uma pergunta por vez onde o navegador suporta. A primeira começa aberta, como no design. O ícone "+" gira ao abrir.
+- **Diferença em relação ao design:** a palavra "WhatsApp" na frase "Não encontrou a sua? Mande uma mensagem pelo WhatsApp." virou link para o WhatsApp (o texto é idêntico). O rótulo "DÚVIDAS FREQUENTES" usa `#4F6E78` (contraste AA), como em D18.
+- **Navegação:** `prevenir` e `duvidas` entraram em `secoesExistentes`. O link "Dúvidas" apareceu no cabeçalho, no menu do celular e no rodapé.
+- **Verificado:** Lighthouse 100 nas quatro categorias (mobile e desktop), 46 testes unitários e 63 de fumaça.
