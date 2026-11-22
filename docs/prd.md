@@ -67,7 +67,7 @@ Famílias: pais, filhos e avós que chegam pelo celular. 🔴 Cidade ou bairro d
 5. Navegação: esconder ou manter os links de seções futuras (seção 6)
 6. ~~Redação final de "Não aceita planos"~~ resolvido em DECISOES D16 ("Atendimento particular, sem convênios")
 
-## Fase futura (não entra nas etapas atuais)
+## Fase futura (não entra nas etapas atuais, ver PLANO Etapa 5)
 
 Estas seções estão na navegação do design, mas não foram desenhadas nesta versão. Entram depois, em nova rodada de PRD e PLANO.
 
