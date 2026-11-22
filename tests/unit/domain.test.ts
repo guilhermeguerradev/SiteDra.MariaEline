@@ -50,8 +50,10 @@ describe("navegação", () => {
   });
 
   it("esconde as seções futuras enquanto não existirem", () => {
-    expect(secoesExistentes).toEqual(["inicio"]);
-    expect(itensVisiveis()).toEqual([]);
+    expect(secoesExistentes).toEqual(["inicio", "tratamentos"]);
+    expect(itensVisiveis().map((i) => i.secao)).toEqual(["tratamentos"]);
+    expect(secaoExiste("sobre")).toBe(false);
+    expect(secaoExiste("contato")).toBe(false);
   });
 
   it("mostra o link quando a seção passa a existir", () => {

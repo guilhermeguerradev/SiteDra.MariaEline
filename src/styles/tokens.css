@@ -5,6 +5,8 @@
   --color-menta: #bfdcc4;
   --color-azul: #8fb3c2;
   --color-gelo: #e6f0ec;
+  /* Texto secundário do PRD (seção 5); contraste AA sobre o creme. */
+  --color-azul-escuro: #4f6e78;
 
   --font-sans: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
 

@@ -127,3 +127,14 @@ Decisões propostas. Confirme antes de criar o projeto. Decisão substituída: m
 - **Escolha:** a pasta `img/` inteira está no `.gitignore`. O site atual só usa `public/images/hero.jpg` (a Dra., D10).
 - **Mapa dos recortes que o design usa na fase futura (confirmado pela dona do projeto em 2026-11-22):** `clar-antes` e `clar-depois` vêm da mesma foto, `clareamento.jpeg` (cada uma é um recorte, de cima e de baixo, 640 × 340 px no design); `limpeza-ad` vem de `feedback + limpeza.jpeg`; `restauracao-ad` vem de `restauração.jpeg`. Os outros arquivos já existiam em `docs/design/img/` com outro nome.
 - **Antes de publicar qualquer uma:** 🔴 autorização por escrito de cada pessoa retratada (rosto, família, criança, `@` de Instagram nas capturas) e conferência das regras de publicidade do CFO para "antes e depois" e depoimentos. Se forem usadas, devem ser recortadas, sem textos de terceiros, e otimizadas.
+
+## D18 — Seção Tratamentos conforme o design, com ajustes de acessibilidade
+
+- **Escopo (2026-11-22):** seção `#tratamentos` com os 8 serviços (textos idênticos ao PRD, conferidos por teste que lê o próprio `docs/prd.md`), título "Cuidado completo, do check-up à reabilitação" e botão "Agendar avaliação +".
+- **Diferenças em relação ao design:**
+  - O rótulo "TRATAMENTOS" usa `#4F6E78` (texto secundário do PRD, seção 5) em vez do azul `#8FB3C2` do design, que tem contraste de cerca de 2:1 sobre o creme e reprova no WCAG AA.
+  - O botão "Agendar avaliação +" abre o WhatsApp (o design apontava para `#contato`, que ainda não existe).
+  - Os cards são uma lista (`ul`/`li`) com `h3`, para leitores de tela.
+- **Revelação ao rolar:** CSS puro (`animation-timeline: view()`), só onde o navegador suporta; nos outros o conteúdo aparece normalmente, sem JavaScript. Desligada em `prefers-reduced-motion`.
+- **Navegação:** `tratamentos` entrou em `secoesExistentes`. O link apareceu no cabeçalho, no menu do celular (o botão hambúrguer passou a existir) e no rodapé, e leva à seção com `scroll-margin` para não ficar sob o cabeçalho fixo.
+- **Verificado:** Lighthouse 100 nas quatro categorias (mobile e desktop), 32 testes unitários e 36 de fumaça passando.
