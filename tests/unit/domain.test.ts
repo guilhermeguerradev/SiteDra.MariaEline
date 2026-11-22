@@ -49,7 +49,7 @@ describe("navegação", () => {
     }
   });
 
-  it("esconde as seções futuras enquanto não existirem", () => {
+  it("lista todas as seções do design e todos os links do menu", () => {
     expect(secoesExistentes).toEqual([
       "inicio",
       "sobre",
@@ -57,6 +57,8 @@ describe("navegação", () => {
       "tratamentos",
       "prevenir",
       "consultorio",
+      "resultados",
+      "depoimentos",
       "duvidas",
       "contato",
     ]);
@@ -64,11 +66,11 @@ describe("navegação", () => {
       "tratamentos",
       "sobre",
       "familia",
+      "depoimentos",
       "duvidas",
       "contato",
     ]);
-    expect(secaoExiste("resultados")).toBe(false);
-    expect(secaoExiste("depoimentos")).toBe(false);
+    expect(secaoExiste("secao-inexistente")).toBe(false);
   });
 
   it("mostra o link quando a seção passa a existir", () => {

@@ -162,6 +162,7 @@ test("o rodapé só lista seções que existem", async ({ page }) => {
     "Tratamentos",
     "Sobre",
     "Família",
+    "Depoimentos",
     "Dúvidas",
     "Contato",
   ]);
@@ -172,6 +173,7 @@ test("o rodapé só lista seções que existem", async ({ page }) => {
     "#tratamentos",
     "#sobre",
     "#familia",
+    "#depoimentos",
     "#duvidas",
     "#contato",
   ]);
