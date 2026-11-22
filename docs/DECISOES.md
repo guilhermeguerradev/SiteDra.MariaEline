@@ -180,3 +180,18 @@ Decisões propostas. Confirme antes de criar o projeto. Decisão substituída: m
 - **Diferenças em relação ao design:** rótulos das seções em `#4F6E78` (contraste AA sobre o fundo `#E6F0EC`; no design usam o azul claro ou 60% de opacidade, que reprovam), e listas semânticas (`ul`) para as perguntas e a galeria.
 - **Navegação:** `familia` e `consultorio` entraram em `secoesExistentes`. O link "Família" apareceu no cabeçalho, no menu do celular e no rodapé.
 - **Verificado:** Lighthouse 100 nas quatro categorias (mobile e desktop), 51 testes unitários e 71 de fumaça, com as fotos carregando e com texto alternativo.
+
+## D23 — Conferência das regras de publicidade do CFO (2026-11-22)
+
+- **Fonte lida:** [Cartilha de Publicidade na Odontologia, CRO-AL, 2022](https://croal.org.br/wp-content/uploads/2025/04/Cartilha-de-publicidade-na-odontologia.pdf), que cita o Código de Ética Odontológica (Res. CFO 118/2012, cap. XVI, arts. 41 a 46) e as Res. CFO 196/2019 e 230/2020. É um documento de outro estado (Alagoas) e de 2022: não substitui a consulta ao CRO-MG nem confirma resoluções posteriores (a Res. CFO 271/2025 apareceu em buscas, mas não foi verificada). Esta nota não é parecer jurídico.
+- **O que a cartilha diz de forma clara:**
+  - Imagens do resultado de tratamentos só podem ser divulgadas pelo dentista que fez o procedimento **com autorização prévia do paciente ou do representante legal, por Termo de Consentimento Livre e Esclarecido (TCLE)**. Selfies também exigem TCLE.
+  - Nas publicações e no perfil digital deve constar o **nome do profissional e o número do CRO**. As regras valem para sites.
+  - **Especialista** só pode ser anunciado se o título estiver **registrado no CRO**. Sem registro, anuncia-se a **área de atuação**. Mestrado e doutorado são permitidos.
+  - É proibido divulgar preços, formas de pagamento e expressões como "grátis", "promoção", "descontos", "sorteios", "brindes" e "pacotes".
+- **O que a cartilha NÃO trata (sem base oficial para afirmar):** depoimentos de pacientes; frases que prometam resultado ou economia ("Evita dor", "Economiza", "o clareamento é seguro"); imagem de procedimento em andamento com o paciente visível (o texto é ambíguo).
+- **Decisões:**
+  - **Resultados (5.6) e Depoimentos (5.7) ficam em espera** até a Dra. confirmar: TCLE de cada paciente cobrindo o uso no site; e, para depoimentos, a posição do CRO-MG.
+  - **Credenciais (Sobre):** a Dra. deve confirmar se "especialista em Saúde da Família" é título **registrado no CRO-MG**. Se não for, trocar por "área de atuação".
+  - **Textos de saúde (Por que prevenir? e Dúvidas) e a foto do atendimento em andamento** seguem no ar a pedido da dona do projeto, mas pendentes de confirmação do CRO-MG.
+  - O CRO-AL oferece consultoria gratuita de publicidade antes da postagem. Vale perguntar se o CRO-MG tem serviço equivalente.
