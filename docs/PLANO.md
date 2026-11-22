@@ -80,7 +80,7 @@ Ordem sugerida, da mais pronta para a mais sensível:
 ### 5.3 Sobre (`#sobre`)
 
 - [x] Foto `raio-x` (a Dra. analisando um raio-x), em `public/images/sobre.jpg` (D20).
-- [ ] 🔴 Texto do design usado a pedido da dona do projeto (D20). A Dra. ainda deve conferir as credenciais: formada pela UFJF, especialista em Saúde da Família (UFJF/HU), aperfeiçoamento em Cirurgia Oral (Suprema), preceptora na Estácio.
+- [x] 🔴 Texto do design usado a pedido da dona do projeto (D20). Registro de especialista em Saúde da Família confirmado por ela (D24). Pendente: confirmar com o CRO-MG a divulgação do curso de aperfeiçoamento em Cirurgia Oral.
 - [x] Frase "Prevenir antes de doer é a minha forma de cuidar." usada como no design (D20).
 
 ### 5.4 Família e Consultório (`#familia`, `#consultorio`)

@@ -195,3 +195,8 @@ Decisões propostas. Confirme antes de criar o projeto. Decisão substituída: m
   - **Credenciais (Sobre):** a Dra. deve confirmar se "especialista em Saúde da Família" é título **registrado no CRO-MG**. Se não for, trocar por "área de atuação".
   - **Textos de saúde (Por que prevenir? e Dúvidas) e a foto do atendimento em andamento** seguem no ar a pedido da dona do projeto, mas pendentes de confirmação do CRO-MG.
   - O CRO-AL oferece consultoria gratuita de publicidade antes da postagem. Vale perguntar se o CRO-MG tem serviço equivalente.
+
+## D24 — Título de especialista confirmado (2026-11-22)
+
+- A dona do projeto informou que a Dra. **tem o título de especialista em Saúde da Família registrado no CRO-MG**, e pediu para manter o texto do design na seção Sobre ("especialista em Saúde da Família" e a etiqueta "Especialista em Saúde da Família · UFJF/HU"). Mantido como está (D20 e D23).
+- **Responsabilidade:** a confirmação é da dona do projeto. Se o registro mudar ou não existir, o texto deve virar "área de atuação" (D23). A etiqueta "Aperfeiçoamento em Cirurgia Oral · Suprema" é um curso, e não um título de especialista; a Dra. deve confirmar com o CRO-MG se pode ser divulgada assim.
