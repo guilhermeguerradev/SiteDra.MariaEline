@@ -9,7 +9,7 @@ Objetivo: o código entra no GitHub já com as regras de qualidade ativas. Nenhu
 
 - [x] 🔴 Decidir visibilidade do repositório (ver DECISOES D05): opção B, público
 - [x] Criar o repositório no GitHub (`gh repo create`): já existia, `guilhermeguerradev/SiteDra.MariaEline`, público, `main` em `3ea1752`
-- [ ] Commit inicial só com a documentação: `CLAUDE.md`, `docs/`
+- [x] Commit inicial só com a documentação: `CLAUDE.md`, `docs/` (`1e46f67`, sem `docs/design/img/`, ver DECISOES D07)
 - [ ] Desligar atribuição de IA nos commits e PRs nas configurações do Claude Code
 - [ ] Criar projeto Next.js + TypeScript + Tailwind
 - [ ] ESLint com `@typescript-eslint/no-explicit-any` como "error"
