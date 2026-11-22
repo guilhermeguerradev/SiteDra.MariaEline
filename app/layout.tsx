@@ -13,6 +13,12 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   title: `${cabecalho.nome} | ${cabecalho.descricao}`,
   description: hero.frase,
+  openGraph: {
+    title: `${cabecalho.nome} | ${cabecalho.descricao}`,
+    description: hero.frase,
+    type: "website",
+    locale: "pt_BR",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

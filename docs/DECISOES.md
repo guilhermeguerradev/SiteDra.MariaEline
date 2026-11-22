@@ -73,3 +73,15 @@ Decisões propostas. Confirme antes de criar o projeto. Decisão substituída: m
 - **Agendar:** os botões "Agendar" abrem o WhatsApp (o design apontava para `#contato`, que não existe). Sem mensagem inicial, pois o texto não está no PRD.
 - **Animações:** reescritas em CSS (entrada em cascata, foto "respirando", chips flutuando, reflexo de luz, barra de rolagem). Não foram portados o efeito de máscara da foto na entrada nem o parallax do ponteiro. Tudo respeita `prefers-reduced-motion`.
 - **Ferramentas:** Prettier com `endOfLine: "auto"` (o Git no Windows converte para CRLF); alias `@/` configurado no Vitest.
+
+## D11 — Chips do hero mais opacos que no design (acessibilidade)
+
+- **Contexto:** no desktop, os chips "Atendimento para toda a família" e "Foco em prevenção" ficam sobre a foto. Com o fundo `petroleo/35%` do design, o contraste do texto creme sobre o jaleco claro é de cerca de 2,0:1, abaixo do mínimo de 4,5:1 do WCAG AA.
+- **Escolha (2026-11-22):** fundo `petroleo/75%`. No pior caso (jaleco branco) o contraste fica em torno de 4,5:1.
+- **Consequência:** diferença visual pequena em relação ao design. Reverter exige aceitar texto abaixo do AA.
+- **Também:** anel de foco visível (`:focus-visible`, menta) em todos os elementos interativos.
+
+## D12 — Meta de Lighthouse
+
+- **Medido em 2026-11-22 (build de produção local):** desempenho, acessibilidade, boas práticas e SEO em 100, no mobile e no desktop. LCP 0,9 s no mobile, CLS 0.
+- **Proposta de meta:** 90 ou mais nas quatro categorias. 🔴 Aguardando confirmação da dona do projeto (CLAUDE.md, seção 7).
