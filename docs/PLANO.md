@@ -85,9 +85,9 @@ Ordem sugerida, da mais pronta para a mais sensível:
 
 ### 5.4 Família e Consultório (`#familia`, `#consultorio`)
 
-- [ ] Fotos: `familia`, `crianca`, `mesa`, `atendimento`, `modelo`, `familia-espelho`, `espelho`.
-- [ ] 🔴 Autorização das pessoas retratadas, em especial da criança e da família (DECISOES D07 e D17).
-- [ ] 🔴 Confirmar os textos "Atendimento humanizado" e "Atendimento exclusivo" (ex.: "você é atendido sempre por mim, sem troca de profissional").
+- [x] Fotos: `familia`, `crianca`, `mesa`, `atendimento`, `modelo`, `familia-espelho`, `espelho`, em WebP otimizado (D22).
+- [x] 🔴 Autorização das pessoas retratadas confirmada pela dona do projeto (D22). Ela deve manter as autorizações arquivadas.
+- [x] Textos "Atendimento humanizado" e "Atendimento exclusivo" usados como no design (D22).
 
 ### 5.5 Por que prevenir (`#prevenir`) e Dúvidas (`#duvidas`)
 
@@ -97,14 +97,14 @@ Ordem sugerida, da mais pronta para a mais sensível:
 ### 5.6 Resultados (`#resultados`)
 
 - [ ] Recortes das fotos (D17), sem textos de terceiros, otimizados.
-- [ ] 🔴 Autorização por escrito de cada paciente.
-- [ ] 🔴 Conferir as regras de publicidade do CFO para "antes e depois" e "1 semana de clareamento".
+- [ ] 🔴 TCLE de cada paciente cobrindo o uso no site, com nome da Dra. e CRO visíveis (D23). EM ESPERA.
+- [ ] 🔴 Regras do CFO para "diagnóstico e resultado": permitido com TCLE, pelo dentista que fez o tratamento (D23). Confirmar com o CRO-MG, e usar fotos clínicas da Dra., não capturas de Instagram de pacientes.
 
 ### 5.7 Depoimentos (`#depoimentos`)
 
 - [ ] Três depoimentos do design, com nome omitido ("Paciente · via WhatsApp").
-- [ ] 🔴 Autorização de cada pessoa que falou, inclusive a captura do Instagram com "@" de terceiros.
-- [ ] 🔴 Conferir se o CFO permite divulgar depoimentos elogiosos de pacientes.
+- [ ] 🔴 Autorização de cada pessoa que falou, inclusive a captura do Instagram com "@" de terceiros. EM ESPERA.
+- [ ] 🔴 A cartilha consultada não trata de depoimentos (D23): sem base oficial. Só publicar com a posição do CRO-MG. EM ESPERA.
 
 ### Em todas as seções
 
