@@ -103,3 +103,10 @@ Decisões propostas. Confirme antes de criar o projeto. Decisão substituída: m
 - **Sem a variável (ou inválida):** o site funciona igual, sem esses itens e com sitemap vazio.
 - **Como trocar de endereço:** alterar a variável no painel do host e refazer o deploy. Variável de produção só muda com confirmação da dona do projeto (CLAUDE.md, seção 10).
 - **Exemplo:** `.env.example`.
+
+## D15 — Site publicado na Cloudflare Pages em `dramariaeline.pages.dev`
+
+- **Publicado em 2026-11-22**, pelo fluxo Pages (Git): branch `main`, build `npm run build`, saída `out`, variáveis `NODE_VERSION=22` e `NEXT_PUBLIC_SITE_URL=https://dramariaeline.pages.dev`. Cada merge na `main` publica sozinho; cada PR gera um preview.
+- **Verificado no ar:** HTTP 200, título e h1, 4 links de WhatsApp com o número certo, canonical, `og:url`, `og:image` e JSON-LD `Dentist` com a URL real, `robots.txt`, `sitemap.xml`, `icon.svg`, imagem do hero e 404 para páginas inexistentes. Lighthouse no endereço público: 100 nas quatro categorias (mobile: LCP 1,0 s; desktop: LCP 0,2 s).
+- **Fluxo Workers descartado:** daria `nome.<conta>.workers.dev` e exige `wrangler.jsonc` (PR #6, fechado sem merge).
+- **Pendente 🔴:** conferir os termos de uso comercial da Cloudflare no contrato oficial (fontes consultadas eram secundárias). Domínio próprio fica para depois: basta ligar o domínio no painel e atualizar `NEXT_PUBLIC_SITE_URL`.

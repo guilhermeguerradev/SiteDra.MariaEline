@@ -48,12 +48,12 @@ Objetivo: o código entra no GitHub já com as regras de qualidade ativas. Nenhu
 
 ## Etapa 4 — Publicar
 
-Esta etapa só começa com decisão da dona do projeto sobre hospedagem e domínio.
+Hospedagem decidida em D13 e D15. Domínio próprio fica para depois.
 
 - [x] 🔴 Domínio: dispensado por enquanto, endereço do próprio host (DECISOES D13)
 - [ ] 🔴 Confirmar o host gratuito que permita uso comercial (recomendado: Cloudflare Pages, D13) e conferir os termos
-- [ ] Conectar o repositório ao host escolhido (build `npm run build`, saída `out`)
-- [ ] Definir `NEXT_PUBLIC_SITE_URL` no host com o endereço final (D14); apontar o domínio próprio quando existir
+- [x] Conectar o repositório ao host escolhido: Cloudflare Pages, no ar em https://dramariaeline.pages.dev (D15)
+- [x] Definir `NEXT_PUBLIC_SITE_URL` no host com o endereço final (D14); domínio próprio fica para depois
 - [ ] Google Meu Negócio: a dona do projeto cria ou confirma o perfil
 - [ ] Revisão final no celular junto com a Dra. Maria Eline
 
