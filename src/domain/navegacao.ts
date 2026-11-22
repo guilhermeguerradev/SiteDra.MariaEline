@@ -15,7 +15,11 @@ export const itensNavegacao: readonly ItemNavegacao[] = [
 
 // Seções que existem na página hoje (PRD, seção 6: não linkar seção inexistente).
 // Ao criar uma seção nova, acrescente o id aqui e o link aparece no menu.
-export const secoesExistentes: readonly string[] = ["inicio", "tratamentos"];
+export const secoesExistentes: readonly string[] = [
+  "inicio",
+  "tratamentos",
+  "contato",
+];
 
 export function secaoExiste(id: string): boolean {
   return secoesExistentes.includes(id);

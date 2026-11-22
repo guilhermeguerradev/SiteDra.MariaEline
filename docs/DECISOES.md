@@ -138,3 +138,13 @@ Decisões propostas. Confirme antes de criar o projeto. Decisão substituída: m
 - **Revelação ao rolar:** CSS puro (`animation-timeline: view()`), só onde o navegador suporta; nos outros o conteúdo aparece normalmente, sem JavaScript. Desligada em `prefers-reduced-motion`.
 - **Navegação:** `tratamentos` entrou em `secoesExistentes`. O link apareceu no cabeçalho, no menu do celular (o botão hambúrguer passou a existir) e no rodapé, e leva à seção com `scroll-margin` para não ficar sob o cabeçalho fixo.
 - **Verificado:** Lighthouse 100 nas quatro categorias (mobile e desktop), 32 testes unitários e 36 de fumaça passando.
+
+## D19 — Seção Contato conforme o design, com mapa do Google
+
+- **Textos confirmados pela dona do projeto (2026-11-22):** "Prédio Empório Bahamas" no endereço, "Atendo com hora marcada e horários flexíveis. Fale direto comigo pelo WhatsApp e combinamos o melhor momento para você.", o título "Vamos cuidar do sorriso da sua família?" e a linha "Atendimento: com hora marcada, em horários flexíveis combinados com você". Não há horário fixo de funcionamento, e nenhum dia ou hora foi inventado.
+- **Conteúdo:** chamada para agendar (botão abre o WhatsApp), Instagram, endereço em três linhas ("Sala 1007" aqui; "Sl 1007" no rodapé, como no design), atendimento, WhatsApp, e-mail e mapa.
+- **Mapa:** embed do Google Maps do design, com `loading="lazy"`, `title` e `referrerpolicy="strict-origin-when-cross-origin"`, mais o link "Abrir rota →" para o Google Maps. A URL é validada no domínio (só `https://www.google.com/maps/embed`).
+- **Privacidade 🟡:** o embed carrega conteúdo do Google quando chega perto da tela. Se a dona do projeto preferir evitar isso, dá para trocar por um cartão com o link "Abrir rota", sem mapa incorporado.
+- **Ajustes de acessibilidade e responsividade:** ícone do botão não encolhe em 360px; o cartão sobre o mapa quebra em linhas em telas estreitas; os dados usam lista de definição (`dl`).
+- **Navegação:** `contato` entrou em `secoesExistentes` (cabeçalho, menu do celular e rodapé).
+- **Verificado:** Lighthouse 100 nas quatro categorias (mobile e desktop), 36 testes unitários e 44 de fumaça.
