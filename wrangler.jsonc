@@ -1,0 +1,10 @@
+{
+  // Publica o site estático (pasta out/, gerada por `npm run build`) na Cloudflare.
+  // O "name" precisa ser igual ao nome do projeto criado no painel da Cloudflare.
+  "name": "dramariaeline",
+  "compatibility_date": "2026-11-22",
+  "assets": {
+    "directory": "./out",
+    "not_found_handling": "404-page",
+  },
+}

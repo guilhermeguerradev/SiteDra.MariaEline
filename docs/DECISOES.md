@@ -103,3 +103,10 @@ Decisões propostas. Confirme antes de criar o projeto. Decisão substituída: m
 - **Sem a variável (ou inválida):** o site funciona igual, sem esses itens e com sitemap vazio.
 - **Como trocar de endereço:** alterar a variável no painel do host e refazer o deploy. Variável de produção só muda com confirmação da dona do projeto (CLAUDE.md, seção 10).
 - **Exemplo:** `.env.example`.
+
+## D15 — Publicação na Cloudflare pelo fluxo Workers (`wrangler.jsonc`)
+
+- **Contexto (2026-11-22):** o painel da Cloudflare abriu o fluxo "Workers" (comando `npx wrangler deploy`), que exige um arquivo de configuração no repositório.
+- **Escolha:** `wrangler.jsonc` publica a pasta `out/` como site estático (`assets.directory`), com `404.html` para páginas inexistentes. O `name` (`dramariaeline`) precisa ser igual ao nome do projeto no painel.
+- **Consequência:** o endereço padrão é `dramariaeline.<subdominio-da-conta>.workers.dev`. O fluxo Pages (legado) daria `dramariaeline.pages.dev`, mais curto. Domínio próprio pode ser ligado depois pelo painel.
+- **Validado:** `wrangler deploy --dry-run` leu 38 arquivos de `out/` sem erro.
