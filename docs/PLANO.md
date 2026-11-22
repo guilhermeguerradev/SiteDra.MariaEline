@@ -23,28 +23,28 @@ Objetivo: o código entra no GitHub já com as regras de qualidade ativas. Nenhu
 
 ## Etapa 1 — Base visual
 
-- [ ] Exportar o design (variação 3) para `docs/design/`
-- [ ] Tokens de cor, fonte e espaçamento em `src/styles/`
-- [ ] Fonte Outfit servida pelo próprio site
-- [ ] Respeitar `prefers-reduced-motion`
-- [ ] Cabeçalho com nome, selo, Agendar e WhatsApp
-- [ ] 🔴 Links de navegação: esconder ou manter (PRD, seção 6)
+- [x] Exportar o design para `docs/design/` (`Site Completo.dc.html` e `support.js`; fotos fora do Git, D07; faltam 4 imagens grandes)
+- [x] Tokens de cor, fonte e espaçamento em `src/styles/`
+- [x] Fonte Outfit servida pelo próprio site (`next/font`)
+- [x] Respeitar `prefers-reduced-motion` (conferido com `--force-prefers-reduced-motion`)
+- [x] Cabeçalho com nome, selo, Agendar e WhatsApp
+- [x] 🔴 Links de navegação: escondidos até a seção existir (DECISOES D10)
 
 ## Etapa 2 — Hero
 
-- [ ] Hero em 360px e em desktop
-- [ ] Selos e chips do design
-- [ ] Botão Agendar e botão WhatsApp com o número configurado
-- [ ] 🔴 Foto da família no lugar do PLACEHOLDER
-- [ ] 🔴 Número de WhatsApp em `src/domain/`
+- [x] Hero em 360px e em desktop (conferido por captura de tela)
+- [x] Selos e chips do design
+- [x] Botão Agendar e botão WhatsApp com o número configurado (link testado em unitário; teste de fumaça na Etapa 3)
+- [ ] 🔴 Foto da família no lugar do PLACEHOLDER (o design usa a foto da Dra., ver D10; confirmar se a foto da família ainda será usada)
+- [x] 🔴 Número de WhatsApp em `src/domain/` (D09)
 
 ## Etapa 3 — Qualidade
 
-- [ ] Teste de fumaça com Playwright: página carrega, botões de WhatsApp com o número certo, nenhum link quebrado
-- [ ] Testes de `src/domain/` (dados válidos)
-- [ ] Lighthouse com a meta a confirmar
-- [ ] Revisão de acessibilidade: contraste, teclado, texto alternativo
-- [ ] Revisão em 360px
+- [x] Teste de fumaça com Playwright: página carrega, botões de WhatsApp com o número certo, nenhum link quebrado (24 execuções passando, desktop e 360px)
+- [x] Testes de `src/domain/` (dados válidos) (14 testes unitários)
+- [x] Lighthouse com a meta a confirmar (medido: 100 nas quatro categorias, mobile e desktop; meta de 90+ proposta em D12, aguardando confirmação)
+- [x] Revisão de acessibilidade: contraste, teclado, texto alternativo (axe sem violações; contraste corrigido nos chips, D11; foco visível)
+- [x] Revisão em 360px (captura de tela com viewport real e testes em 360px)
 
 ## Etapa 4 — Publicar (adiada)
 

@@ -1,0 +1,137 @@
+/* Animações do hero. Tudo é desligado em prefers-reduced-motion (PRD, seção 5). */
+@keyframes hero-flutuar {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+@keyframes hero-respirar {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.045);
+  }
+}
+
+@keyframes dica-rolagem {
+  from {
+    transform: translateY(-16px);
+  }
+  to {
+    transform: translateY(44px);
+  }
+}
+
+@keyframes entrar-subindo {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+@keyframes entrar-linha {
+  from {
+    transform: translateY(60%);
+  }
+  to {
+    transform: none;
+  }
+}
+
+@keyframes entrar-foto {
+  from {
+    opacity: 0;
+    transform: scale(1.08);
+    filter: blur(12px) saturate(0.6);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+@keyframes entrar-menu {
+  from {
+    opacity: 0;
+    transform: translateY(-14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes reflexo {
+  from {
+    opacity: 0;
+    transform: skewX(-14deg) translateX(0);
+  }
+  15% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    transform: skewX(-14deg) translateX(420%);
+  }
+}
+
+@utility animar-entrada {
+  animation: entrar-subindo 1s var(--ease-suave) both;
+  animation-delay: var(--atraso, 0s);
+}
+
+@utility animar-linha {
+  animation: entrar-linha 1.3s var(--ease-suave) both;
+  animation-delay: var(--atraso, 0s);
+}
+
+@utility animar-foto {
+  animation: entrar-foto 1.8s var(--ease-suave) 0.1s both;
+}
+
+@utility animar-menu {
+  animation: entrar-menu 0.9s var(--ease-suave) 0.9s both;
+}
+
+@utility animar-flutuar {
+  animation: hero-flutuar var(--duracao, 6s) ease-in-out var(--atraso, 0s)
+    infinite;
+}
+
+@utility animar-respirar {
+  transform-origin: 50% 0;
+  animation: hero-respirar 16s ease-in-out 2s infinite alternate;
+}
+
+@utility animar-reflexo {
+  animation: reflexo 1.7s cubic-bezier(0.45, 0, 0.2, 1) 2.7s both;
+}
+
+@utility animar-dica {
+  animation: dica-rolagem 1.8s cubic-bezier(0.6, 0, 0.4, 1) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

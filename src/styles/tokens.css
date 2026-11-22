@@ -1,0 +1,18 @@
+/* Tokens do site. Cores, fonte e espaçamentos moram só aqui. */
+@theme {
+  --color-petroleo: #233f45;
+  --color-creme: #f7f4e6;
+  --color-menta: #bfdcc4;
+  --color-azul: #8fb3c2;
+  --color-gelo: #e6f0ec;
+
+  --font-sans: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+
+  /* O design troca de layout mobile para desktop em 1180px. */
+  --breakpoint-nav: 1180px;
+
+  --ease-suave: cubic-bezier(0.22, 0.8, 0.24, 1);
+  --ease-botao: cubic-bezier(0.65, 0, 0.35, 1);
+
+  --spacing-gutter: clamp(40px, 6.7vw, 96px);
+}

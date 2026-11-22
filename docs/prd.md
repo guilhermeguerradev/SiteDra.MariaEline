@@ -56,7 +56,7 @@ Famílias: pais, filhos e avós que chegam pelo celular. 🔴 Cidade ou bairro d
 - [ ] Textos idênticos aos da seção 4
 - [ ] Imagem otimizada; fonte servida pelo próprio site
 - [ ] Respeita redução de movimento do sistema
-- [ ] Título, descrição e dados estruturados `Dentist` presentes
+- [x] Título, descrição e dados estruturados `Dentist` presentes
 
 ## 8. Pendências (🔴)
 
