@@ -8,7 +8,7 @@ async function fotosCarregam(
   page: import("@playwright/test").Page,
   id: string,
 ) {
-  const imagens = page.locator(`${id} img`);
+  const imagens = page.locator(`${id} img:visible`);
   const total = await imagens.count();
   for (let i = 0; i < total; i++) {
     const img = imagens.nth(i);

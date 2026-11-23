@@ -106,6 +106,13 @@ Ordem sugerida, da mais pronta para a mais sensível:
 - [ ] 🔴 Autorização de cada pessoa que falou, inclusive a captura do Instagram com "@" de terceiros. EM ESPERA.
 - [ ] 🔴 A cartilha consultada não trata de depoimentos (D23): sem base oficial. Só publicar com a posição do CRO-MG. EM ESPERA.
 
+### 5.8 Versão do celular (design "Site Completo", abaixo de 1180 px)
+
+- [x] Layout próprio do celular em Sobre, Família, Tratamentos, Por que prevenir, Consultório, Resultados, Depoimentos e Contato, mais ajustes no cabeçalho e no hero (D27).
+- [x] Tratamentos e Depoimentos com os textos curtos do design, como a dona do projeto pediu (D27). Os demais textos seguem os atuais.
+- [ ] 🔴 A Dra. precisa confirmar os textos curtos de Tratamentos ("Mais claros, com segurança e acompanhamento.", "Aparência natural.") e as falas encurtadas dos depoimentos (D27).
+- [ ] Revisão no celular real junto com a Dra.
+
 ### Em todas as seções
 
 - [ ] Testes de fumaça, axe e teclado cobrindo a seção nova (hoje são 30 execuções).

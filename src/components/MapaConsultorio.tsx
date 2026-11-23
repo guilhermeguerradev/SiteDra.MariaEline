@@ -20,9 +20,13 @@ function IconeLocal() {
   );
 }
 
-export function MapaConsultorio() {
+type Props = { className?: string };
+
+export function MapaConsultorio({
+  className = "min-h-[300px] flex-1 rounded-[28px]",
+}: Props) {
   return (
-    <div className="relative min-h-[300px] flex-1 overflow-hidden rounded-[28px] bg-petroleo-claro">
+    <div className={`relative overflow-hidden bg-petroleo-claro ${className}`}>
       <iframe
         src={urlMapaIncorporado}
         title={contato.mapaTitulo}

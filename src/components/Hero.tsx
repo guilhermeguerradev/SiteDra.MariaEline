@@ -17,9 +17,9 @@ export function Hero() {
   return (
     <section
       id="inicio"
-      className="relative overflow-hidden bg-petroleo nav:min-h-[860px]"
+      className="relative flex min-h-svh flex-col justify-end overflow-hidden bg-petroleo nav:block nav:min-h-[860px]"
     >
-      <div className="absolute top-0 right-0 h-[520px] w-full overflow-hidden nav:h-full nav:w-[62%]">
+      <div className="absolute top-0 right-0 h-[64svh] w-full overflow-hidden nav:h-full nav:w-[62%]">
         <div className="absolute inset-0 nav:animar-respirar">
           <Image
             src={hero.foto.src}
@@ -40,7 +40,7 @@ export function Hero() {
 
       <div
         aria-hidden="true"
-        className="fusao-foto absolute top-0 left-0 h-[520px] w-full nav:h-full"
+        className="fusao-foto absolute top-0 left-0 h-[64svh] w-full nav:h-full"
       />
       <div
         aria-hidden="true"
@@ -68,7 +68,7 @@ export function Hero() {
         />
       </svg>
 
-      <div className="relative z-[2] mx-auto max-w-[1440px] px-[22px] pt-[460px] pb-16 nav:px-gutter nav:pt-[210px] nav:pb-[120px]">
+      <div className="relative z-[2] mx-auto w-full max-w-[1440px] px-5 pb-9 nav:px-gutter nav:pt-[210px] nav:pb-[120px]">
         <div className="flex max-w-[560px] flex-col items-start gap-7">
           <span
             style={atraso(550)}
@@ -77,7 +77,7 @@ export function Hero() {
             {hero.selo}
           </span>
 
-          <h1 className="m-0 flex flex-col text-[clamp(58px,7.2vw,104px)] leading-[.95] font-semibold tracking-[-0.02em] text-creme">
+          <h1 className="m-0 flex flex-col text-[clamp(46px,7.2vw,104px)] leading-[.95] font-semibold tracking-[-0.02em] text-creme">
             <span className="-mb-[.08em] block overflow-hidden pb-[.08em]">
               <span
                 style={atraso(650)}
@@ -117,18 +117,6 @@ export function Hero() {
             </a>
             <span className="text-[15px] text-creme/75">{hero.publico}</span>
           </div>
-
-          <div className="mt-2 flex flex-col gap-2.5 nav:hidden">
-            {hero.chips.map((texto, i) => (
-              <ChipHero
-                key={texto}
-                texto={texto}
-                icone={icones[i]}
-                cor={cores[i]}
-                variante="mobile"
-              />
-            ))}
-          </div>
         </div>
       </div>
 
@@ -148,12 +136,7 @@ export function Hero() {
               }
               className="animar-flutuar"
             >
-              <ChipHero
-                texto={texto}
-                icone={icones[i]}
-                cor={cores[i]}
-                variante="desktop"
-              />
+              <ChipHero texto={texto} icone={icones[i]} cor={cores[i]} />
             </div>
           </div>
         ))}

@@ -5,7 +5,7 @@ test.beforeEach(async ({ page }) => {
 });
 
 async function imagensCarregam(page: Page, id: string) {
-  const imagens = page.locator(`${id} img`);
+  const imagens = page.locator(`${id} img:visible`);
   const total = await imagens.count();
   for (let i = 0; i < total; i++) {
     const img = imagens.nth(i);
@@ -18,7 +18,9 @@ async function imagensCarregam(page: Page, id: string) {
   return total;
 }
 
-test("a seção Resultados mostra o clareamento e os casos", async ({ page }) => {
+test("a seção Resultados mostra o clareamento e os casos", async ({
+  page,
+}, info) => {
   const secao = page.locator("#resultados");
   await expect(secao.getByRole("heading", { level: 2 })).toHaveText(
     "Sorrisos cuidados no consultório",
@@ -29,7 +31,9 @@ test("a seção Resultados mostra o clareamento e os casos", async ({ page }) =>
   await expect(secao).toContainText("Limpeza · antes e depois");
   await expect(secao).toContainText("Restaurações");
   await expect(secao).toContainText("Extração de sisos");
-  expect(await imagensCarregam(page, "#resultados")).toBe(6);
+  // Desktop: par + antes + depois + 3 casos. Celular: antes + depois + 3 casos.
+  const esperadas = info.project.name === "mobile-360" ? 5 : 6;
+  expect(await imagensCarregam(page, "#resultados")).toBe(esperadas);
 });
 
 test("a seção Resultados não mostra o tratamento de cárie em andamento", async ({
@@ -41,13 +45,18 @@ test("a seção Resultados não mostra o tratamento de cárie em andamento", asy
 
 test("a seção Depoimentos mostra os 3 depoimentos, sem nomes", async ({
   page,
-}) => {
+}, info) => {
   const secao = page.locator("#depoimentos");
   await expect(secao.getByRole("heading", { level: 2 })).toHaveText(
     "O que dizem as famílias",
   );
-  await expect(secao.locator("blockquote")).toHaveCount(3);
-  await expect(secao).toContainText("Paciente · via WhatsApp");
+  await expect(secao.locator("blockquote:visible")).toHaveCount(3);
+  // O celular usa a origem abreviada do design.
+  await expect(secao).toContainText(
+    info.project.name === "mobile-360"
+      ? "Paciente · WhatsApp"
+      : "Paciente · via WhatsApp",
+  );
   await expect(secao).not.toContainText("@");
 });
 
