@@ -47,7 +47,7 @@ export function Hero() {
   return (
     <section
       id="inicio"
-      className="relative flex min-h-svh flex-col justify-end overflow-hidden bg-petroleo nav:min-h-[max(100dvh,780px)] nav:justify-center"
+      className="relative flex min-h-svh flex-col justify-end overflow-hidden bg-petroleo nav:min-h-[max(100dvh,560px)] nav:justify-center"
     >
       <div className="absolute top-0 right-0 h-[64svh] w-full overflow-hidden nav:h-full nav:w-[62%]">
         <div className="absolute inset-0 nav:animar-respirar">
@@ -98,7 +98,7 @@ export function Hero() {
         />
       </svg>
 
-      <div className="relative z-[2] mx-auto w-full max-w-[1440px] px-5 pb-9 nav:px-gutter nav:pt-[210px] nav:pb-[120px]">
+      <div className="relative z-[2] mx-auto w-full max-w-[1440px] px-5 pb-9 nav:px-gutter nav:pt-[clamp(120px,19vh,210px)] nav:pb-[clamp(56px,11vh,120px)]">
         <div className="flex max-w-[560px] flex-col items-start gap-7">
           <span
             style={atraso(550)}
@@ -107,7 +107,7 @@ export function Hero() {
             {hero.selo}
           </span>
 
-          <h1 className="m-0 flex flex-col text-[clamp(46px,7.2vw,104px)] leading-[.95] font-semibold tracking-[-0.02em] text-creme">
+          <h1 className="m-0 flex flex-col text-[clamp(46px,min(7.2vw,12vh),104px)] leading-[.95] font-semibold tracking-[-0.02em] text-creme">
             <span className="-mb-[.08em] block overflow-hidden pb-[.08em]">
               <span
                 style={atraso(650)}

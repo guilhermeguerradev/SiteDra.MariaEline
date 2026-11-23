@@ -19,7 +19,7 @@ export function Contato() {
       className="scroll-mt-5 nav:scroll-mt-20 bg-[linear-gradient(120deg,var(--color-ceu)_0%,var(--color-creme)_50%,var(--color-pessego)_100%)]"
     >
       <ContatoCelular />
-      <div className="hidden px-[clamp(20px,5vw,64px)] py-[clamp(80px,10vw,140px)] nav:block">
+      <div className="hidden px-[clamp(20px,5vw,64px)] py-[clamp(64px,min(10vw,13vh),140px)] nav:block">
         <div className="revelar relative mx-auto grid max-w-[1240px] grid-cols-[repeat(auto-fit,minmax(min(100%,380px),1fr))] gap-[clamp(40px,5vw,72px)] overflow-clip rounded-[clamp(28px,4vw,48px)] bg-petroleo p-[clamp(32px,6vw,80px)]">
           <svg
             viewBox="0 0 1240 600"

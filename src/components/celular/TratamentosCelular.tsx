@@ -15,7 +15,7 @@ const cartao =
 export function TratamentosCelular() {
   return (
     <div className="flex min-h-dvh flex-col justify-center px-5 py-[72px] nav:hidden">
-      <div className="flex flex-col gap-8">
+      <div className="mx-auto w-full max-w-[640px] flex flex-col gap-8">
         <CabecalhoCelular
           rotulo={secaoTratamentos.rotulo}
           titulo={secaoTratamentos.titulo}

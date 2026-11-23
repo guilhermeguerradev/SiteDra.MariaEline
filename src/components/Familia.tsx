@@ -10,7 +10,7 @@ export function Familia() {
       className="scroll-mt-8 nav:scroll-mt-20 bg-gelo"
     >
       <FamiliaCelular />
-      <div className="relative hidden px-[clamp(20px,5vw,64px)] py-[clamp(80px,10vw,140px)] nav:block">
+      <div className="relative hidden px-[clamp(20px,5vw,64px)] py-[clamp(64px,min(10vw,13vh),140px)] nav:block">
         <div className="mx-auto grid max-w-[1240px] grid-cols-[repeat(auto-fit,minmax(min(100%,420px),1fr))] items-center gap-[clamp(40px,6vw,96px)]">
           <div className="revelar relative pb-[clamp(40px,6vw,70px)]">
             <div className="revelar-foto relative aspect-square overflow-hidden rounded-[40px] shadow-[0_30px_60px_rgb(35_63_69/0.14)]">

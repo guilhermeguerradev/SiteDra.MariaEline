@@ -25,7 +25,7 @@ function IconeSorriso() {
 export function FamiliaCelular() {
   return (
     <div className="flex min-h-dvh flex-col justify-center px-5 py-16 nav:hidden">
-      <div className="flex flex-col gap-[22px]">
+      <div className="mx-auto w-full max-w-[640px] flex flex-col gap-[22px]">
         <CabecalhoCelular
           rotulo={familia.rotulo}
           titulo={familia.titulo}

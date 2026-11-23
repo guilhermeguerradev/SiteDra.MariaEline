@@ -14,8 +14,8 @@ export function Tratamentos() {
       className="scroll-mt-6 nav:scroll-mt-20"
     >
       <TratamentosCelular />
-      <div className="relative hidden px-[clamp(20px,5vw,64px)] py-[clamp(80px,10vw,140px)] nav:block">
-        <div className="mx-auto flex max-w-[1240px] flex-col gap-14">
+      <div className="relative hidden px-[clamp(20px,5vw,64px)] py-[clamp(64px,min(10vw,13vh),140px)] nav:block">
+        <div className="mx-auto flex max-w-[1240px] flex-col gap-[clamp(32px,5vh,56px)]">
           <div className="revelar flex flex-wrap items-end justify-between gap-6">
             <div className="flex max-w-[640px] flex-col gap-4">
               <span className="text-sm font-medium animar-rotulo tracking-[.14em] text-azul-escuro uppercase">
@@ -45,7 +45,7 @@ export function Tratamentos() {
             {tratamentos.map((tratamento) => (
               <li
                 key={tratamento.id}
-                className="revelar flex flex-col gap-[18px] rounded-[28px] bg-white p-8 shadow-[0_12px_40px_rgb(35_63_69/0.06)] transition-transform duration-300 hover:-translate-y-1.5"
+                className="revelar flex flex-col gap-[clamp(12px,1.8vh,18px)] rounded-[28px] bg-white p-[clamp(20px,3vh,32px)] shadow-[0_12px_40px_rgb(35_63_69/0.06)] transition-transform duration-300 hover:-translate-y-1.5"
               >
                 <span className="flex size-14 items-center justify-center rounded-full bg-gelo text-petroleo">
                   <IconeTratamento id={tratamento.id} />

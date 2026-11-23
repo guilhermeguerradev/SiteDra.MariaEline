@@ -11,7 +11,7 @@ export function Consultorio() {
       className="scroll-mt-6 nav:scroll-mt-20 bg-gelo"
     >
       <ConsultorioCelular />
-      <div className="relative hidden px-[clamp(20px,5vw,64px)] py-[clamp(80px,10vw,140px)] nav:block">
+      <div className="relative hidden px-[clamp(20px,5vw,64px)] py-[clamp(64px,min(10vw,13vh),140px)] nav:block">
         <div className="mx-auto flex max-w-[1240px] flex-col gap-14">
           <div className="revelar flex max-w-[680px] flex-col gap-4">
             <span className="text-sm font-medium animar-rotulo tracking-[.14em] text-azul-escuro uppercase">

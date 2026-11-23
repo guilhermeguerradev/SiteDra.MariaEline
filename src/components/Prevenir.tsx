@@ -9,7 +9,7 @@ export function Prevenir() {
       className="relative scroll-mt-10 nav:scroll-mt-20 overflow-clip bg-petroleo"
     >
       <PrevenirCelular />
-      <div className="relative hidden px-[clamp(20px,5vw,64px)] py-[clamp(80px,10vw,140px)] nav:block">
+      <div className="relative hidden px-[clamp(20px,5vw,64px)] py-[clamp(64px,min(10vw,13vh),140px)] nav:block">
         <svg
           viewBox="0 0 1440 600"
           preserveAspectRatio="none"

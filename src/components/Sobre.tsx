@@ -10,7 +10,7 @@ export function Sobre() {
       className="relative scroll-mt-8 nav:scroll-mt-20 overflow-clip"
     >
       <SobreCelular />
-      <div className="relative hidden px-[clamp(20px,5vw,64px)] py-[clamp(80px,10vw,140px)] nav:block">
+      <div className="relative hidden px-[clamp(20px,5vw,64px)] py-[clamp(64px,min(10vw,13vh),140px)] nav:block">
         <svg
           viewBox="0 0 1440 600"
           preserveAspectRatio="none"
@@ -28,7 +28,7 @@ export function Sobre() {
         </svg>
 
         <div className="relative mx-auto grid max-w-[1240px] grid-cols-[repeat(auto-fit,minmax(min(100%,420px),1fr))] items-center gap-[clamp(40px,6vw,96px)]">
-          <div className="revelar-foto relative aspect-[4/5] overflow-hidden rounded-[36px] shadow-[0_30px_60px_rgb(35_63_69/0.14)]">
+          <div className="revelar-foto relative h-[clamp(420px,68vh,720px)] w-full overflow-hidden rounded-[36px] shadow-[0_30px_60px_rgb(35_63_69/0.14)]">
             <Image
               src={sobre.foto.src}
               alt={sobre.foto.alt}
