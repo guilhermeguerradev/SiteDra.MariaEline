@@ -1,0 +1,96 @@
+import { contato, instagramUsuario } from "@/src/domain/contato";
+import { contatos } from "@/src/domain/contatos";
+import { formatarTelefone } from "@/src/domain/formatacao";
+import { montarLinkWhatsapp } from "@/src/domain/whatsapp";
+import { IconeWhatsapp } from "../IconeWhatsapp";
+import { MapaConsultorio } from "../MapaConsultorio";
+
+const linkWhatsapp = montarLinkWhatsapp(contatos.whatsapp);
+
+const caixa =
+  "flex flex-col gap-1 rounded-2xl border border-menta/20 bg-creme/[.07] p-3.5";
+const rotulo = "text-[11px] tracking-[.1em] text-menta uppercase";
+const valor =
+  "text-[15px] text-creme hover:text-menta focus-visible:text-menta";
+
+export function ContatoCelular() {
+  const { logradouro, bairro, cidade, uf } = contatos.endereco;
+
+  return (
+    <div className="flex min-h-dvh flex-col justify-center px-3.5 py-14 nav:hidden">
+      <div className="revelar relative flex flex-col gap-[22px] overflow-hidden rounded-[28px] bg-petroleo px-[18px] pt-7 pb-[18px]">
+        <div className="flex flex-col gap-3.5 px-1">
+          <span className="text-[13px] font-medium tracking-[.14em] text-menta uppercase">
+            {contato.rotulo}
+          </span>
+          <h2
+            id="titulo-contato-celular"
+            className="m-0 text-[34px] leading-[1.05] font-medium tracking-[-0.02em] text-pretty text-creme"
+          >
+            {contato.titulo}
+          </h2>
+          <p className="m-0 text-[15px] leading-[1.55] text-creme/80">
+            {contato.texto}
+          </p>
+        </div>
+
+        <div className="grid grid-cols-2 gap-2">
+          <a
+            href={linkWhatsapp}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={
+              { "--preenche": "var(--color-creme)" } as React.CSSProperties
+            }
+            className="botao-preenche col-span-2 flex items-center justify-center gap-2.5 rounded-full bg-menta px-5 py-[17px] text-[17px] font-semibold text-petroleo"
+          >
+            <IconeWhatsapp tamanho={22} />
+            {contato.botao}
+          </a>
+          <div className={caixa}>
+            <span className={rotulo}>WhatsApp</span>
+            <a
+              href={linkWhatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={valor}
+            >
+              {formatarTelefone(contatos.whatsapp)}
+            </a>
+          </div>
+          <div className={caixa}>
+            <span className={rotulo}>{contato.instagram}</span>
+            <a
+              href={contatos.instagram}
+              aria-label={`${contato.instagram} ${instagramUsuario}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={valor}
+            >
+              {instagramUsuario}
+            </a>
+          </div>
+          <div className={`${caixa} col-span-2`}>
+            <span className={rotulo}>Endereço</span>
+            <span className="text-[15px] leading-[1.45] text-creme">
+              {logradouro} · {contato.sala}
+              <br />
+              {contato.predio} · {bairro}, {cidade} – {uf}
+            </span>
+          </div>
+          <div className={`${caixa} col-span-2`}>
+            <span className={rotulo}>E-mail</span>
+            <a
+              href={`mailto:${contatos.email}`}
+              className={`${valor} break-all`}
+            >
+              {contatos.email}
+            </a>
+          </div>
+        </div>
+
+        <MapaConsultorio className="h-[260px] rounded-[20px]" />
+      </div>
+    </div>
+  );
+}

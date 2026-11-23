@@ -36,7 +36,7 @@ test("a seção Contato mostra o agendamento e os dados", async ({ page }) => {
 test("o mapa tem título, vem do Google e o link de rota funciona", async ({
   page,
 }) => {
-  const mapa = page.locator("#contato iframe");
+  const mapa = page.locator("#contato iframe:visible");
   await expect(mapa).toHaveAttribute("title", "Localização do consultório");
   await expect(mapa).toHaveAttribute("loading", "lazy");
   await expect(mapa).toHaveAttribute(

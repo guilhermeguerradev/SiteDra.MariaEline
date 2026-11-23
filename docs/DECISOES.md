@@ -210,3 +210,18 @@ Decisões propostas. Confirme antes de criar o projeto. Decisão substituída: m
   3. Nome e CRO da Dra. visíveis: o site já mostra CRO-MG 64493 no Sobre, no Consultório e no rodapé.
 - **Navegação:** `resultados` e `depoimentos` entraram em `secoesExistentes`. O link "Depoimentos" aparece no cabeçalho, no menu do celular e no rodapé (6 links, e o cabeçalho cabe em 1180 px).
 - **Verificado:** Lighthouse 100 nas quatro categorias (mobile e desktop), 57 testes unitários e 81 de fumaça.
+
+## D27 — Versão do celular conforme o design (2026-11-23)
+
+- **Decisão:** a dona do projeto refez o design do celular no Claude Design (o "Site Completo" ganhou um layout próprio abaixo de 1180 px) e pediu para implementar. Cada seção ganhou um componente em `src/components/celular/`, mostrado até 1179 px (`nav:hidden`); o desktop fica como estava (`hidden nav:block`). O conteúdo vem do mesmo `src/domain/`, sem duplicar texto à mão.
+- **Textos (perguntados à dona do projeto):**
+  - Tratamentos: títulos e frases curtas do design, em três grupos (Prevenção, Restaurações e cuidados, Reabilitação), guardadas em `celular` em `src/domain/tratamentos.ts`. Os cartões abrem o WhatsApp com a mensagem inicial "Olá, Dra. Maria Eline! Gostaria de saber mais sobre {tratamento}." (texto do design).
+  - Depoimentos: falas encurtadas e origem abreviada, como no design (`celular` em `src/domain/depoimentos.ts`).
+  - **Não usados**, por decisão dela: a linha "Imagens com autorização por escrito dos pacientes.", as legendas novas de Resultados e a frase sobre a Suprema no Sobre. Sobre, Família, Consultório, Resultados e Contato mantêm os textos atuais, só com o layout novo. Em Resultados, a frase do clareamento aparece como nota abaixo das fotos.
+- **Escolhas 🟡:**
+  - Rótulos e números de seção usam `azul-escuro` (e não o azul claro do design) para manter o contraste AA.
+  - Os selos flutuantes do hero não aparecem no celular (o design não tem).
+  - Resultados no celular reaproveita os mesmos recortes (antes e depois empilhados), sem novas imagens.
+  - Tratamentos e Depoimentos do celular são links/figuras no HTML, e a marcação do desktop fica oculta (`display: none`), então o leitor de tela lê só uma versão.
+- **Testes:** os de fumaca passaram a olhar só o conteúdo visível (`:visible`). Novo teste dos 3 grupos e 8 cartões do celular. O teste dos botões de WhatsApp aceita o link puro ou com `?text=`.
+- **Verificado:** lint, typecheck, build, 57 testes unitários e e2e (axe incluído) passando; Lighthouse mobile 100/100/100/100 (LCP 0,9 s); capturas em 390 px.
