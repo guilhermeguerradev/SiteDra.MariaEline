@@ -13,7 +13,7 @@ test.beforeEach(async ({ page }) => {
   await page.goto("/");
 });
 
-test("no desktop, o link leva a seção para logo abaixo do cabeçalho ou a centraliza", async ({
+test("no desktop, o título da seção aparece abaixo do cabeçalho, sem ser cortado", async ({
   page,
 }, info) => {
   test.skip(info.project.name !== "desktop", "só no desktop");
@@ -25,28 +25,35 @@ test("no desktop, o link leva a seção para logo abaixo do cabeçalho ou a cent
     await expect(page).toHaveURL(new RegExp(`#${id}$`));
     await page.waitForTimeout(1500);
     const m = await page.evaluate((id) => {
-      const s = document.getElementById(id)!.getBoundingClientRect();
-      const cabecalho = document
-        .querySelector("header")!
-        .getBoundingClientRect();
+      const secao = document.getElementById(id)!;
+      const titulo = [...secao.querySelectorAll("h2")].find(
+        (h) => (h as HTMLElement).offsetParent !== null,
+      )!;
+      const r = titulo.getBoundingClientRect();
       return {
-        topo: s.top,
-        altura: s.height,
-        cabecalho: cabecalho.bottom,
+        topo: r.top,
+        base: r.bottom,
+        cabecalho: document.querySelector("header")!.getBoundingClientRect()
+          .bottom,
         tela: window.innerHeight,
       };
     }, id);
-    // Nunca fica escondida atrás do cabeçalho.
-    expect(m.topo, `${id}: começo escondido`).toBeGreaterThanOrEqual(
-      m.cabecalho - 3,
+    expect(m.topo, `${id}: título escondido`).toBeGreaterThanOrEqual(
+      m.cabecalho + 20,
     );
-    // Seção alta: encostada no cabeçalho. Seção baixa: centralizada.
-    const livre = m.tela - m.cabecalho;
-    const esperado = m.cabecalho + Math.max(0, (livre - m.altura) / 2);
-    expect(Math.abs(m.topo - esperado), `${id}: posição`).toBeLessThanOrEqual(
-      6,
-    );
+    expect(m.base, `${id}: título fora da tela`).toBeLessThanOrEqual(m.tela);
   }
+});
+
+test("no desktop, o início ocupa a altura toda da tela", async ({
+  page,
+}, info) => {
+  test.skip(info.project.name !== "desktop", "só no desktop");
+  const { altura, tela } = await page.evaluate(() => ({
+    altura: document.getElementById("inicio")!.getBoundingClientRect().height,
+    tela: window.innerHeight,
+  }));
+  expect(altura).toBeGreaterThanOrEqual(tela);
 });
 
 test("no celular, o título da seção aparece abaixo do cabeçalho, sem ser cortado", async ({

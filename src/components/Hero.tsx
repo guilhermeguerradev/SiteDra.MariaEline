@@ -47,7 +47,7 @@ export function Hero() {
   return (
     <section
       id="inicio"
-      className="relative flex min-h-svh flex-col justify-end overflow-hidden bg-petroleo nav:block nav:min-h-[860px]"
+      className="relative flex min-h-svh flex-col justify-end overflow-hidden bg-petroleo nav:min-h-[max(100dvh,780px)] nav:justify-center"
     >
       <div className="absolute top-0 right-0 h-[64svh] w-full overflow-hidden nav:h-full nav:w-[62%]">
         <div className="absolute inset-0 nav:animar-respirar">

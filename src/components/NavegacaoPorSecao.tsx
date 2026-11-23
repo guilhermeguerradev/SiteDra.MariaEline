@@ -5,10 +5,15 @@ import { useEffect } from "react";
 // Altura do cabeçalho fixo depois que a página rola (py-4 + botão de 46 px + borda).
 const ALTURA_CABECALHO = 81;
 const LARGURA_DESKTOP = 1180;
+// Espaço mínimo entre o cabeçalho e o começo do conteúdo.
+const MARGEM_MINIMA = 24;
+// Seções com fundo próprio (cartão escuro, faixa colorida) ficam no centro
+// exato; as de fundo liso sobem um pouco.
+const SEM_VIES = new Set(["depoimentos", "contato"]);
 
-// No desktop, ao clicar num link interno a seção para sob o cabeçalho; se ela
-// for mais baixa que a tela, fica centralizada na área livre. No celular quem
-// cuida é a margem de rolagem de cada seção (scroll-mt no CSS).
+// No desktop, ao clicar num link interno, a página rola até a posição calculada
+// em topoDaSecao. No celular quem cuida é a margem de rolagem de cada seção
+// (scroll-mt no CSS).
 export function NavegacaoPorSecao() {
   useEffect(() => {
     const aoClicar = (e: MouseEvent) => {
@@ -24,20 +29,11 @@ export function NavegacaoPorSecao() {
       if (!link || !id || !secao) return;
 
       e.preventDefault();
-      const livre = window.innerHeight - ALTURA_CABECALHO;
-      const folga = Math.max(0, (livre - secao.offsetHeight) / 2);
-      const topo =
-        id === "inicio"
-          ? 0
-          : secao.getBoundingClientRect().top +
-            window.scrollY -
-            ALTURA_CABECALHO -
-            folga;
       const reduzir = window.matchMedia(
         "(prefers-reduced-motion: reduce)",
       ).matches;
       window.scrollTo({
-        top: Math.max(0, topo),
+        top: id === "inicio" ? 0 : topoDaSecao(id, secao),
         behavior: reduzir ? "auto" : "smooth",
       });
       history.pushState(null, "", `#${id}`);
@@ -48,4 +44,29 @@ export function NavegacaoPorSecao() {
   }, []);
 
   return null;
+}
+
+// Posição de rolagem em que o CONTEÚDO da seção (sem o espaço interno) fica
+// centralizado na área livre sob o cabeçalho. Nas seções de fundo liso o
+// conteúdo sobe um pouco acima do centro, que é onde o olho espera ver o
+// começo. Se o conteúdo não cabe, ele para logo abaixo do cabeçalho.
+function topoDaSecao(id: string, secao: HTMLElement): number {
+  const caixa =
+    Array.from(secao.children).find(
+      (c): c is HTMLElement =>
+        c instanceof HTMLElement &&
+        c.offsetParent !== null &&
+        parseFloat(getComputedStyle(c).paddingTop) > 0,
+    ) ?? secao;
+  const estilo = getComputedStyle(caixa);
+  const espacoCima = parseFloat(estilo.paddingTop);
+  const espacoBaixo = parseFloat(estilo.paddingBottom);
+
+  const topoConteudo =
+    caixa.getBoundingClientRect().top + window.scrollY + espacoCima;
+  const alturaConteudo = caixa.offsetHeight - espacoCima - espacoBaixo;
+  const livre = window.innerHeight - ALTURA_CABECALHO;
+  const vies = SEM_VIES.has(id) ? 0 : Math.min(40, livre * 0.04);
+  const folga = Math.max(MARGEM_MINIMA, (livre - alturaConteudo) / 2 - vies);
+  return Math.max(0, topoConteudo - ALTURA_CABECALHO - folga);
 }
