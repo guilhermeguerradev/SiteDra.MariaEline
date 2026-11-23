@@ -4,23 +4,25 @@ import { useEffect } from "react";
 
 const alvos = ".revelar, .revelar-foto, .animar-rotulo, .desenhar-linha";
 
-// Plano B para navegadores sem animação por rolagem (`animation-timeline`),
-// como o Firefox e versões antigas do Safari: marca cada bloco quando ele entra
-// na tela e o CSS faz a transição. Onde a animação por rolagem existe, o CSS
-// cuida de tudo e este componente não faz nada. Sem JavaScript, o conteúdo
-// continua visível.
+// Revela os blocos quando entram na tela, como no design: marca a página com
+// .anim-js (que esconde os blocos) e cada bloco com .is-visivel (que o anima).
+// Não faz nada com redução de movimento. Sem JavaScript, tudo fica visível.
 export function RevelarAoRolar() {
   useEffect(() => {
-    if (CSS.supports("animation-timeline: view()")) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     if (!("IntersectionObserver" in window)) return;
 
     const raiz = document.documentElement;
+    // A linha decorativa é cortada por clip-path enquanto escondida, e o
+    // navegador não a vê como visível. Por isso observamos o elemento pai.
+    const alvosDe = new Map<Element, Element[]>();
     const observador = new IntersectionObserver(
       (entradas) => {
         for (const entrada of entradas) {
           if (!entrada.isIntersecting) continue;
-          entrada.target.classList.add("is-visivel");
+          for (const alvo of alvosDe.get(entrada.target) ?? []) {
+            alvo.classList.add("is-visivel");
+          }
           observador.unobserve(entrada.target);
         }
       },
@@ -28,7 +30,15 @@ export function RevelarAoRolar() {
     );
 
     raiz.classList.add("anim-js");
-    document.querySelectorAll(alvos).forEach((el) => observador.observe(el));
+    document.querySelectorAll(alvos).forEach((el) => {
+      const observado = el.matches(".desenhar-linha")
+        ? (el.parentElement ?? el)
+        : el;
+      const lista = alvosDe.get(observado) ?? [];
+      lista.push(el);
+      alvosDe.set(observado, lista);
+      observador.observe(observado);
+    });
 
     return () => {
       observador.disconnect();
