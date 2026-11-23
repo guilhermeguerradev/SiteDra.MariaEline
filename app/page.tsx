@@ -8,6 +8,7 @@ import { Header } from "@/src/components/Header";
 import { Hero } from "@/src/components/Hero";
 import { Prevenir } from "@/src/components/Prevenir";
 import { ProgressoRolagem } from "@/src/components/ProgressoRolagem";
+import { RevelarAoRolar } from "@/src/components/RevelarAoRolar";
 import { Resultados } from "@/src/components/Resultados";
 import { Rodape } from "@/src/components/Rodape";
 import { Sobre } from "@/src/components/Sobre";
@@ -18,6 +19,7 @@ export default function Home() {
     <>
       <DadosEstruturados />
       <ProgressoRolagem />
+      <RevelarAoRolar />
       <Header />
       <main>
         <Hero />

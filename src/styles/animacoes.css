@@ -373,3 +373,79 @@
     transition: none !important;
   }
 }
+
+/* Plano B (RevelarAoRolar): navegadores sem animação por rolagem usam
+   transições, ativadas quando o bloco ganha a classe is-visivel. */
+@supports not (animation-timeline: view()) {
+  .anim-js .revelar:nth-child(2) {
+    --i: 1;
+  }
+  .anim-js .revelar:nth-child(3) {
+    --i: 2;
+  }
+  .anim-js .revelar:nth-child(4) {
+    --i: 3;
+  }
+  .anim-js .revelar:nth-child(5) {
+    --i: 4;
+  }
+  .anim-js .revelar:nth-child(n + 6) {
+    --i: 5;
+  }
+
+  .anim-js .revelar {
+    transition:
+      opacity 0.9s var(--ease-suave) calc(var(--i, 0) * 90ms),
+      transform 0.9s var(--ease-suave) calc(var(--i, 0) * 90ms);
+  }
+  .anim-js .revelar:not(.is-visivel) {
+    opacity: 0;
+    transform: translateY(28px) scale(0.985);
+  }
+
+  .anim-js .animar-rotulo {
+    transition:
+      opacity 0.9s var(--ease-suave),
+      letter-spacing 1.1s var(--ease-suave);
+  }
+  .anim-js .animar-rotulo:not(.is-visivel) {
+    opacity: 0;
+    letter-spacing: 0.32em;
+  }
+
+  .anim-js .revelar-foto {
+    transition:
+      opacity 0.6s ease,
+      clip-path 1.2s var(--ease-suave);
+    clip-path: inset(-80px round 0);
+  }
+  .anim-js .revelar-foto:not(.is-visivel) {
+    opacity: 0;
+    clip-path: inset(12% 0 12% 0 round 28px);
+  }
+  .anim-js .revelar-foto img {
+    transition: transform 1.6s var(--ease-suave);
+  }
+  .anim-js .revelar-foto:not(.is-visivel) img {
+    transform: scale(1.12);
+  }
+
+  .anim-js .desenhar-linha {
+    transition: clip-path 2.8s var(--ease-suave);
+  }
+  .anim-js .desenhar-linha:not(.is-visivel) {
+    clip-path: inset(0 100% 0 0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .anim-js .revelar,
+    .anim-js .revelar-foto,
+    .anim-js .animar-rotulo,
+    .anim-js .desenhar-linha {
+      opacity: 1 !important;
+      transform: none !important;
+      letter-spacing: normal !important;
+      clip-path: none !important;
+    }
+  }
+}
