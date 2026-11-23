@@ -8,7 +8,7 @@ export function CartaoClareamento() {
     <div className="revelar grid grid-cols-[repeat(auto-fit,minmax(min(100%,340px),1fr))] items-stretch gap-5">
       <div className="flex flex-col justify-between gap-6 rounded-[32px] bg-gelo p-[clamp(24px,3vw,40px)]">
         <div className="flex flex-col gap-3">
-          <span className="text-sm font-medium tracking-[.14em] text-azul-escuro uppercase">
+          <span className="text-sm font-medium animar-rotulo tracking-[.14em] text-azul-escuro uppercase">
             {clareamento.rotulo}
           </span>
           <p className="m-0 text-[clamp(24px,2.4vw,32px)] leading-[1.15] font-medium text-pretty text-petroleo">

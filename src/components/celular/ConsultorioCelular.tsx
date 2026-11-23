@@ -56,7 +56,7 @@ export function ConsultorioCelular() {
             className="block h-auto w-full rounded-[14px]"
           />
           <div className="flex flex-col gap-2 pr-1.5">
-            <span className="text-[11px] font-medium tracking-[.14em] text-azul-escuro uppercase">
+            <span className="text-[11px] font-medium animar-rotulo tracking-[.14em] text-azul-escuro uppercase">
               {exclusivo.rotulo}
             </span>
             <span className="text-[17px] leading-[1.3] font-medium text-pretty text-petroleo">

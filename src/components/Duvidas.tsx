@@ -13,7 +13,7 @@ export function Duvidas() {
     >
       <div className="mx-auto grid max-w-[1240px] grid-cols-[repeat(auto-fit,minmax(min(100%,360px),1fr))] items-start gap-[clamp(40px,6vw,96px)]">
         <div className="revelar flex flex-col gap-4">
-          <span className="text-sm font-medium tracking-[.14em] text-azul-escuro uppercase">
+          <span className="text-sm font-medium animar-rotulo tracking-[.14em] text-azul-escuro uppercase">
             {secaoDuvidas.rotulo}
           </span>
           <h2

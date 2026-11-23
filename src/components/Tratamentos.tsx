@@ -18,7 +18,7 @@ export function Tratamentos() {
         <div className="mx-auto flex max-w-[1240px] flex-col gap-14">
           <div className="revelar flex flex-wrap items-end justify-between gap-6">
             <div className="flex max-w-[640px] flex-col gap-4">
-              <span className="text-sm font-medium tracking-[.14em] text-azul-escuro uppercase">
+              <span className="text-sm font-medium animar-rotulo tracking-[.14em] text-azul-escuro uppercase">
                 {secaoTratamentos.rotulo}
               </span>
               <h2

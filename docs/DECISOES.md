@@ -225,3 +225,16 @@ Decisões propostas. Confirme antes de criar o projeto. Decisão substituída: m
   - Tratamentos e Depoimentos do celular são links/figuras no HTML, e a marcação do desktop fica oculta (`display: none`), então o leitor de tela lê só uma versão.
 - **Testes:** os de fumaca passaram a olhar só o conteúdo visível (`:visible`). Novo teste dos 3 grupos e 8 cartões do celular. O teste dos botões de WhatsApp aceita o link puro ou com `?text=`.
 - **Verificado:** lint, typecheck, build, 57 testes unitários e e2e (axe incluído) passando; Lighthouse mobile 100/100/100/100 (LCP 0,9 s); capturas em 390 px.
+
+## D28 — Animações iguais às do design (2026-11-23)
+
+- **Decisão:** a dona do projeto pediu as animações como no Claude Design. O design as faz com JavaScript; aqui continuam em CSS puro (`src/styles/animacoes.css`), exceto a paralaxe do mouse, que precisa de um componente de cliente (`ParallaxSelos`).
+- **Entrou:**
+  - Hero: foto aparece com varredura em máscara, foco e escala (desktop); título em letras que entram uma a uma, com foco; selo com o espaçamento das letras se fechando; chips entram com foco e escala; indicador de rolagem aparece depois; linha decorativa é desenhada; paralaxe dos chips com o mouse.
+  - Seções, ao rolar: blocos entram com atraso escalonado e leve escala; rótulos abrem o espaçamento das letras; fotos abrem por uma janela e descem do zoom; linhas decorativas são desenhadas.
+- **Escolhas 🟡:**
+  - No celular, a foto do hero usa só uma entrada curta (fade e foco), sem varredura nem escala, para não pesar.
+  - As letras do título são decorativas (`aria-hidden`); o texto completo fica em `sr-only` para leitores de tela.
+  - Tudo é desligado com `prefers-reduced-motion`, e a paralaxe só liga com mouse (`pointer: fine`).
+  - Nos navegadores sem `animation-timeline: view()` o conteúdo aparece direto, sem animar.
+- **Lighthouse (celular):** 91 a 95 em desempenho, com LCP de 3,0 s na simulação (acessibilidade, boas práticas e SEO em 100). Antes era 100 e 0,9 s. Na simulação a foto do hero passou a ser o maior elemento medido; com a rede e a CPU lentas emuladas no navegador, o LCP real da foto foi 1,4 s. Desktop segue em 100. A meta de Lighthouse continua pendente de confirmação (D12).

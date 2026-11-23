@@ -4,6 +4,7 @@ import { hero } from "@/src/domain/hero";
 import { secaoExiste } from "@/src/domain/navegacao";
 import { montarLinkWhatsapp } from "@/src/domain/whatsapp";
 import { ChipHero } from "./ChipHero";
+import { ParallaxSelos } from "./ParallaxSelos";
 
 const linkWhatsapp = montarLinkWhatsapp(contatos.whatsapp);
 const icones = ["♡", "✓"] as const;
@@ -11,6 +12,35 @@ const cores = ["menta", "azul"] as const;
 
 function atraso(ms: number): React.CSSProperties {
   return { "--atraso": `${ms}ms` } as React.CSSProperties;
+}
+
+// Título em letras soltas, que entram uma a uma. O texto completo fica só para
+// leitores de tela; as letras são decorativas.
+function Letras({
+  texto,
+  linha,
+  inicio,
+}: {
+  texto: string;
+  linha: number;
+  inicio: number;
+}) {
+  return (
+    <>
+      <span className="sr-only">{texto}</span>
+      <span aria-hidden="true">
+        {[...texto].map((letra, i) => (
+          <span
+            key={i}
+            style={atraso(700 + linha * 160 + (inicio + i) * 38)}
+            className="animar-letra"
+          >
+            {letra === " " ? " " : letra}
+          </span>
+        ))}
+      </span>
+    </>
+  );
 }
 
 export function Hero() {
@@ -55,7 +85,7 @@ export function Hero() {
         preserveAspectRatio="none"
         fill="none"
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 size-full"
+        className="desenhar-entrada pointer-events-none absolute inset-0 size-full"
       >
         <path
           d="M-20 720 C 240 640, 420 800, 660 700 S 980 520, 1180 600 S 1400 720, 1470 640"
@@ -72,7 +102,7 @@ export function Hero() {
         <div className="flex max-w-[560px] flex-col items-start gap-7">
           <span
             style={atraso(550)}
-            className="animar-entrada rounded-full border border-menta/45 px-[18px] py-2 text-sm tracking-[.04em] text-menta"
+            className="animar-selo rounded-full border border-menta/45 px-[18px] py-2 text-sm tracking-[.04em] text-menta"
           >
             {hero.selo}
           </span>
@@ -83,12 +113,16 @@ export function Hero() {
                 style={atraso(650)}
                 className="animar-linha block font-light text-creme/55"
               >
-                {hero.tituloLeve}
+                <Letras texto={hero.tituloLeve} linha={0} inicio={0} />
               </span>
             </span>
             <span className="-mb-[.08em] block overflow-hidden pb-[.08em]">
               <span style={atraso(810)} className="animar-linha block">
-                {hero.titulo}
+                <Letras
+                  texto={hero.titulo}
+                  linha={1}
+                  inicio={[...hero.tituloLeve].length}
+                />
               </span>
             </span>
           </h1>
@@ -120,12 +154,12 @@ export function Hero() {
         </div>
       </div>
 
-      <div className="absolute right-[clamp(40px,8vw,120px)] bottom-[72px] z-[2] hidden flex-col items-end gap-3 nav:flex">
+      <ParallaxSelos className="absolute right-[clamp(40px,8vw,120px)] bottom-[72px] z-[2] hidden flex-col items-end gap-3 nav:flex">
         {hero.chips.map((texto, i) => (
           <div
             key={texto}
             style={atraso(1350 + i * 160)}
-            className="animar-entrada"
+            className="animar-chip"
           >
             <div
               style={
@@ -140,12 +174,12 @@ export function Hero() {
             </div>
           </div>
         ))}
-      </div>
+      </ParallaxSelos>
 
       {secaoExiste("sobre") && (
         <a
           href="#sobre"
-          className="absolute bottom-7 left-1/2 z-[2] hidden -translate-x-1/2 flex-col items-center gap-2.5 text-xs tracking-[.18em] text-creme/70 uppercase hover:text-menta nav:flex"
+          className="absolute bottom-7 left-1/2 z-[2] hidden -translate-x-1/2 flex-col items-center gap-2.5 text-xs tracking-[.18em] text-creme/70 uppercase hover:text-menta nav:flex animar-aparecer"
         >
           Role para conhecer
           <span

@@ -26,7 +26,7 @@ export function Contato() {
             preserveAspectRatio="none"
             fill="none"
             aria-hidden="true"
-            className="pointer-events-none absolute inset-0 size-full opacity-[.14]"
+            className="desenhar-linha pointer-events-none absolute inset-0 size-full opacity-[.14]"
           >
             <path
               d="M-40 500 C 240 380, 420 600, 660 460 S 1040 260, 1280 360"
@@ -38,7 +38,7 @@ export function Contato() {
           </svg>
 
           <div className="relative flex flex-col items-start gap-6">
-            <span className="text-sm font-medium tracking-[.14em] text-menta uppercase">
+            <span className="text-sm font-medium animar-rotulo tracking-[.14em] text-menta uppercase">
               {contato.rotulo}
             </span>
             <h2

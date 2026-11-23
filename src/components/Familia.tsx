@@ -13,7 +13,7 @@ export function Familia() {
       <div className="relative hidden px-[clamp(20px,5vw,64px)] py-[clamp(80px,10vw,140px)] nav:block">
         <div className="mx-auto grid max-w-[1240px] grid-cols-[repeat(auto-fit,minmax(min(100%,420px),1fr))] items-center gap-[clamp(40px,6vw,96px)]">
           <div className="revelar relative pb-[clamp(40px,6vw,70px)]">
-            <div className="relative aspect-square overflow-hidden rounded-[40px] shadow-[0_30px_60px_rgb(35_63_69/0.14)]">
+            <div className="revelar-foto relative aspect-square overflow-hidden rounded-[40px] shadow-[0_30px_60px_rgb(35_63_69/0.14)]">
               <Image
                 src={familia.fotoPrincipal.src}
                 alt={familia.fotoPrincipal.alt}
@@ -38,7 +38,7 @@ export function Familia() {
           </div>
 
           <div className="revelar flex flex-col gap-6">
-            <span className="text-sm font-medium tracking-[.14em] text-azul-escuro uppercase">
+            <span className="text-sm font-medium animar-rotulo tracking-[.14em] text-azul-escuro uppercase">
               {familia.rotulo}
             </span>
             <h2
