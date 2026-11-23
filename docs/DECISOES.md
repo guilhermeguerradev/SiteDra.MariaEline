@@ -195,3 +195,18 @@ Decisões propostas. Confirme antes de criar o projeto. Decisão substituída: m
   - **Credenciais (Sobre):** a Dra. deve confirmar se "especialista em Saúde da Família" é título **registrado no CRO-MG**. Se não for, trocar por "área de atuação".
   - **Textos de saúde (Por que prevenir? e Dúvidas) e a foto do atendimento em andamento** seguem no ar a pedido da dona do projeto, mas pendentes de confirmação do CRO-MG.
   - O CRO-AL oferece consultoria gratuita de publicidade antes da postagem. Vale perguntar se o CRO-MG tem serviço equivalente.
+
+## D25 — Seções Resultados e Depoimentos implementadas, com ressalvas (2026-11-22)
+
+- **Decisão:** a dona do projeto pediu para implementar as duas seções, mesmo sabendo que a conferência do CFO estava pendente (D23). A implementação está pronta, mas **o merge só deve acontecer depois** da confirmação do que está listado abaixo. Publicar é o merge: o PR deixa as imagens visíveis no repositório público.
+- **Resultados:**
+  - Textos do design, sem alterações: clareamento (par lado a lado, e "antes" e "depois · 1 semana"), limpeza, restaurações e extração de sisos.
+  - Imagens por `scripts/recortar-resultados.mjs`, a partir dos originais (fora do Git): recortes só dos dentes, **sem legendas, textos nem `@` de terceiros** (as capturas de Instagram trazem o perfil de outra pessoa), em WebP (cerca de 150 KB no total). Na radiografia da extração foi apagado o dado do paciente ("Idade").
+  - **A imagem `res-carie` (diagnóstico e tratamento de cárie) NÃO foi incluída:** ela mostra o tratamento em andamento, e a cartilha consultada lista como proibidas "imagens com conteúdo sobre o transcurso dos procedimentos" (D23). Pode entrar depois da confirmação do CRO-MG.
+- **Depoimentos:** os 3 depoimentos do design, sem nome de pessoa (só "Paciente · via WhatsApp" etc.), sem a captura do Instagram. As estrelas são decorativas (`aria-hidden`) e usam `#4F6E78` (contraste AA).
+- **🔴 Antes de mesclar:**
+  1. **TCLE** (Termo de Consentimento Livre e Esclarecido) de cada paciente, cobrindo o uso no site e as imagens recortadas. Uma das fotos vem de captura de story de paciente no Instagram: a autorização deve cobrir esse uso.
+  2. **Posição do CRO-MG** sobre depoimentos, que a cartilha consultada não trata, e sobre as frases "com naturalidade e segurança" e "Resultado de apenas 1 semana", que podem ser lidas como promessa de resultado.
+  3. Nome e CRO da Dra. visíveis: o site já mostra CRO-MG 64493 no Sobre, no Consultório e no rodapé.
+- **Navegação:** `resultados` e `depoimentos` entraram em `secoesExistentes`. O link "Depoimentos" aparece no cabeçalho, no menu do celular e no rodapé (6 links, e o cabeçalho cabe em 1180 px).
+- **Verificado:** Lighthouse 100 nas quatro categorias (mobile e desktop), 57 testes unitários e 81 de fumaça.
