@@ -6,6 +6,7 @@ import { Duvidas } from "@/src/components/Duvidas";
 import { Familia } from "@/src/components/Familia";
 import { Header } from "@/src/components/Header";
 import { Hero } from "@/src/components/Hero";
+import { NavegacaoPorSecao } from "@/src/components/NavegacaoPorSecao";
 import { Prevenir } from "@/src/components/Prevenir";
 import { ProgressoRolagem } from "@/src/components/ProgressoRolagem";
 import { RevelarAoRolar } from "@/src/components/RevelarAoRolar";
@@ -20,6 +21,7 @@ export default function Home() {
       <DadosEstruturados />
       <ProgressoRolagem />
       <RevelarAoRolar />
+      <NavegacaoPorSecao />
       <Header />
       <main>
         <Hero />
