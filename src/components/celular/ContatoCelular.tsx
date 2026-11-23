@@ -18,7 +18,7 @@ export function ContatoCelular() {
 
   return (
     <div className="flex min-h-dvh flex-col justify-center px-3.5 py-14 nav:hidden">
-      <div className="revelar relative flex flex-col gap-[22px] overflow-hidden rounded-[28px] bg-petroleo px-[18px] pt-7 pb-[18px]">
+      <div className="revelar relative flex flex-col gap-[22px] overflow-clip rounded-[28px] bg-petroleo px-[18px] pt-7 pb-[18px]">
         <div className="flex flex-col gap-3.5 px-1">
           <span className="text-[13px] font-medium animar-rotulo tracking-[.14em] text-menta uppercase">
             {contato.rotulo}

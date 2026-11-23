@@ -337,13 +337,16 @@
 /* Foto: abre por uma janela e a imagem desce do zoom ao entrar na tela. */
 @utility revelar-foto {
   @supports (animation-timeline: view()) {
+    view-timeline: --foto;
     animation: foto-revelar linear backwards;
-    animation-timeline: view();
+    animation-timeline: --foto;
     animation-range: entry 0% entry 45%;
 
+    /* A foto tem overflow hidden, que viraria a "rolagem" da imagem. Por isso a
+       imagem usa a linha do tempo da própria caixa. */
     & img {
       animation: foto-zoom linear backwards;
-      animation-timeline: view();
+      animation-timeline: --foto;
       animation-range: entry 0% cover 40%;
     }
   }

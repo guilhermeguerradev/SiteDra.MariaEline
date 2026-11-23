@@ -6,7 +6,7 @@ export function Prevenir() {
     <section
       id="prevenir"
       aria-labelledby="titulo-prevenir"
-      className="relative scroll-mt-0 nav:scroll-mt-24 overflow-hidden bg-petroleo"
+      className="relative scroll-mt-0 nav:scroll-mt-24 overflow-clip bg-petroleo"
     >
       <PrevenirCelular />
       <div className="relative hidden px-[clamp(20px,5vw,64px)] py-[clamp(80px,10vw,140px)] nav:block">
