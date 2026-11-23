@@ -97,14 +97,14 @@ Ordem sugerida, da mais pronta para a mais sensível:
 ### 5.6 Resultados (`#resultados`)
 
 - [x] Recortes das fotos (D17), sem textos de terceiros, otimizados (D25). A imagem de cárie em andamento ficou de fora.
-- [ ] 🔴 TCLE de cada paciente cobrindo o uso no site, com nome da Dra. e CRO visíveis (D23). EM ESPERA.
-- [ ] 🔴 Regras do CFO para "diagnóstico e resultado": permitido com TCLE, pelo dentista que fez o tratamento (D23). Confirmar com o CRO-MG, e usar fotos clínicas da Dra., não capturas de Instagram de pacientes.
+- [x] TCLE de cada paciente: a dona do projeto informou em 2026-11-23 que a Dra. tem o termo de cada paciente (D26). Arquivar fora do Git.
+- [ ] 🔴 Regras do CFO para "diagnóstico e resultado": permitido com TCLE, pelo dentista que fez o tratamento (D23). Confirmar com o CRO-MG, e usar fotos clínicas da Dra., não capturas de Instagram de pacientes. PENDENTE, mas a seção já foi publicada (D26).
 
 ### 5.7 Depoimentos (`#depoimentos`)
 
 - [x] Três depoimentos do design, com nome omitido ("Paciente · via WhatsApp") (D25).
-- [ ] 🔴 Autorização de cada pessoa que falou, inclusive a captura do Instagram com "@" de terceiros. EM ESPERA.
-- [ ] 🔴 A cartilha consultada não trata de depoimentos (D23): sem base oficial. Só publicar com a posição do CRO-MG. EM ESPERA.
+- [x] Autorização de quem falou: informada pela dona do projeto em 2026-11-23 (D26). Arquivar fora do Git.
+- [ ] 🔴 A cartilha consultada não trata de depoimentos (D23): sem base oficial. Posição do CRO-MG ainda pendente; publicado por decisão da dona do projeto (D26).
 
 ### Em todas as seções
 
