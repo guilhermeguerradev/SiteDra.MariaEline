@@ -16,7 +16,7 @@ export function Contato() {
     <section
       id="contato"
       aria-labelledby="titulo-contato"
-      className="scroll-mt-0 nav:scroll-mt-24 bg-[linear-gradient(120deg,var(--color-ceu)_0%,var(--color-creme)_50%,var(--color-pessego)_100%)]"
+      className="scroll-mt-5 nav:scroll-mt-24 bg-[linear-gradient(120deg,var(--color-ceu)_0%,var(--color-creme)_50%,var(--color-pessego)_100%)]"
     >
       <ContatoCelular />
       <div className="hidden px-[clamp(20px,5vw,64px)] py-[clamp(80px,10vw,140px)] nav:block">

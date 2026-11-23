@@ -13,7 +13,7 @@ export function Resultados() {
     <section
       id="resultados"
       aria-labelledby="titulo-resultados"
-      className="scroll-mt-0 nav:scroll-mt-24"
+      className="scroll-mt-6 nav:scroll-mt-24"
     >
       <ResultadosCelular />
       <div className="relative hidden px-[clamp(20px,5vw,64px)] py-[clamp(80px,10vw,140px)] nav:block">
