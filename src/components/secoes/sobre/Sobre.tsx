@@ -1,6 +1,8 @@
 import Image from "next/image";
+import { ItensDeCredencial } from "@/src/components/ui/ItensDeCredencial";
 import { sobre } from "@/src/content/sobre";
-import { SobreCelular } from "@/src/components/secoes/sobre/SobreCelular";
+import { ParagrafoComDestaque } from "@/src/components/ui/ParagrafoComDestaque";
+import { SobreCompacta } from "@/src/components/secoes/sobre/SobreCompacta";
 import { SecaoPagina } from "@/src/components/ui/SecaoPagina";
 import { RotuloDeSecao } from "@/src/components/ui/RotuloDeSecao";
 import { TituloDeSecao } from "@/src/components/ui/TituloDeSecao";
@@ -11,7 +13,7 @@ export function Sobre() {
       id="sobre"
       idTitulo="titulo-sobre"
       className="relative overflow-clip"
-      celular={<SobreCelular />}
+      compacta={<SobreCompacta />}
     >
       <svg
         viewBox="0 0 1440 600"
@@ -29,8 +31,8 @@ export function Sobre() {
         />
       </svg>
 
-      <div className="relative mx-auto grid max-w-[1240px] grid-cols-[repeat(auto-fit,minmax(min(100%,420px),1fr))] items-center gap-[clamp(40px,6vw,96px)]">
-        <div className="revelar-foto relative h-[clamp(420px,68vh,720px)] w-full overflow-hidden rounded-[36px] shadow-[0_30px_60px_rgb(35_63_69/0.14)]">
+      <div className="relative mx-auto grid max-w-conteudo grid-cols-[repeat(auto-fit,minmax(min(100%,420px),1fr))] items-center gap-[clamp(40px,6vw,96px)]">
+        <div className="revelar-foto relative h-[clamp(420px,68vh,720px)] w-full overflow-hidden rounded-[36px] shadow-foto">
           <Image
             src={sobre.foto.src}
             alt={sobre.foto.alt}
@@ -45,31 +47,18 @@ export function Sobre() {
           <RotuloDeSecao>{sobre.rotulo}</RotuloDeSecao>
           <TituloDeSecao id="titulo-sobre">{sobre.titulo}</TituloDeSecao>
           {sobre.paragrafos.map((trechos) => (
-            <p
+            <ParagrafoComDestaque
               key={trechos[0].texto}
-              className="m-0 text-lg leading-[1.7] text-pretty"
-            >
-              {trechos.map((trecho) =>
-                trecho.destaque ? (
-                  <strong key={trecho.texto} className="text-petroleo">
-                    {trecho.texto}
-                  </strong>
-                ) : (
-                  trecho.texto
-                ),
-              )}
-            </p>
+              trechos={trechos}
+              className="text-lg leading-[1.7]"
+            />
           ))}
           <ul className="m-0 mt-1 flex list-none flex-wrap gap-2.5 p-0">
-            {sobre.credenciais.map((credencial) => (
-              <li
-                key={credencial}
-                className="rounded-full bg-gelo px-[18px] py-2.5 text-[15px] text-petroleo"
-              >
-                {credencial}
-              </li>
-            ))}
-            <li className="rounded-full border border-azul px-[18px] py-2.5 text-[15px] text-petroleo">
+            <ItensDeCredencial
+              credenciais={sobre.credenciais}
+              className="rounded-full bg-gelo px-[18px] py-2.5 text-corpo text-petroleo"
+            />
+            <li className="rounded-full border border-azul px-[18px] py-2.5 text-corpo text-petroleo">
               {sobre.registro}
             </li>
           </ul>

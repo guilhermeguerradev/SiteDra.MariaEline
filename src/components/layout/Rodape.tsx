@@ -1,17 +1,19 @@
+import { hrefDaSecao } from "@/src/lib/navegacao";
+import { LinkExterno } from "@/src/components/ui/LinkExterno";
 import { dadosDeContato } from "@/src/content/dadosDeContato";
 import {
   formatarEndereco,
   formatarTelefone,
   montarLinkMapa,
 } from "@/src/lib/formatacao";
-import { itensVisiveis } from "@/src/content/navegacao";
+import { itensDoMenu } from "@/src/content/navegacao";
 import { direitosReservados, rodape } from "@/src/content/rodape";
 import { Logo } from "@/src/components/ui/Logo";
 
-const itens = itensVisiveis();
+const itens = itensDoMenu();
 
-const titulo = "text-[13px] tracking-[.1em] text-menta uppercase";
-const coluna = "flex flex-col gap-2.5 text-[15px]";
+const titulo = "text-miudo tracking-[.1em] text-menta uppercase";
+const coluna = "flex flex-col gap-2.5 text-corpo";
 const link = "w-fit text-creme/80 hover:text-menta focus-visible:text-menta";
 
 export function Rodape() {
@@ -20,20 +22,20 @@ export function Rodape() {
       id="rodape"
       className="bg-petroleo secao-px pt-[72px] pb-10 text-creme"
     >
-      <div className="mx-auto flex max-w-[1240px] flex-col gap-12">
+      <div className="mx-auto flex max-w-conteudo flex-col gap-12">
         <div className="flex flex-wrap justify-between gap-10">
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-3">
               <Logo />
               <span className="flex flex-col gap-0.5">
                 <span className="text-lg font-medium">{rodape.nome}</span>
-                <span className="text-[13px] text-creme/70">
+                <span className="text-miudo text-creme/70">
                   {rodape.descricao}
                 </span>
               </span>
             </div>
-            <span className="text-[15px] text-menta">{rodape.cro}</span>
-            <span className="text-[15px] text-creme/80">{rodape.aviso}</span>
+            <span className="text-corpo text-menta">{rodape.cro}</span>
+            <span className="text-corpo text-creme/80">{rodape.aviso}</span>
           </div>
 
           <div className="flex flex-wrap gap-14">
@@ -41,7 +43,11 @@ export function Rodape() {
               <nav aria-label="Rodapé" className={coluna}>
                 <span className={titulo}>Navegação</span>
                 {itens.map((item) => (
-                  <a key={item.secao} href={`#${item.secao}`} className={link}>
+                  <a
+                    key={item.secao}
+                    href={hrefDaSecao(item.secao)}
+                    className={link}
+                  >
                     {item.rotulo}
                   </a>
                 ))}
@@ -56,31 +62,24 @@ export function Rodape() {
               <a href={`mailto:${dadosDeContato.email}`} className={link}>
                 {dadosDeContato.email}
               </a>
-              <a
+              <LinkExterno
                 href={montarLinkMapa(dadosDeContato.endereco)}
-                target="_blank"
-                rel="noopener noreferrer"
                 className={`${link} max-w-[280px]`}
               >
                 {formatarEndereco(dadosDeContato.endereco)}
-              </a>
+              </LinkExterno>
             </div>
 
             <div className={coluna}>
               <span className={titulo}>Redes</span>
-              <a
-                href={dadosDeContato.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={link}
-              >
+              <LinkExterno href={dadosDeContato.instagram} className={link}>
                 Instagram
-              </a>
+              </LinkExterno>
             </div>
           </div>
         </div>
 
-        <div className="flex flex-wrap justify-between gap-3 border-t border-menta/20 pt-6 text-[13px] text-creme/70">
+        <div className="flex flex-wrap justify-between gap-3 border-t border-menta/20 pt-6 text-miudo text-creme/70">
           <span>{direitosReservados()}</span>
           <span>{rodape.responsavel}</span>
         </div>

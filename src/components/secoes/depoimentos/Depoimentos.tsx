@@ -1,5 +1,5 @@
 import { depoimentos, secaoDepoimentos } from "@/src/content/depoimentos";
-import { DepoimentosCelular } from "@/src/components/secoes/depoimentos/DepoimentosCelular";
+import { DepoimentosCompacta } from "@/src/components/secoes/depoimentos/DepoimentosCompacta";
 import { SecaoPagina } from "@/src/components/ui/SecaoPagina";
 import { CabecalhoDeSecao } from "@/src/components/ui/CabecalhoDeSecao";
 
@@ -9,9 +9,9 @@ export function Depoimentos() {
       id="depoimentos"
       idTitulo="titulo-depoimentos"
       className="bg-gelo"
-      celular={<DepoimentosCelular />}
+      compacta={<DepoimentosCompacta />}
     >
-      <div className="mx-auto flex max-w-[1240px] flex-col gap-14">
+      <div className="mx-auto flex max-w-conteudo flex-col gap-14">
         <CabecalhoDeSecao
           rotulo={secaoDepoimentos.rotulo}
           titulo={secaoDepoimentos.titulo}
@@ -21,7 +21,7 @@ export function Depoimentos() {
         <ul className="m-0 grid list-none grid-cols-[repeat(auto-fit,minmax(min(100%,300px),1fr))] items-start gap-5 p-0">
           {depoimentos.map((depoimento) => (
             <li
-              key={depoimento.autor + depoimento.texto.slice(0, 20)}
+              key={depoimento.id}
               className="revelar flex flex-col gap-3.5 rounded-3xl bg-creme px-7 py-[26px]"
             >
               <figure className="m-0 flex flex-col gap-3.5">
@@ -36,7 +36,7 @@ export function Depoimentos() {
                     “{depoimento.texto}”
                   </p>
                 </blockquote>
-                <figcaption className="flex items-center gap-3 border-t border-petroleo/10 pt-3 text-[15px] text-petroleo">
+                <figcaption className="flex items-center gap-3 border-t border-petroleo/10 pt-3 text-corpo text-petroleo">
                   <span
                     aria-hidden="true"
                     className="flex size-10 flex-none items-center justify-center rounded-full bg-menta text-base text-petroleo"

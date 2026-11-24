@@ -6,8 +6,13 @@ describe("seção Por que prevenir?", () => {
     expect(secaoPrevenir.titulo).toBe(
       "O cuidado de hoje é o sorriso de amanhã.",
     );
-    expect(beneficios.map((b) => b.numero)).toEqual(["01", "02", "03", "04"]);
-    expect(beneficios.map((b) => b.titulo)).toEqual([
+    expect(beneficios.map((beneficio) => beneficio.numero)).toEqual([
+      "01",
+      "02",
+      "03",
+      "04",
+    ]);
+    expect(beneficios.map((beneficio) => beneficio.titulo)).toEqual([
       "Evita dor",
       "Evita tratamentos maiores",
       "Economiza",
@@ -16,8 +21,8 @@ describe("seção Por que prevenir?", () => {
   });
 
   it("não tem texto vazio", () => {
-    for (const b of beneficios) {
-      expect(b.descricao.trim()).not.toBe("");
+    for (const beneficio of beneficios) {
+      expect(beneficio.descricao.trim()).not.toBe("");
     }
   });
 });

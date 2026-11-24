@@ -32,9 +32,17 @@ export function secaoExiste(id: string): boolean {
   return secoesExistentes.includes(id);
 }
 
-export function itensVisiveis(
+export function itensDoMenu(
   itens: readonly ItemNavegacao[] = itensNavegacao,
   existentes: readonly string[] = secoesExistentes,
 ): ItemNavegacao[] {
   return itens.filter((item) => existentes.includes(item.secao));
 }
+
+// Seções com fundo próprio (cartão escuro, faixa colorida) ficam no centro exato
+// da tela ao navegar, porque o fundo mostra onde elas começam e terminam. As de
+// fundo liso sobem um pouco, que é onde o olho espera ver o começo.
+export const secoesNoCentroExato: ReadonlySet<string> = new Set([
+  "depoimentos",
+  "contato",
+]);

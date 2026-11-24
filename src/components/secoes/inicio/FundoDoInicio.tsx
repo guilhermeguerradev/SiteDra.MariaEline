@@ -6,8 +6,8 @@ import { inicio } from "@/src/content/inicio";
 export function FundoDoInicio() {
   return (
     <>
-      <div className="absolute top-0 right-0 h-[64svh] w-full overflow-hidden nav:h-full nav:w-[62%]">
-        <div className="absolute inset-0 nav:animar-respirar">
+      <div className="absolute top-0 right-0 h-[64svh] w-full overflow-hidden largo:h-full largo:w-[62%]">
+        <div className="absolute inset-0 largo:animar-respirar">
           <Image
             src={inicio.foto.src}
             alt={inicio.foto.alt}
@@ -27,7 +27,7 @@ export function FundoDoInicio() {
 
       <div
         aria-hidden="true"
-        className="fusao-foto absolute top-0 left-0 h-[64svh] w-full nav:h-full"
+        className="fusao-foto absolute top-0 left-0 h-[64svh] w-full largo:h-full"
       />
       <div
         aria-hidden="true"

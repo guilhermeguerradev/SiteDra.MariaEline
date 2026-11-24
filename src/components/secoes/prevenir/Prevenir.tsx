@@ -1,5 +1,5 @@
 import { beneficios, secaoPrevenir } from "@/src/content/prevenir";
-import { PrevenirCelular } from "@/src/components/secoes/prevenir/PrevenirCelular";
+import { PrevenirCompacta } from "@/src/components/secoes/prevenir/PrevenirCompacta";
 import { SecaoPagina } from "@/src/components/ui/SecaoPagina";
 import { CabecalhoDeSecao } from "@/src/components/ui/CabecalhoDeSecao";
 
@@ -9,7 +9,7 @@ export function Prevenir() {
       id="prevenir"
       idTitulo="titulo-prevenir"
       className="relative overflow-clip bg-petroleo"
-      celular={<PrevenirCelular />}
+      compacta={<PrevenirCompacta />}
     >
       <svg
         viewBox="0 0 1440 600"
@@ -34,7 +34,7 @@ export function Prevenir() {
         />
       </svg>
 
-      <div className="relative mx-auto flex max-w-[1240px] flex-col gap-16">
+      <div className="relative mx-auto flex max-w-conteudo flex-col gap-16">
         <CabecalhoDeSecao
           rotulo={secaoPrevenir.rotulo}
           titulo={secaoPrevenir.titulo}
@@ -57,7 +57,7 @@ export function Prevenir() {
               <h3 className="m-0 text-2xl font-medium text-creme">
                 {beneficio.titulo}
               </h3>
-              <p className="m-0 text-[17px] leading-relaxed text-creme/80">
+              <p className="m-0 text-leitura leading-relaxed text-creme/80">
                 {beneficio.descricao}
               </p>
             </li>

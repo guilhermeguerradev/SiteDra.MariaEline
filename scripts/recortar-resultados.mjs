@@ -107,7 +107,7 @@ const [esq, dir] = await Promise.all([
   amostra({ left: 626, top: 250, width: 20, height: 20 }),
   amostra({ left: 856, top: 250, width: 20, height: 20 }),
 ]);
-const rgb = (b) => `rgb(${b[0]},${b[1]},${b[2]})`;
+const rgb = (cor) => `rgb(${cor[0]},${cor[1]},${cor[2]})`;
 const tapaIdade = Buffer.from(
   `<svg xmlns="http://www.w3.org/2000/svg" width="${regiaoIdade.width}" height="${regiaoIdade.height}">
     <defs><linearGradient id="g" x1="0" x2="1" y1="0" y2="0">

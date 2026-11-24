@@ -14,10 +14,10 @@ export const CLASSES_DE_REVELACAO = {
 } as const;
 
 /** Colocada na página inteira quando a animação está ligada; esconde os blocos. */
-export const CLASSE_ANIMACAO_LIGADA = "anim-js";
+export const CLASSE_ANIMACAO_LIGADA = "animacao-ligada";
 
 /** Colocada em cada bloco que já entrou na tela; dispara a sua animação. */
-export const CLASSE_BLOCO_VISIVEL = "is-visivel";
+export const CLASSE_BLOCO_VISIVEL = "bloco-visivel";
 
 /** Seletor que encontra tudo o que precisa ser observado. */
 export const SELETOR_DOS_REVELAVEIS = Object.values(CLASSES_DE_REVELACAO)

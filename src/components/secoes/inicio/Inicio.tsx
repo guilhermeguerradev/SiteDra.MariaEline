@@ -1,3 +1,4 @@
+import { LinkExterno } from "@/src/components/ui/LinkExterno";
 import { dadosDeContato } from "@/src/content/dadosDeContato";
 import { inicio } from "@/src/content/inicio";
 import { secaoExiste } from "@/src/content/navegacao";
@@ -17,11 +18,11 @@ export function Inicio() {
   return (
     <section
       id="inicio"
-      className="relative flex min-h-svh flex-col justify-end overflow-hidden bg-petroleo nav:min-h-[max(100dvh,560px)] nav:justify-center"
+      className="relative flex min-h-svh flex-col justify-end overflow-hidden bg-petroleo largo:min-h-[max(100dvh,560px)] largo:justify-center"
     >
       <FundoDoInicio />
 
-      <div className="relative z-[2] mx-auto w-full max-w-[1440px] px-5 pb-9 nav:px-gutter nav:pt-[clamp(120px,19vh,210px)] nav:pb-[clamp(56px,11vh,120px)]">
+      <div className="relative z-[2] mx-auto w-full max-w-[1440px] px-5 pb-9 largo:px-gutter largo:pt-[clamp(120px,19vh,210px)] largo:pb-[clamp(56px,11vh,120px)]">
         <div className="flex max-w-[560px] flex-col items-start gap-7">
           <span
             style={atrasoDeAnimacao(TEMPOS_DE_ENTRADA.selo)}
@@ -68,18 +69,14 @@ export function Inicio() {
             style={atrasoDeAnimacao(TEMPOS_DE_ENTRADA.botao)}
             className="animar-entrada flex flex-wrap items-center gap-3.5"
           >
-            <a
+            <LinkExterno
               href={linkWhatsapp}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={
-                { "--preenche": "var(--color-creme)" } as React.CSSProperties
-              }
-              className="botao-preenche rounded-full bg-menta px-8 py-[18px] text-[17px] font-semibold text-petroleo"
+              preenche="var(--color-creme)"
+              className="botao-preenche rounded-full bg-menta px-8 py-[18px] text-leitura font-semibold text-petroleo"
             >
               {inicio.botaoPrincipal}
-            </a>
-            <span className="text-[15px] text-creme/75">{inicio.publico}</span>
+            </LinkExterno>
+            <span className="text-corpo text-creme/75">{inicio.publico}</span>
           </div>
         </div>
       </div>

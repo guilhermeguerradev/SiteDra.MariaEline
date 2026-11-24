@@ -1,14 +1,14 @@
 import { beneficios, secaoPrevenir } from "@/src/content/prevenir";
-import { CabecalhoDeSecaoCelular } from "@/src/components/ui/CabecalhoDeSecaoCelular";
+import { CabecalhoDeSecaoCompacta } from "@/src/components/ui/CabecalhoDeSecaoCompacta";
 
-export function PrevenirCelular() {
+export function PrevenirCompacta() {
   return (
-    <div className="relative px-5 py-14 nav:hidden">
-      <div className="mx-auto w-full max-w-[640px] relative flex flex-col gap-6">
-        <CabecalhoDeSecaoCelular
+    <div className="relative px-5 py-14 largo:hidden">
+      <div className="mx-auto w-full max-w-conteudo-compacto relative flex flex-col gap-6">
+        <CabecalhoDeSecaoCompacta
           rotulo={secaoPrevenir.rotulo}
           titulo={secaoPrevenir.titulo}
-          idTitulo="titulo-prevenir-celular"
+          idTitulo="titulo-prevenir-compacta"
           escuro
         />
         <ol className="m-0 grid list-none grid-cols-2 gap-x-3.5 gap-y-5 p-0">
@@ -23,7 +23,7 @@ export function PrevenirCelular() {
               >
                 {beneficio.numero}
               </span>
-              <h3 className="m-0 text-[17px] leading-tight font-medium text-creme">
+              <h3 className="m-0 text-leitura leading-tight font-medium text-creme">
                 {beneficio.titulo}
               </h3>
               <p className="m-0 text-sm leading-normal text-creme/80">

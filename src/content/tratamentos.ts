@@ -12,8 +12,8 @@ export type Tratamento = {
   id: IdTratamento;
   titulo: string;
   descricao: string;
-  // Versão curta usada no celular (design "Site Completo", DECISOES D27).
-  celular: { titulo: string; descricao: string };
+  // Versão curta (usada no celular) (design "Site Completo", DECISOES D27).
+  versaoCurta: { titulo: string; descricao: string };
 };
 
 // Textos idênticos ao PRD, "Textos já prontos dos tratamentos" (ordem do design).
@@ -23,35 +23,38 @@ export const tratamentos: readonly Tratamento[] = [
     titulo: "Prevenção e check-up",
     descricao:
       "Consultas regulares para acompanhar a saúde bucal e agir antes de qualquer dor.",
-    celular: { titulo: "Check-up", descricao: "Agir antes de qualquer dor." },
+    versaoCurta: {
+      titulo: "Check-up",
+      descricao: "Agir antes de qualquer dor.",
+    },
   },
   {
     id: "limpeza",
     titulo: "Limpeza (profilaxia)",
     descricao:
       "Remoção de placa e tártaro para gengivas saudáveis e um sorriso mais leve.",
-    celular: { titulo: "Limpeza", descricao: "Sem placa e sem tártaro." },
+    versaoCurta: { titulo: "Limpeza", descricao: "Sem placa e sem tártaro." },
   },
   {
     id: "restauracoes",
     titulo: "Restaurações",
     descricao:
       "Tratamento de cáries com materiais da cor do dente, devolvendo forma e função.",
-    celular: { titulo: "Restaurações", descricao: "Na cor do dente." },
+    versaoCurta: { titulo: "Restaurações", descricao: "Na cor do dente." },
   },
   {
     id: "extracoes",
     titulo: "Extrações, inclusive de sisos",
     descricao:
       "Procedimentos planejados com cuidado, conforto e orientação em cada etapa.",
-    celular: { titulo: "Extrações", descricao: "Inclusive de sisos." },
+    versaoCurta: { titulo: "Extrações", descricao: "Inclusive de sisos." },
   },
   {
     id: "periodontal",
     titulo: "Tratamento periodontal",
     descricao:
       "Cuidado da gengiva para prevenir sangramentos, inflamações e perda dos dentes.",
-    celular: {
+    versaoCurta: {
       titulo: "Tratamento periodontal",
       descricao: "Gengiva saudável e sem sangramento.",
     },
@@ -61,21 +64,21 @@ export const tratamentos: readonly Tratamento[] = [
     titulo: "Coroas",
     descricao:
       "Reconstrução de dentes desgastados ou fragilizados, com aparência natural.",
-    celular: { titulo: "Coroas", descricao: "Aparência natural." },
+    versaoCurta: { titulo: "Coroas", descricao: "Aparência natural." },
   },
   {
     id: "proteses",
     titulo: "Próteses",
     descricao:
       "Soluções para repor dentes perdidos e recuperar a mastigação e a confiança.",
-    celular: { titulo: "Próteses", descricao: "De volta à mastigação." },
+    versaoCurta: { titulo: "Próteses", descricao: "De volta à mastigação." },
   },
   {
     id: "clareamento",
     titulo: "Clareamento dental",
     descricao:
       "Dentes mais claros com segurança, sempre após avaliação profissional.",
-    celular: {
+    versaoCurta: {
       titulo: "Clareamento",
       descricao: "Mais claros, com segurança e acompanhamento.",
     },
@@ -108,12 +111,12 @@ export const gruposTratamentos: readonly {
 ];
 
 export function buscarTratamento(id: IdTratamento): Tratamento {
-  const tratamento = tratamentos.find((t) => t.id === id);
+  const tratamento = tratamentos.find((candidato) => candidato.id === id);
   if (!tratamento) throw new Error(`Tratamento inexistente: ${id}`);
   return tratamento;
 }
 
 // Mensagem inicial do WhatsApp nos cartões do celular (texto do design).
 export function mensagemTratamento(tratamento: Tratamento): string {
-  return `Olá, Dra. Maria Eline! Gostaria de saber mais sobre ${tratamento.celular.titulo.toLowerCase()}.`;
+  return `Olá, Dra. Maria Eline! Gostaria de saber mais sobre ${tratamento.versaoCurta.titulo.toLowerCase()}.`;
 }

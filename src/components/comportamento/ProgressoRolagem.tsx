@@ -4,13 +4,14 @@ import { useEffect, useRef } from "react";
 
 // Barra fina no topo que acompanha a rolagem da página.
 export function ProgressoRolagem() {
-  const barra = useRef<HTMLDivElement>(null);
+  const barraDeProgresso = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const atualizar = () => {
       const maximo = document.documentElement.scrollHeight - window.innerHeight;
       const razao = maximo > 0 ? window.scrollY / maximo : 0;
-      if (barra.current) barra.current.style.transform = `scaleX(${razao})`;
+      if (barraDeProgresso.current)
+        barraDeProgresso.current.style.transform = `scaleX(${razao})`;
     };
     atualizar();
     window.addEventListener("scroll", atualizar, { passive: true });
@@ -23,7 +24,7 @@ export function ProgressoRolagem() {
 
   return (
     <div
-      ref={barra}
+      ref={barraDeProgresso}
       aria-hidden="true"
       className="pointer-events-none fixed top-0 left-0 z-[70] h-0.5 w-full origin-left scale-x-0 bg-menta"
     />

@@ -1,0 +1,9 @@
+# Cabeçalhos de segurança do Cloudflare Pages (D31).
+# A CSP está em modo Report-Only: o navegador avisa no console o que bloquearia,
+# mas não bloqueia nada. Depois de conferir o console no site publicado, troque por Content-Security-Policy.
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+  Content-Security-Policy-Report-Only: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; frame-src https://www.google.com; connect-src 'self'; base-uri 'self'; form-action 'none'

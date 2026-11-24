@@ -4,7 +4,7 @@ import {
   linhasEndereco,
   urlMapaIncorporado,
 } from "@/src/content/secaoContato";
-import { itensVisiveis, secaoExiste } from "@/src/content/navegacao";
+import { itensDoMenu, secaoExiste } from "@/src/content/navegacao";
 
 describe("seção Contato", () => {
   it("usa os textos confirmados do design", () => {
@@ -35,6 +35,6 @@ describe("seção Contato", () => {
 
   it("aparece na navegação", () => {
     expect(secaoExiste("contato")).toBe(true);
-    expect(itensVisiveis().map((i) => i.secao)).toContain("contato");
+    expect(itensDoMenu().map((item) => item.secao)).toContain("contato");
   });
 });

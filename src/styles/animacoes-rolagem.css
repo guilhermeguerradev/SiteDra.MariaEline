@@ -32,55 +32,55 @@
   }
 }
 
-/* Animações ao rolar. O componente RevelarAoRolar marca a página com .anim-js
-   e cada bloco que entra na tela com .is-visivel; o bloco fica escondido até lá
+/* Animações ao rolar. O componente RevelarAoRolar marca a página com .animacao-ligada
+   e cada bloco que entra na tela com .bloco-visivel; o bloco fica escondido até lá
    e então anima uma vez (como no design). Sem JavaScript, ou com redução de
-   movimento, a classe .anim-js não existe e tudo aparece direto.
+   movimento, a classe .animacao-ligada não existe e tudo aparece direto.
    Classes: .revelar (bloco), .revelar-foto (foto), .animar-rotulo (rótulo de
    seção) e .desenhar-linha (linha decorativa). */
-.anim-js .revelar:nth-child(2) {
+.animacao-ligada .revelar:nth-child(2) {
   --i: 1;
 }
-.anim-js .revelar:nth-child(3) {
+.animacao-ligada .revelar:nth-child(3) {
   --i: 2;
 }
-.anim-js .revelar:nth-child(4) {
+.animacao-ligada .revelar:nth-child(4) {
   --i: 3;
 }
-.anim-js .revelar:nth-child(5) {
+.animacao-ligada .revelar:nth-child(5) {
   --i: 4;
 }
-.anim-js .revelar:nth-child(n + 6) {
+.animacao-ligada .revelar:nth-child(n + 6) {
   --i: 5;
 }
 
-.anim-js .revelar:not(.is-visivel),
-.anim-js .revelar-foto:not(.is-visivel),
-.anim-js .animar-rotulo:not(.is-visivel) {
+.animacao-ligada .revelar:not(.bloco-visivel),
+.animacao-ligada .revelar-foto:not(.bloco-visivel),
+.animacao-ligada .animar-rotulo:not(.bloco-visivel) {
   opacity: 0;
 }
 
-.anim-js .desenhar-linha:not(.is-visivel) {
+.animacao-ligada .desenhar-linha:not(.bloco-visivel) {
   clip-path: inset(0 100% 0 0);
 }
 
-.anim-js .revelar.is-visivel {
+.animacao-ligada .revelar.bloco-visivel {
   animation: revelar 0.9s var(--ease-suave) backwards;
   animation-delay: calc(var(--i, 0) * 90ms);
 }
 
-.anim-js .animar-rotulo.is-visivel {
+.animacao-ligada .animar-rotulo.bloco-visivel {
   animation: rotulo-abrir 1.1s var(--ease-suave) backwards;
 }
 
-.anim-js .revelar-foto.is-visivel {
+.animacao-ligada .revelar-foto.bloco-visivel {
   animation: foto-revelar 1.2s var(--ease-suave) backwards;
 }
 
-.anim-js .revelar-foto.is-visivel img {
+.animacao-ligada .revelar-foto.bloco-visivel img {
   animation: foto-zoom 1.6s var(--ease-suave) backwards;
 }
 
-.anim-js .desenhar-linha.is-visivel {
+.animacao-ligada .desenhar-linha.bloco-visivel {
   animation: desenhar 2.8s var(--ease-suave) backwards;
 }

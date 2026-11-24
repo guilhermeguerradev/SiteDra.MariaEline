@@ -7,14 +7,14 @@ const { clareamento } = resultados;
 export function CartaoClareamento() {
   return (
     <div className="revelar grid grid-cols-[repeat(auto-fit,minmax(min(100%,340px),1fr))] items-stretch gap-5">
-      <div className="flex flex-col justify-between gap-6 rounded-[32px] bg-gelo p-[clamp(24px,3vw,40px)]">
+      <div className="flex flex-col justify-between gap-6 rounded-cartao-grande bg-gelo p-[clamp(24px,3vw,40px)]">
         <div className="flex flex-col gap-3">
           <RotuloDeSecao>{clareamento.rotulo}</RotuloDeSecao>
           <p className="m-0 text-[clamp(24px,2.4vw,32px)] leading-[1.15] font-medium text-pretty text-petroleo">
             {clareamento.destaque}
           </p>
         </div>
-        <div className="relative aspect-[1600/427] overflow-hidden rounded-[22px] bg-white">
+        <div className="relative aspect-[1600/427] overflow-hidden rounded-cartao-medio bg-white">
           <Image
             src={clareamento.par.src}
             alt={clareamento.par.alt}
@@ -35,7 +35,7 @@ export function CartaoClareamento() {
         </p>
       </div>
 
-      <div className="grid content-start gap-3 rounded-[32px] bg-petroleo p-3">
+      <div className="grid content-start gap-3 rounded-cartao-grande bg-petroleo p-3">
         {[
           {
             foto: clareamento.antes,
@@ -50,7 +50,7 @@ export function CartaoClareamento() {
         ].map(({ foto, marca, destaque }) => (
           <div
             key={foto.src}
-            className="relative aspect-[760/355] overflow-hidden rounded-[22px]"
+            className="relative aspect-[760/355] overflow-hidden rounded-cartao-medio"
           >
             <Image
               src={foto.src}
@@ -61,7 +61,7 @@ export function CartaoClareamento() {
               className="absolute inset-0 size-full object-cover"
             />
             <span
-              className={`absolute bottom-3 left-3 rounded-full px-3.5 py-1.5 text-[13px] ${
+              className={`absolute bottom-3 left-3 rounded-full px-3.5 py-1.5 text-miudo ${
                 destaque
                   ? "bg-menta font-medium text-petroleo"
                   : "bg-petroleo/75 text-creme"

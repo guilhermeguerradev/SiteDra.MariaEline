@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { familia } from "@/src/content/familia";
-import { FamiliaCelular } from "@/src/components/secoes/familia/FamiliaCelular";
+import { FamiliaCompacta } from "@/src/components/secoes/familia/FamiliaCompacta";
 import { SecaoPagina } from "@/src/components/ui/SecaoPagina";
 import { RotuloDeSecao } from "@/src/components/ui/RotuloDeSecao";
 import { TituloDeSecao } from "@/src/components/ui/TituloDeSecao";
@@ -11,11 +11,11 @@ export function Familia() {
       id="familia"
       idTitulo="titulo-familia"
       className="bg-gelo"
-      celular={<FamiliaCelular />}
+      compacta={<FamiliaCompacta />}
     >
-      <div className="mx-auto grid max-w-[1240px] grid-cols-[repeat(auto-fit,minmax(min(100%,420px),1fr))] items-center gap-[clamp(40px,6vw,96px)]">
+      <div className="mx-auto grid max-w-conteudo grid-cols-[repeat(auto-fit,minmax(min(100%,420px),1fr))] items-center gap-[clamp(40px,6vw,96px)]">
         <div className="revelar relative pb-[clamp(40px,6vw,70px)]">
-          <div className="revelar-foto relative aspect-square overflow-hidden rounded-[40px] shadow-[0_30px_60px_rgb(35_63_69/0.14)]">
+          <div className="revelar-foto relative aspect-square overflow-hidden rounded-[40px] shadow-foto">
             <Image
               src={familia.fotoPrincipal.src}
               alt={familia.fotoPrincipal.alt}
@@ -26,7 +26,7 @@ export function Familia() {
             />
           </div>
           <div className="absolute right-0 bottom-0 w-2/5 rounded-[30px] border border-white/90 bg-creme/70 p-2 shadow-[0_24px_48px_rgb(35_63_69/0.18)] backdrop-blur-[12px] min-[1280px]:-right-6">
-            <div className="aspect-[3/4] overflow-hidden rounded-[22px]">
+            <div className="aspect-[3/4] overflow-hidden rounded-cartao-medio">
               <Image
                 src={familia.fotoDestaque.src}
                 alt={familia.fotoDestaque.alt}
