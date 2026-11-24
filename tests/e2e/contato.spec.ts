@@ -1,7 +1,7 @@
 import { expect, test } from "@playwright/test";
-import { contatos } from "../../src/domain/contatos";
+import { dadosDeContato } from "@/src/content/dadosDeContato";
 
-const linkWhatsapp = `https://wa.me/${contatos.whatsapp}`;
+const linkWhatsapp = `https://wa.me/${dadosDeContato.whatsapp}`;
 
 test.beforeEach(async ({ page }) => {
   await page.goto("/");
@@ -25,11 +25,11 @@ test("a seção Contato mostra o agendamento e os dados", async ({ page }) => {
     secao.getByRole("link", { name: "(32) 98874-7651" }),
   ).toHaveAttribute("href", linkWhatsapp);
   await expect(
-    secao.getByRole("link", { name: contatos.email }),
-  ).toHaveAttribute("href", `mailto:${contatos.email}`);
+    secao.getByRole("link", { name: dadosDeContato.email }),
+  ).toHaveAttribute("href", `mailto:${dadosDeContato.email}`);
   await expect(secao.getByRole("link", { name: "Instagram" })).toHaveAttribute(
     "href",
-    contatos.instagram,
+    dadosDeContato.instagram,
   );
 });
 

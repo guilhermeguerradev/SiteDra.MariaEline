@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { montarUrl, obterUrlSite } from "@/src/domain/site";
+import { montarUrl, obterUrlSite } from "@/src/lib/site";
 
 export const dynamic = "force-static";
 

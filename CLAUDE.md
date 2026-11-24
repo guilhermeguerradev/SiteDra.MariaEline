@@ -53,35 +53,44 @@ Se uma regra conflitar com um pedido, avise antes de agir.
 
 - **TypeScript estrito. Proibido `any`.** Garantido por `@typescript-eslint/no-explicit-any` como "error" na config do ESLint (a configurar).
 - Componentes pequenos, um por arquivo. Arquivo com mais de ~200 linhas ou misturando responsabilidades → proponha dividir.
-- Dados fixos do site (serviços, contatos, textos estruturados) ficam em `src/domain/` como objetos tipados. Componentes só apresentam.
-- Se houver formulário: valide com Zod (o schema fica em `src/domain/`).
+- Dados fixos do site (serviços, contatos, textos estruturados) ficam em `src/content/` como objetos tipados. Funções puras (formatação, links, SEO) ficam em `src/lib/`. Componentes só apresentam.
+- Se houver formulário: valide com Zod (o schema fica em `src/content/`).
 - Código simples e legível antes de código "esperto". Nomes claros.
 
 ## 6. Estrutura de pastas
 
 ```
 app/              → página e layout (Next.js). Sem regra de negócio.
-src/components/   → peças visuais: Header, Hero, Tratamentos, Sobre, Familia,
-                    Depoimentos, Duvidas, Contato, Rodape
-src/domain/       → dados do site (tratamentos, contatos, textos) e schemas Zod
-src/styles/       → tokens de cor, fonte e espaçamento
+src/components/   → peças visuais, em português e uma por arquivo:
+  secoes/<nome>/    cada seção (ex.: Sobre.tsx e SobreCelular.tsx, as duas versões)
+  layout/           Cabecalho e Rodape
+  ui/               peças reutilizáveis (Logo, ícones, SecaoPagina...)
+  comportamento/    componentes só de comportamento, sem visual (navegação, animação)
+  seo/              dados estruturados
+src/content/      → conteúdo do site (textos, tratamentos, contatos) como objetos
+                    tipados, e os schemas Zod
+src/lib/          → funções puras (formatação, links, SEO, URL do site)
+src/styles/       → tokens de cor, fonte e espaçamento, e as animações
 public/           → imagens otimizadas e fontes
+tests/            → unit/ (espelha content/ e lib/) e e2e/ (um arquivo por assunto)
 docs/             → prd.md, PLANO.md, DECISOES.md, design/
 ```
 
-Direção das dependências: `app → components → domain`. `domain` nunca importa `components` nem `app`.
+Direção das dependências: `app → components → content/lib`. `content` e `lib` nunca importam `components` nem `app`. Entre eles a dependência é só de `lib` para `content` (tipos de contato e dados do SEO), nunca o contrário.
+
+Convenção de nomes: tudo em português (arquivos, componentes, funções, variáveis, classes CSS), exceto o que o framework ou a biblioteca impõe (`Props`, `useEffect`, `className`...). Nomes dizem o que a coisa é, sem abreviar (`indice`, não `i`).
 
 ## 7. Qualidade do site
 
 - **Mobile first:** testado em 360px e em desktop.
 - **Acessibilidade:** contraste WCAG AA, texto alternativo em imagens, navegação por teclado, rótulos claros nos botões. Respeitar `prefers-reduced-motion` (o design tem animações).
 - **Desempenho:** imagens com `next/image`; fonte servida pelo próprio site. Meta de Lighthouse a confirmar com a dona do projeto (🔴 se mudar).
-- **SEO básico:** título, descrição, Open Graph e dados estruturados `Dentist` (schema.org), gerados a partir de `src/domain/`.
+- **SEO básico:** título, descrição, Open Graph e dados estruturados `Dentist` (schema.org), gerados a partir de `src/content/`.
 
 ## 8. Testes
 
 - **Teste de fumaça (Playwright):** a página carrega; cada link da navegação leva à seção certa; o botão de WhatsApp abre com o número configurado.
-- **Testes unitários** para `src/domain/`: dados válidos pelo schema.
+- **Testes unitários** para `src/content/` e `src/lib/`, em `tests/unit/` espelhando as pastas: dados válidos pelo schema e funções puras.
 - **Se houver formulário:** recusa campo vazio; recusa e-mail ou telefone inválido.
 - Lint, typecheck e testes rodam no CI em todo PR.
 

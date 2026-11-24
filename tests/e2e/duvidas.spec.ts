@@ -1,5 +1,5 @@
 import { expect, test } from "@playwright/test";
-import { contatos } from "../../src/domain/contatos";
+import { dadosDeContato } from "@/src/content/dadosDeContato";
 
 test.beforeEach(async ({ page }) => {
   await page.goto("/");
@@ -57,7 +57,7 @@ test("o link do WhatsApp da seção Dúvidas usa o número configurado", async (
 }) => {
   await expect(
     page.locator("#duvidas").getByRole("link", { name: "WhatsApp" }),
-  ).toHaveAttribute("href", `https://wa.me/${contatos.whatsapp}`);
+  ).toHaveAttribute("href", `https://wa.me/${dadosDeContato.whatsapp}`);
 });
 
 test("o link Dúvidas do menu leva à seção", async ({ page }, info) => {
