@@ -1,4 +1,4 @@
-import { z } from "zod";
+import { z } from "@/src/content/zod";
 import { dadosDeContato } from "@/src/content/dadosDeContato";
 
 // Textos da seção Contato. Fonte: docs/design/Site Completo.dc.html.

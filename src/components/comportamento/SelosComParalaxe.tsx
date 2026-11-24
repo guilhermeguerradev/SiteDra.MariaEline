@@ -14,11 +14,11 @@ const DESLOCAMENTO_VERTICAL = 10;
 // Leve paralaxe dos selos do início com o mouse (só com ponteiro de precisão e
 // sem redução de movimento), como no design.
 export function SelosComParalaxe({ className, children }: Props) {
-  const caixa = useRef<HTMLDivElement>(null);
+  const contornoDosSelos = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const secaoInicio = document.getElementById("inicio");
-    const selos = caixa.current;
+    const selos = contornoDosSelos.current;
     if (!secaoInicio || !selos) return;
     const corresponde = (consulta: string) =>
       window.matchMedia(consulta).matches;
@@ -39,7 +39,7 @@ export function SelosComParalaxe({ className, children }: Props) {
   }, []);
 
   return (
-    <div ref={caixa} className={className}>
+    <div ref={contornoDosSelos} className={className}>
       {children}
     </div>
   );

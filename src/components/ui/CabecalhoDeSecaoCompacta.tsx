@@ -9,7 +9,7 @@ type Props = {
 };
 
 // Rótulo + título das seções na versão do celular (design "Site Completo").
-export function CabecalhoDeSecaoCelular({
+export function CabecalhoDeSecaoCompacta({
   rotulo,
   titulo,
   idTitulo,

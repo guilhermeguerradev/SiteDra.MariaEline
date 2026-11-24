@@ -1,14 +1,15 @@
 import { describe, expect, it } from "vitest";
 import {
   itensNavegacao,
-  itensVisiveis,
+  itensDoMenu,
   secaoExiste,
   secoesExistentes,
+  secoesNoCentroExato,
 } from "@/src/content/navegacao";
 
 describe("navegação", () => {
   it("só exibe links de seções que existem", () => {
-    const visiveis = itensVisiveis();
+    const visiveis = itensDoMenu();
     for (const item of visiveis) {
       expect(secaoExiste(item.secao)).toBe(true);
     }
@@ -27,7 +28,7 @@ describe("navegação", () => {
       "duvidas",
       "contato",
     ]);
-    expect(itensVisiveis().map((i) => i.secao)).toEqual([
+    expect(itensDoMenu().map((item) => item.secao)).toEqual([
       "tratamentos",
       "sobre",
       "familia",
@@ -39,7 +40,15 @@ describe("navegação", () => {
   });
 
   it("mostra o link quando a seção passa a existir", () => {
-    const visiveis = itensVisiveis(itensNavegacao, ["inicio", "sobre"]);
-    expect(visiveis.map((i) => i.secao)).toEqual(["sobre"]);
+    const visiveis = itensDoMenu(itensNavegacao, ["inicio", "sobre"]);
+    expect(visiveis.map((item) => item.secao)).toEqual(["sobre"]);
+  });
+});
+
+describe("secoesNoCentroExato", () => {
+  it("são as seções com fundo próprio e existem na página", () => {
+    expect([...secoesNoCentroExato].sort()).toEqual(["contato", "depoimentos"]);
+    for (const secao of secoesNoCentroExato)
+      expect(secaoExiste(secao)).toBe(true);
   });
 });

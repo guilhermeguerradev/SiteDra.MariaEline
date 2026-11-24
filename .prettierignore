@@ -4,3 +4,4 @@ package-lock.json
 docs/
 public/
 CLAUDE.md
+coverage/

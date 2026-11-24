@@ -1,3 +1,4 @@
+import { LinkExterno } from "@/src/components/ui/LinkExterno";
 import { secaoContato, urlMapaIncorporado } from "@/src/content/secaoContato";
 import { dadosDeContato } from "@/src/content/dadosDeContato";
 import { montarLinkMapa } from "@/src/lib/formatacao";
@@ -23,7 +24,7 @@ function IconeLocal() {
 type Props = { className?: string };
 
 export function MapaConsultorio({
-  className = "min-h-[300px] flex-1 rounded-[28px]",
+  className = "min-h-[300px] flex-1 rounded-cartao",
 }: Props) {
   return (
     <div className={`relative overflow-hidden bg-petroleo-claro ${className}`}>
@@ -31,15 +32,14 @@ export function MapaConsultorio({
         src={urlMapaIncorporado}
         title={secaoContato.mapaTitulo}
         loading="lazy"
+        sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
         referrerPolicy="strict-origin-when-cross-origin"
         allowFullScreen
         className="absolute inset-0 size-full border-0 saturate-[.85]"
       />
-      <a
+      <LinkExterno
         href={montarLinkMapa(dadosDeContato.endereco)}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="absolute right-3.5 bottom-3.5 left-3.5 flex flex-wrap items-center gap-x-3 gap-y-2 rounded-[18px] bg-creme/95 px-4 py-3 text-petroleo shadow-[0_10px_30px_rgb(0_0_0/0.18)] backdrop-blur-[10px]"
+        className="absolute right-3.5 bottom-3.5 left-3.5 flex flex-wrap items-center gap-x-3 gap-y-2 rounded-moldura bg-creme/95 px-4 py-3 text-petroleo shadow-[0_10px_30px_rgb(0_0_0/0.18)] backdrop-blur-[10px]"
       >
         <span
           aria-hidden="true"
@@ -48,17 +48,17 @@ export function MapaConsultorio({
           <IconeLocal />
         </span>
         <span className="flex min-w-[150px] flex-1 flex-col gap-0.5">
-          <span className="text-[15px] font-semibold">
+          <span className="text-corpo font-semibold">
             {secaoContato.predio}
           </span>
-          <span className="text-[13px]">
+          <span className="text-miudo">
             {secaoContato.sala} · {dadosDeContato.endereco.logradouro}
           </span>
         </span>
-        <span className="ml-auto text-[13px] font-medium whitespace-nowrap">
+        <span className="ml-auto text-miudo font-medium whitespace-nowrap">
           {secaoContato.abrirRota}
         </span>
-      </a>
+      </LinkExterno>
     </div>
   );
 }

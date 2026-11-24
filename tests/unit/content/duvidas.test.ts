@@ -5,7 +5,7 @@ import { secaoExiste } from "@/src/content/navegacao";
 describe("seção Dúvidas frequentes", () => {
   it("tem as 5 perguntas do design, sem repetição", () => {
     expect(perguntas).toHaveLength(5);
-    expect(new Set(perguntas.map((p) => p.pergunta)).size).toBe(5);
+    expect(new Set(perguntas.map((item) => item.pergunta)).size).toBe(5);
     expect(perguntas[2].pergunta).toBe("A extração do siso dói?");
     expect(perguntas[3].pergunta).toBe("Clareamento enfraquece os dentes?");
   });

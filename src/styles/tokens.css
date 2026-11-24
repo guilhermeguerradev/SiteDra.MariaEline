@@ -15,10 +15,34 @@
   --font-sans: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
 
   /* O design troca de layout mobile para desktop em 1180px. */
-  --breakpoint-nav: 1180px;
+  --breakpoint-largo: 1180px;
 
   --ease-suave: cubic-bezier(0.22, 0.8, 0.24, 1);
   --ease-botao: cubic-bezier(0.65, 0, 0.35, 1);
+
+  /* Tamanhos de texto que o design repete em todas as seções. */
+  --text-miudo: 13px;
+  --text-corpo: 15px;
+  --text-leitura: 17px;
+
+  /* Larguras máximas do conteúdo (desktop e celular). */
+  --container-conteudo: 1240px;
+  --container-conteudo-compacto: 640px;
+
+  /* Cantos arredondados dos cartões e das fotos. */
+  --radius-cartao: 28px;
+  --radius-cartao-compacto: 20px;
+  --radius-cartao-medio: 22px;
+  --radius-cartao-grande: 32px;
+  --radius-moldura: 18px;
+
+  /* Sombras dos cartões e das fotos. */
+  --shadow-cartao: 0 12px 40px rgb(35 63 69 / 0.06);
+  --shadow-cartao-compacto: 0 8px 24px rgb(35 63 69 / 0.06);
+  --shadow-foto: 0 30px 60px rgb(35 63 69 / 0.14);
+
+  /* Espaço vertical das seções compactas. */
+  --spacing-secao-compacta: 72px;
 
   --spacing-gutter: clamp(40px, 6.7vw, 96px);
 }

@@ -1,3 +1,4 @@
+import { LinkExterno } from "@/src/components/ui/LinkExterno";
 import { dadosDeContato } from "@/src/content/dadosDeContato";
 import { perguntas, secaoDuvidas } from "@/src/content/duvidas";
 import { montarLinkWhatsapp } from "@/src/lib/whatsapp";
@@ -10,7 +11,7 @@ const linkWhatsapp = montarLinkWhatsapp(dadosDeContato.whatsapp);
 export function Duvidas() {
   return (
     <SecaoPagina id="duvidas" idTitulo="titulo-duvidas">
-      <div className="mx-auto grid max-w-[1240px] grid-cols-[repeat(auto-fit,minmax(min(100%,360px),1fr))] items-start gap-[clamp(40px,6vw,96px)]">
+      <div className="mx-auto grid max-w-conteudo grid-cols-[repeat(auto-fit,minmax(min(100%,360px),1fr))] items-start gap-[clamp(40px,6vw,96px)]">
         <div className="revelar flex flex-col gap-4">
           <RotuloDeSecao>{secaoDuvidas.rotulo}</RotuloDeSecao>
           <TituloDeSecao id="titulo-duvidas">
@@ -18,14 +19,12 @@ export function Duvidas() {
           </TituloDeSecao>
           <p className="m-0 text-lg leading-relaxed text-pretty">
             {secaoDuvidas.antesDoLink}
-            <a
+            <LinkExterno
               href={linkWhatsapp}
-              target="_blank"
-              rel="noopener noreferrer"
               className="font-medium text-petroleo underline underline-offset-4 hover:text-azul-escuro"
             >
               {secaoDuvidas.link}
-            </a>
+            </LinkExterno>
             {secaoDuvidas.depoisDoLink}
           </p>
         </div>
@@ -47,7 +46,7 @@ export function Duvidas() {
                   +
                 </span>
               </summary>
-              <p className="m-0 pr-14 pb-[26px] text-[17px] leading-[1.7]">
+              <p className="m-0 pr-14 pb-[26px] text-leitura leading-[1.7]">
                 {item.resposta}
               </p>
             </details>

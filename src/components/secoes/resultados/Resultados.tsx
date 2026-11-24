@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { resultados } from "@/src/content/resultados";
 import { CartaoClareamento } from "@/src/components/secoes/resultados/CartaoClareamento";
-import { ResultadosCelular } from "@/src/components/secoes/resultados/ResultadosCelular";
+import { ResultadosCompacta } from "@/src/components/secoes/resultados/ResultadosCompacta";
 import { SecaoPagina } from "@/src/components/ui/SecaoPagina";
 import { CabecalhoDeSecao } from "@/src/components/ui/CabecalhoDeSecao";
 
@@ -15,9 +15,9 @@ export function Resultados() {
     <SecaoPagina
       id="resultados"
       idTitulo="titulo-resultados"
-      celular={<ResultadosCelular />}
+      compacta={<ResultadosCompacta />}
     >
-      <div className="mx-auto flex max-w-[1240px] flex-col gap-10">
+      <div className="mx-auto flex max-w-conteudo flex-col gap-10">
         <CabecalhoDeSecao
           rotulo={resultados.rotulo}
           titulo={resultados.titulo}

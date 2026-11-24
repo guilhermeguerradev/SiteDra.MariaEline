@@ -22,6 +22,7 @@ const eslintConfig = defineConfig([
     // Referência de design (runtime gerado pelo Claude Design), não é código do site.
     "docs/**",
     "playwright-report/**",
+    "coverage/**",
     "test-results/**",
   ]),
 ]);

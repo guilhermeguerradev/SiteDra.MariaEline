@@ -41,9 +41,9 @@ export function RevelarAoRolar() {
       const observado = elemento.matches(`.${CLASSES_DE_REVELACAO.linha}`)
         ? (elemento.parentElement ?? elemento)
         : elemento;
-      const lista = reveladosPorObservado.get(observado) ?? [];
-      lista.push(elemento);
-      reveladosPorObservado.set(observado, lista);
+      const reveladosDoObservado = reveladosPorObservado.get(observado) ?? [];
+      reveladosDoObservado.push(elemento);
+      reveladosPorObservado.set(observado, reveladosDoObservado);
       observador.observe(observado);
     });
 

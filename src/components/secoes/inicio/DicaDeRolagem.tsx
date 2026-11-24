@@ -3,7 +3,7 @@ export function DicaDeRolagem() {
   return (
     <a
       href="#sobre"
-      className="animar-aparecer absolute bottom-7 left-1/2 z-[2] hidden -translate-x-1/2 flex-col items-center gap-2.5 text-xs tracking-[.18em] text-creme/70 uppercase hover:text-menta nav:flex"
+      className="animar-aparecer absolute bottom-7 left-1/2 z-[2] hidden -translate-x-1/2 flex-col items-center gap-2.5 text-xs tracking-[.18em] text-creme/70 uppercase hover:text-menta largo:flex"
     >
       Role para conhecer
       <span

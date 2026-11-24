@@ -2,7 +2,7 @@
 
 Decisões propostas. Confirme antes de criar o projeto. Decisão substituída: marque como "substituída", não apague.
 
-## D01 — Stack: Next.js + TypeScript + Tailwind, hospedado na Vercel
+## D01 — Stack: Next.js + TypeScript + Tailwind, hospedado na Vercel (hospedagem substituída por D13)
 
 - **Contexto:** site de uma página com conteúdo fixo, possivelmente com outras seções no futuro.
 - **Por que essa:** Next.js gera páginas estáticas, rápidas e boas para busca. TypeScript pega erros cedo. Tailwind mantém cores e espaçamentos em um só lugar. A Vercel publica a cada merge.
@@ -58,18 +58,18 @@ Decisões propostas. Confirme antes de criar o projeto. Decisão substituída: m
 ## D09 — Contatos do design confirmados como oficiais
 
 - **Escolha (2026-11-22):** a dona do projeto confirmou como oficiais os dados que estão no design: WhatsApp `5532988747651`, endereço Av. Barão do Rio Branco, 2872, Centro, Juiz de Fora - MG, Instagram `dramariaeline` e e-mail `mariaelinemuniz@gmail.com`.
-- **Consequência:** ficam em `src/domain/` como objetos tipados. Resolve as pendências 2 e 3 do PRD (seção 8). Cidade de atendimento: Juiz de Fora - MG.
+- **Consequência:** ficam em `src/content/dadosDeContato.ts` (na época `src/domain/`) como objetos tipados. Resolve as pendências 2 e 3 do PRD (seção 8). Cidade de atendimento: Juiz de Fora - MG.
 
 ## D10 — Cabeçalho e hero seguem o design "Site Completo"
 
 - **Contexto:** o PRD descreve a variação 3 com foto da família e botão secundário "Como cuidamos da família". O arquivo de design indicado para implementação (`Site Completo.dc.html`) tem hero com foto da própria Dra. e outro conjunto de textos.
 - **Escolha (2026-11-22, a pedido da dona do projeto):** seguir o design. Diferenças em relação ao PRD:
-  - Foto do hero: a Dra. Maria Eline no consultório (`public/images/hero.jpg`, vinda de `img/cartao.jpg`), no lugar da foto da família. Foi autorizada para o repositório público porque é a própria profissional.
+  - Foto do hero: a Dra. Maria Eline no consultório (`public/images/inicio.jpg`, antes `hero.jpg`, vinda de `img/cartao.jpg`), no lugar da foto da família. Foi autorizada para o repositório público porque é a própria profissional.
   - Sem botão "Como cuidamos da família" (o design não o tem).
   - Linha "Crianças · adolescentes · adultos · idosos" ao lado do botão, texto do design que não está no PRD.
   - Botão principal "Agendar consulta +" e, no cabeçalho, "Agendar +".
   - Fundo do hero `#233F45` (design), em vez do degradê claro descrito no PRD seção 5.
-- **Navegação:** o design tem 6 links de seções que ainda não existem. Ficam escondidos e voltam sozinhos quando a seção for acrescentada em `secoesExistentes` (`src/domain/navegacao.ts`). O menu hambúrguer mobile só aparece quando houver links.
+- **Navegação:** o design tem 6 links de seções que ainda não existem. Ficam escondidos e voltam sozinhos quando a seção for acrescentada em `secoesExistentes` (`src/content/navegacao.ts`, na época `src/domain/`). O menu hambúrguer mobile só aparece quando houver links.
 - **Agendar:** os botões "Agendar" abrem o WhatsApp (o design apontava para `#contato`, que não existe). Sem mensagem inicial, pois o texto não está no PRD.
 - **Animações:** reescritas em CSS (entrada em cascata, foto "respirando", chips flutuando, reflexo de luz, barra de rolagem). Não foram portados o efeito de máscara da foto na entrada nem o parallax do ponteiro. Tudo respeita `prefers-reduced-motion`.
 - **Ferramentas:** Prettier com `endOfLine: "auto"` (o Git no Windows converte para CRLF); alias `@/` configurado no Vitest.
@@ -98,7 +98,7 @@ Decisões propostas. Confirme antes de criar o projeto. Decisão substituída: m
 ## D14 — Endereço do site configurável por variável (`NEXT_PUBLIC_SITE_URL`)
 
 - **Contexto:** o endereço pode mudar de `nome.pages.dev` para um domínio próprio (ex.: `dramariaeline.com.br`) sem novo commit.
-- **Escolha (2026-11-22):** o endereço vem da variável `NEXT_PUBLIC_SITE_URL`, lida no build por `obterUrlSite()` (`src/domain/site.ts`), validada com Zod (só `http` e `https`; remove barra final e caminho).
+- **Escolha (2026-11-22):** o endereço vem da variável `NEXT_PUBLIC_SITE_URL`, lida no build por `obterUrlSite()` (`src/lib/site.ts`, na época `src/domain/`), validada com Zod (só `http` e `https`; remove barra final e caminho).
 - **Com a variável:** `metadataBase`, canonical, `og:url`, `og:image` e `twitter`/Open Graph absolutos, `url` e `image` no JSON-LD, `robots.txt` com a linha `Sitemap` e `sitemap.xml` com a página.
 - **Sem a variável (ou inválida):** o site funciona igual, sem esses itens e com sitemap vazio.
 - **Como trocar de endereço:** alterar a variável no painel do host e refazer o deploy. Variável de produção só muda com confirmação da dona do projeto (CLAUDE.md, seção 10).
@@ -124,7 +124,7 @@ Decisões propostas. Confirme antes de criar o projeto. Decisão substituída: m
 ## D17 — Originais das fotos ficam em `img/` (fora do Git)
 
 - **Contexto (2026-11-22):** a dona do projeto colocou 11 fotos originais em `img/` (famílias, criança, clareamento, limpeza, restauração, extração e capturas de "feedback" de pacientes no Instagram).
-- **Escolha:** a pasta `img/` inteira está no `.gitignore`. O site atual só usa `public/images/hero.jpg` (a Dra., D10).
+- **Escolha:** a pasta `img/` inteira está no `.gitignore`. O site atual só usa `public/images/inicio.jpg` (a Dra., D10).
 - **Mapa dos recortes que o design usa na fase futura (confirmado pela dona do projeto em 2026-11-22):** `clar-antes` e `clar-depois` vêm da mesma foto, `clareamento.jpeg` (cada uma é um recorte, de cima e de baixo, 640 × 340 px no design); `limpeza-ad` vem de `feedback + limpeza.jpeg`; `restauracao-ad` vem de `restauração.jpeg`. Os outros arquivos já existiam em `docs/design/img/` com outro nome.
 - **Antes de publicar qualquer uma:** 🔴 autorização por escrito de cada pessoa retratada (rosto, família, criança, `@` de Instagram nas capturas) e conferência das regras de publicidade do CFO para "antes e depois" e depoimentos. Se forem usadas, devem ser recortadas, sem textos de terceiros, e otimizadas.
 
@@ -153,7 +153,7 @@ Decisões propostas. Confirme antes de criar o projeto. Decisão substituída: m
 
 - **Decisão (2026-11-22):** a dona do projeto pediu para seguir o design na escolha e no conteúdo da próxima seção. A seção `#sobre` usa o texto do design, sem alterações: título "Prevenir antes de doer é a minha forma de cuidar.", dois parágrafos e cinco etiquetas (Odontologia · UFJF; Especialista em Saúde da Família · UFJF/HU; Aperfeiçoamento em Cirurgia Oral · Suprema; Preceptora · Estácio; CRO-MG 64493).
 - **🔴 A conferir pela Dra. antes de depender dela:** as credenciais e os títulos de especialista são afirmações profissionais regulamentadas (regras de publicidade do CFO). O texto veio do design, e nenhum título foi acrescentado ou alterado por nós.
-- **Foto:** `public/images/sobre.jpg` (a Dra. analisando um raio-x, 854 × 1280, 105 KB), vinda de `img/raio-x.jpg` do design. Mostra só a própria profissional, sem pacientes (mesma lógica da foto do hero, D10).
+- **Foto:** `public/images/sobre.webp` (a Dra. analisando um raio-x, 854 × 1280; era JPG de 105 KB, convertida para WebP), vinda de `img/raio-x.jpg` do design. Mostra só a própria profissional, sem pacientes (mesma lógica da foto do hero, D10).
 - **Correção de acessibilidade:** o indicador "Role para conhecer" do hero tinha `aria-label` diferente do texto visível (WCAG 2.5.3). O `aria-label` foi removido, e o texto visível é o nome acessível. O problema ficava escondido porque o link só aparece quando a seção Sobre existe.
 - **Navegação:** `sobre` entrou em `secoesExistentes` (cabeçalho, menu do celular, rodapé e o indicador do hero).
 - **Verificado:** Lighthouse 100 nas quatro categorias (mobile e desktop), 40 testes unitários e 53 de fumaça.
@@ -224,10 +224,10 @@ Decisões propostas. Confirme antes de criar o projeto. Decisão substituída: m
 
 ## D27 — Versão do celular conforme o design (2026-11-23)
 
-- **Decisão:** a dona do projeto refez o design do celular no Claude Design (o "Site Completo" ganhou um layout próprio abaixo de 1180 px) e pediu para implementar. Cada seção ganhou um componente em `src/components/celular/`, mostrado até 1179 px (`nav:hidden`); o desktop fica como estava (`hidden nav:block`). O conteúdo vem do mesmo `src/domain/`, sem duplicar texto à mão.
+- **Decisão:** a dona do projeto refez o design do celular no Claude Design (o "Site Completo" ganhou um layout próprio abaixo de 1180 px) e pediu para implementar. Cada seção ganhou um componente em `src/components/secoes/<nome>/` (arquivos `*Celular.tsx`), mostrado até 1179 px (`largo:hidden`); o desktop fica como estava (`hidden largo:block`). O conteúdo vem do mesmo `src/content/`, sem duplicar texto à mão.
 - **Textos (perguntados à dona do projeto):**
-  - Tratamentos: títulos e frases curtas do design, em três grupos (Prevenção, Restaurações e cuidados, Reabilitação), guardadas em `celular` em `src/domain/tratamentos.ts`. Os cartões abrem o WhatsApp com a mensagem inicial "Olá, Dra. Maria Eline! Gostaria de saber mais sobre {tratamento}." (texto do design).
-  - Depoimentos: falas encurtadas e origem abreviada, como no design (`celular` em `src/domain/depoimentos.ts`).
+  - Tratamentos: títulos e frases curtas do design, em três grupos (Prevenção, Restaurações e cuidados, Reabilitação), guardadas em `celular` em `src/content/tratamentos.ts`. Os cartões abrem o WhatsApp com a mensagem inicial "Olá, Dra. Maria Eline! Gostaria de saber mais sobre {tratamento}." (texto do design).
+  - Depoimentos: falas encurtadas e origem abreviada, como no design (`celular` em `src/content/depoimentos.ts`).
   - **Não usados**, por decisão dela: a linha "Imagens com autorização por escrito dos pacientes.", as legendas novas de Resultados e a frase sobre a Suprema no Sobre. Sobre, Família, Consultório, Resultados e Contato mantêm os textos atuais, só com o layout novo. Em Resultados, a frase do clareamento aparece como nota abaixo das fotos.
 - **Escolhas 🟡:**
   - Rótulos e números de seção usam `azul-escuro` (e não o azul claro do design) para manter o contraste AA.
@@ -252,7 +252,7 @@ Decisões propostas. Confirme antes de criar o projeto. Decisão substituída: m
 
 - **Correção (2026-11-23):** as animações de rolagem não rodavam em Sobre e Por que prevenir. A linha do tempo da rolagem se prende ao elemento de rolagem mais próximo, e a seção com `overflow-hidden` virava esse elemento (sem rolar nada), então a animação já nascia terminada. Trocado por `overflow-clip` nas seções e no cartão de Contato, e a foto passou a usar uma linha do tempo nomeada (`view-timeline: --foto`) para o zoom da imagem. Regra: elemento com `revelar`, `revelar-foto` ou `animar-rotulo` não pode ter ancestral com `overflow: hidden`, `auto` ou `scroll` (use `clip`).
 - **Plano B para outros navegadores (2026-11-23):** onde o navegador não tem animação por rolagem (`animation-timeline`, como versões antigas do Safari e do iOS), o componente `RevelarAoRolar` marca os blocos que entram na tela (IntersectionObserver) e o CSS faz transições equivalentes. Onde há suporte, ele não faz nada; sem JavaScript ou com redução de movimento, o conteúdo fica visível.
-- **Revisão das animações ao rolar (2026-11-23):** a animação ligada ao movimento da rolagem (`animation-timeline`) foi trocada pelo mesmo modelo do design: ao entrar na tela, cada bloco anima uma vez, em tempo fixo. O componente `RevelarAoRolar` (IntersectionObserver) marca a página com `.anim-js` e cada bloco com `.is-visivel`; o CSS esconde o bloco até lá e roda a animação. Motivos: funciona em todos os navegadores (sem plano B separado), não ficava "meio transparente" conforme a rolagem e não dependia de ancestral sem `overflow`. As linhas decorativas observam o elemento pai, porque o `clip-path` que as esconde as tira da área visível. Sem JavaScript, ou com redução de movimento, nada é escondido.
+- **Revisão das animações ao rolar (2026-11-23):** a animação ligada ao movimento da rolagem (`animation-timeline`) foi trocada pelo mesmo modelo do design: ao entrar na tela, cada bloco anima uma vez, em tempo fixo. O componente `RevelarAoRolar` (IntersectionObserver) marca a página com `.animacao-ligada` (antes `.anim-js`) e cada bloco com `.bloco-visivel` (antes `.is-visivel`); o CSS esconde o bloco até lá e roda a animação. Motivos: funciona em todos os navegadores (sem plano B separado), não ficava "meio transparente" conforme a rolagem e não dependia de ancestral sem `overflow`. As linhas decorativas observam o elemento pai, porque o `clip-path` que as esconde as tira da área visível. Sem JavaScript, ou com redução de movimento, nada é escondido.
 - **Posição ao abrir uma seção pelo menu, no celular (2026-11-23):** o cabeçalho fixo tem 70 px e cobria o início de algumas seções (Família, Depoimentos, Contato). Cada seção ganhou uma margem de rolagem própria (`scroll-mt-*`), calculada pelo espaço interno da seção, para o primeiro texto ficar a cerca de 96 px do topo (26 px abaixo do cabeçalho). No desktop continua `scroll-mt-24`. Medido no Edge em 390×844 e 360×640. Em Sobre o texto fica mais abaixo (cerca de 170 px) porque a seção ocupa a tela toda e centraliza o conteúdo.
 - **Posição ao abrir uma seção pelo menu, no desktop (2026-11-23):** o componente `NavegacaoPorSecao` trata o clique nos links internos (a partir de 1180 px): se a seção é mais alta que a área livre sob o cabeçalho (81 px), ela para encostada nele, sem mostrar a seção de cima; se é mais baixa (como Depoimentos), fica centralizada, com a mesma sobra em cima e embaixo. O `scroll-mt` do desktop passou de 96 px para 80 px, para links abertos direto pelo endereço. No celular continua a margem de rolagem de cada seção. Medido no Edge em 1440×900, 1920×1080 e 1366×768, e coberto pelo teste `navegacao.spec.ts`.
 - **Ajuste fino no desktop (2026-11-23):** (1) o início passou a ocupar a altura toda da tela no desktop (`min-height: max(100dvh, 780px)`), com o conteúdo centralizado na vertical; antes eram 860 px fixos e, em 1920×1080, aparecia a seção de baixo. (2) A posição ao clicar no menu passou a se basear no conteúdo da seção, sem o espaço interno: o conteúdo fica centralizado na área livre sob o cabeçalho e, nas seções de fundo liso (Tratamentos, Sobre, Família, Dúvidas), sobe 40 px acima do centro. Depoimentos e Contato ficam no centro exato. Se o conteúdo não cabe, para 24 px abaixo do cabeçalho. Substitui a regra anterior (que olhava a caixa inteira da seção).
@@ -283,3 +283,33 @@ Decisões propostas. Confirme antes de criar o projeto. Decisão substituída: m
 - **CSS de animações dividido** (361 linhas) em `animacoes-inicio.css`, `animacoes-rolagem.css` e `movimento-reduzido.css`.
 - **Escolha 🟡:** os títulos de Depoimentos, Dúvidas e Tratamentos passaram a usar `text-wrap: pretty`, como os das outras seções (antes só alguns tinham). Não mudou a quantidade de linhas em nenhum tamanho de tela testado.
 - **Sem mudança visual, conferida:** capturas de tela de página inteira, publicado contra a branch, em 6 tamanhos (360, 390, 820, 1366, 1440 e 1920 px): iguais pixel a pixel por seção, exceto 1,3% a 1,7% de diferença de suavização do texto em Dúvidas e Contato no tamanho 1366×650 (posição fracionária de pixel; geometria idêntica).
+
+## D31 — Triagem técnica: duplicação, tokens, nomes e cabeçalhos (2026-11-23)
+
+- **Decisão:** aplicar o que a revisão `ANALISE-CODIGO.md` apontou e cabia no código, sem mudar texto nem visual.
+- **Peças novas:** `LinkExterno` (`rel="noopener noreferrer"` e cor de preenchimento num só lugar, no lugar de 9 links repetidos), `ParagrafoComDestaque` (o parágrafo da seção Sobre, antes copiado nas duas versões) e `variaveisCss` em `src/lib/animacao.ts` (o único `as CSSProperties` do projeto; eram 10).
+- **Tokens:** `text-miudo` (13 px), `text-corpo` (15 px), `text-leitura` (17 px), `max-w-conteudo`, `max-w-conteudo-celular`, `rounded-cartao` e `rounded-cartao-celular` em `tokens.css`. Os valores arbitrários nos componentes caíram de 194 para 122; o restante aparece uma ou duas vezes cada.
+- **Nomes:** o breakpoint `nav:` virou `largo:` (ele troca o layout inteiro, não o menu); `.anim-js` virou `.animacao-ligada`; `.is-visivel` virou `.bloco-visivel`; o campo `celular` de tratamentos e depoimentos virou `versaoCurta`; parâmetros abreviados (`e`, `t`) foram escritos por extenso; depoimentos ganharam `id` (a chave da lista deixou de ser texto cortado).
+- **Segurança:** `public/_headers` com `nosniff`, `X-Frame-Options`, `Referrer-Policy` e `Permissions-Policy`; `sandbox` no iframe do mapa. **Content-Security-Policy ficou de fora de propósito:** o Next injeta scripts inline e a regra só pode ser validada no site publicado (Cloudflare Pages). Fica como pendência.
+- **Imagem:** `sobre.jpg` virou `sobre.webp` (105 KB para 60 KB). `inicio.jpg` continua JPG de propósito: é a imagem do Open Graph, e WebP não é aceito por todos os serviços de pré-visualização.
+- **Teste:** o teste que lê o PRD passou a falhar com mensagem clara se a seção não for encontrada.
+- **Segunda rodada (2026-11-24):**
+  - `*Celular.tsx` virou `*Compacta.tsx` (a versão vale até 1179 px, inclusive tablet) e a prop `celular` de `SecaoPagina` virou `compacta`.
+  - `ItensDeCredencial`, `hrefDaSecao` (`src/lib/navegacao.ts`) e os hooks `useRolagemPassouDe` e `useFecharComEscape` (tirados do `Cabecalho`).
+  - `SECOES_SEM_VIES` saiu de `src/lib` e virou `secoesNoCentroExato` em `src/content/navegacao.ts`: quem cria uma seção edita só o conteúdo.
+  - Nomes de uma letra, booleanos sem prefixo (`estaRolado`, `emDestaque`, `centroExato`) e `itensVisiveis` (agora `itensDoMenu`) renomeados.
+  - Mais tokens (raios, sombras, espaço das seções compactas): valores arbitrários nos componentes: 108.
+  - `sharp` declarado em `devDependencies` (os scripts de imagem o usam). Testes de componente com Testing Library e jsdom (12 testes, 4 arquivos em `tests/componentes/`).
+  - `Content-Security-Policy-Report-Only` em `public/_headers`: só avisa no console, não bloqueia. **Pendente:** conferir o console no site publicado e trocar por `Content-Security-Policy`.
+  - Capturas de tela do início (só a foto da própria Dra.) em `docs/imagens/`, para o README.
+- **Cobertura:** `npm run test:cobertura` mede `src/lib` e `src/content` (100% das linhas hoje; mínimo exigido: 90%) e roda no CI no lugar de `npm test`. Os componentes visuais ficam de fora porque quem os cobre são os testes de navegador.
+- **Lighthouse local (2026-11-24, build desta branch servido com `serve`, sem CDN):** desktop 100/100/100/100; celular simulado: desempenho 94 (LCP 3,0 s) e as outras três categorias 100. O "100 no celular" registrado antes foi medido no site publicado; confirmar de novo depois do deploy.
+- **Não feito:** unificar o layout dos pares `X`/`XCompacta` (decisão de design da D27).
+
+## D32 — Content-Security-Policy ativa e testada (2026-11-24)
+
+- **Decisão:** a política de `public/_headers` deixou de ser `Report-Only` e passou a bloquear de verdade. Ela libera só o próprio site, `data:` para imagens e `https://www.google.com` para o mapa (`frame-src`); proíbe `<object>`, formulários e ser embutido em outro site.
+- **Como foi validada:** `scripts/testar-csp.mjs` (`npm run test:csp`) serve o `out/` com a política **bloqueante**, abre a página em desktop e celular, rola até o fim e falha se houver violação ou erro de JavaScript. Antes da correção abaixo havia 1 violação; agora são 0. O teste roda no CI depois do e2e.
+- **Causa da violação:** o Zod tenta compilar esquemas com `Function(...)` (modo JIT), o que a CSP sem `unsafe-eval` bloqueia (ele voltava sozinho ao modo comum, mas o console registrava a violação). Escolha 🟡: `src/content/zod.ts` liga `jitless` num lugar só e os três arquivos que usam Zod importam `z` de lá. Um teste confere a configuração.
+- **`unsafe-inline` continua em `script-src` e `style-src`:** o Next injeta os scripts de hidratação inline, e o Tailwind usa `style`. Trocar por nonces ou hashes exigiria servidor ou um passo de build; para um site estático sem dados de usuário o ganho é pequeno. Revisar se entrar formulário ou conteúdo de terceiros.
+- **Limite do teste:** ele vale para o site exportado servido localmente. Se o Cloudflare Pages injetar algo (por exemplo, o Web Analytics, se for ligado no painel), pode surgir violação só no ar. Conferir o console uma vez após o deploy.

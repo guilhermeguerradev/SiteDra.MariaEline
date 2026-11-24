@@ -1,3 +1,4 @@
+import { LinkExterno } from "@/src/components/ui/LinkExterno";
 import { dadosDeContato } from "@/src/content/dadosDeContato";
 import {
   buscarTratamento,
@@ -7,19 +8,19 @@ import {
 } from "@/src/content/tratamentos";
 import { montarLinkWhatsapp } from "@/src/lib/whatsapp";
 import { IconeTratamento } from "@/src/components/ui/IconeTratamento";
-import { CabecalhoDeSecaoCelular } from "@/src/components/ui/CabecalhoDeSecaoCelular";
+import { CabecalhoDeSecaoCompacta } from "@/src/components/ui/CabecalhoDeSecaoCompacta";
 
 const cartao =
-  "flex h-full rounded-[20px] bg-white p-4 text-petroleo shadow-[0_8px_24px_rgb(35_63_69/0.06)]";
+  "flex h-full rounded-cartao-compacto bg-white p-4 text-petroleo shadow-cartao-compacto";
 
-export function TratamentosCelular() {
+export function TratamentosCompacta() {
   return (
-    <div className="flex min-h-dvh flex-col justify-center px-5 py-[72px] nav:hidden">
-      <div className="mx-auto w-full max-w-[640px] flex flex-col gap-8">
-        <CabecalhoDeSecaoCelular
+    <div className="flex min-h-dvh flex-col justify-center px-5 py-secao-compacta largo:hidden">
+      <div className="mx-auto w-full max-w-conteudo-compacto flex flex-col gap-8">
+        <CabecalhoDeSecaoCompacta
           rotulo={secaoTratamentos.rotulo}
           titulo={secaoTratamentos.titulo}
-          idTitulo="titulo-tratamentos-celular"
+          idTitulo="titulo-tratamentos-compacta"
         />
 
         {gruposTratamentos.map((grupo) => (
@@ -27,7 +28,7 @@ export function TratamentosCelular() {
             <div className="flex items-baseline gap-2.5">
               <span
                 aria-hidden="true"
-                className="text-[13px] font-medium tracking-[.08em] text-azul-escuro"
+                className="text-miudo font-medium tracking-[.08em] text-azul-escuro"
               >
                 {grupo.numero}
               </span>
@@ -48,10 +49,8 @@ export function TratamentosCelular() {
                     key={id}
                     className={`revelar ${largo ? "col-span-2" : ""}`}
                   >
-                    <a
+                    <LinkExterno
                       href={link}
-                      target="_blank"
-                      rel="noopener noreferrer"
                       className={`${cartao} ${
                         largo
                           ? "items-center gap-3.5"
@@ -71,13 +70,13 @@ export function TratamentosCelular() {
                         }`}
                       >
                         <span className="text-base leading-tight font-medium">
-                          {tratamento.celular.titulo}
+                          {tratamento.versaoCurta.titulo}
                         </span>
-                        <span className="flex-1 text-[13px] leading-[1.4] text-[#3a3a3a]">
-                          {tratamento.celular.descricao}
+                        <span className="flex-1 text-miudo leading-[1.4] text-[#3a3a3a]">
+                          {tratamento.versaoCurta.descricao}
                         </span>
                         {!largo && (
-                          <span className="text-[13px] font-medium text-azul-escuro">
+                          <span className="text-miudo font-medium text-azul-escuro">
                             Saiba mais →
                           </span>
                         )}
@@ -90,7 +89,7 @@ export function TratamentosCelular() {
                           →
                         </span>
                       )}
-                    </a>
+                    </LinkExterno>
                   </li>
                 );
               })}

@@ -9,7 +9,7 @@ describe("seção Resultados", () => {
     expect(resultados.clareamento.legenda).toBe(
       "Resultado de apenas 1 semana de clareamento caseiro, com acompanhamento profissional e a colaboração do paciente.",
     );
-    expect(resultados.casos.map((c) => c.legenda)).toEqual([
+    expect(resultados.casos.map((caso) => caso.legenda)).toEqual([
       "Limpeza · antes e depois",
       "Restaurações",
       "Extração de sisos",
@@ -28,7 +28,7 @@ describe("seção Resultados", () => {
       clareamento.par,
       clareamento.antes,
       clareamento.depois,
-      ...casos.map((c) => c.imagem),
+      ...casos.map((caso) => caso.imagem),
     ];
     expect(imagens).toHaveLength(6);
     for (const imagem of imagens) {

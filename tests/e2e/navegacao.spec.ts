@@ -24,10 +24,10 @@ test("no desktop, o título da seção aparece abaixo do cabeçalho, sem ser cor
       .click();
     await expect(page).toHaveURL(new RegExp(`#${id}$`));
     await page.waitForTimeout(1500);
-    const m = await page.evaluate((id) => {
+    const medidas = await page.evaluate((id) => {
       const secao = document.getElementById(id)!;
-      const titulo = [...secao.querySelectorAll("h2")].find(
-        (h) => (h as HTMLElement).offsetParent !== null,
+      const titulo = [...secao.querySelectorAll<HTMLElement>("h2")].find(
+        (candidato) => candidato.offsetParent !== null,
       )!;
       const r = titulo.getBoundingClientRect();
       return {
@@ -38,10 +38,12 @@ test("no desktop, o título da seção aparece abaixo do cabeçalho, sem ser cor
         tela: window.innerHeight,
       };
     }, id);
-    expect(m.topo, `${id}: título escondido`).toBeGreaterThanOrEqual(
-      m.cabecalho + 20,
+    expect(medidas.topo, `${id}: título escondido`).toBeGreaterThanOrEqual(
+      medidas.cabecalho + 20,
     );
-    expect(m.base, `${id}: título fora da tela`).toBeLessThanOrEqual(m.tela);
+    expect(medidas.base, `${id}: título fora da tela`).toBeLessThanOrEqual(
+      medidas.tela,
+    );
   }
 });
 
@@ -67,10 +69,10 @@ test("no celular, o título da seção aparece abaixo do cabeçalho, sem ser cor
       .getByRole("link", { name: rotulo, exact: true })
       .click();
     await page.waitForTimeout(1500);
-    const m = await page.evaluate((id) => {
+    const medidas = await page.evaluate((id) => {
       const secao = document.getElementById(id)!;
-      const titulo = [...secao.querySelectorAll("h2")].find(
-        (h) => (h as HTMLElement).offsetParent !== null,
+      const titulo = [...secao.querySelectorAll<HTMLElement>("h2")].find(
+        (candidato) => candidato.offsetParent !== null,
       )!;
       return {
         titulo: titulo.getBoundingClientRect().top,
@@ -78,8 +80,8 @@ test("no celular, o título da seção aparece abaixo do cabeçalho, sem ser cor
           .bottom,
       };
     }, id);
-    expect(m.titulo, `${id}: título escondido`).toBeGreaterThanOrEqual(
-      m.cabecalho,
+    expect(medidas.titulo, `${id}: título escondido`).toBeGreaterThanOrEqual(
+      medidas.cabecalho,
     );
   }
 });
@@ -116,17 +118,20 @@ test("em várias telas o início cabe e a navegação não esconde o título", a
     );
     expect(inicio.estoura, `${largura}x${altura}: rolagem lateral`).toBe(false);
 
-    const celular = largura < 1180;
+    const telaCompacta = largura < 1180;
     for (const [rotulo, id] of secoes) {
-      if (celular) await page.getByRole("button", { name: "Menu" }).click();
-      await (celular ? page.locator("#menu-mobile") : page.getByRole("banner"))
+      if (telaCompacta)
+        await page.getByRole("button", { name: "Menu" }).click();
+      await (
+        telaCompacta ? page.locator("#menu-mobile") : page.getByRole("banner")
+      )
         .getByRole("link", { name: rotulo, exact: true })
         .click();
       await page.waitForTimeout(1100);
-      const m = await page.evaluate((id) => {
+      const medidas = await page.evaluate((id) => {
         const titulo = [
-          ...document.getElementById(id)!.querySelectorAll("h2"),
-        ].find((h) => (h as HTMLElement).offsetParent !== null)!;
+          ...document.getElementById(id)!.querySelectorAll<HTMLElement>("h2"),
+        ].find((candidato) => candidato.offsetParent !== null)!;
         return {
           topo: titulo.getBoundingClientRect().top,
           cabecalho: document.querySelector("header")!.getBoundingClientRect()
@@ -134,9 +139,9 @@ test("em várias telas o início cabe e a navegação não esconde o título", a
         };
       }, id);
       expect(
-        m.topo,
+        medidas.topo,
         `${largura}x${altura} ${id}: título escondido`,
-      ).toBeGreaterThanOrEqual(m.cabecalho);
+      ).toBeGreaterThanOrEqual(medidas.cabecalho);
     }
   }
 });

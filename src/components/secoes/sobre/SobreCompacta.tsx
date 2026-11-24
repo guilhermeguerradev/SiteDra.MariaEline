@@ -1,13 +1,15 @@
 import Image from "next/image";
+import { ItensDeCredencial } from "@/src/components/ui/ItensDeCredencial";
 import { sobre } from "@/src/content/sobre";
+import { ParagrafoComDestaque } from "@/src/components/ui/ParagrafoComDestaque";
 import { RotuloDeSecao } from "@/src/components/ui/RotuloDeSecao";
 
-export function SobreCelular() {
+export function SobreCompacta() {
   return (
-    <div className="flex min-h-dvh flex-col justify-center px-5 py-16 nav:hidden">
-      <div className="mx-auto w-full max-w-[640px] flex flex-col gap-[22px]">
+    <div className="flex min-h-dvh flex-col justify-center px-5 py-16 largo:hidden">
+      <div className="mx-auto w-full max-w-conteudo-compacto flex flex-col gap-[22px]">
         <div className="revelar grid grid-cols-[140px_minmax(0,1fr)] items-end gap-4">
-          <div className="revelar-foto relative aspect-[4/5] overflow-hidden rounded-[20px] shadow-[0_14px_30px_rgb(35_63_69/0.14)]">
+          <div className="revelar-foto relative aspect-[4/5] overflow-hidden rounded-cartao-compacto shadow-[0_14px_30px_rgb(35_63_69/0.14)]">
             <Image
               src={sobre.foto.src}
               alt={sobre.foto.alt}
@@ -20,7 +22,7 @@ export function SobreCelular() {
           <div className="flex flex-col gap-2.5">
             <RotuloDeSecao tamanho="pequeno">{sobre.rotulo}</RotuloDeSecao>
             <h2
-              id="titulo-sobre-celular"
+              id="titulo-sobre-compacta"
               className="m-0 text-[26px] leading-[1.1] font-medium tracking-[-0.01em] text-pretty text-petroleo"
             >
               {sobre.titulo}
@@ -30,35 +32,22 @@ export function SobreCelular() {
 
         <div className="revelar flex flex-col gap-3">
           {sobre.paragrafos.map((trechos) => (
-            <p
+            <ParagrafoComDestaque
               key={trechos[0].texto}
-              className="m-0 text-base leading-[1.6] text-pretty"
-            >
-              {trechos.map((trecho) =>
-                trecho.destaque ? (
-                  <strong key={trecho.texto} className="text-petroleo">
-                    {trecho.texto}
-                  </strong>
-                ) : (
-                  trecho.texto
-                ),
-              )}
-            </p>
+              trechos={trechos}
+              className="text-base leading-[1.6]"
+            />
           ))}
         </div>
 
         <ul className="revelar m-0 grid list-none grid-cols-2 gap-2 p-0">
-          {sobre.credenciais.map((credencial) => (
-            <li
-              key={credencial}
-              className="rounded-[14px] bg-gelo px-3 py-2.5 text-[13px] leading-[1.3] text-petroleo"
-            >
-              {credencial}
-            </li>
-          ))}
+          <ItensDeCredencial
+            credenciais={sobre.credenciais}
+            className="rounded-[14px] bg-gelo px-3 py-2.5 text-miudo leading-[1.3] text-petroleo"
+          />
         </ul>
         <ul className="revelar m-0 list-none self-start p-0">
-          <li className="rounded-full border border-azul px-3.5 py-2 text-[13px] text-petroleo">
+          <li className="rounded-full border border-azul px-3.5 py-2 text-miudo text-petroleo">
             {sobre.registro}
           </li>
         </ul>

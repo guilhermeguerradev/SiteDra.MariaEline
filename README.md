@@ -4,6 +4,10 @@ Site institucional de uma página (landing page) da cirurgiã-dentista Maria Eli
 
 Publicado em <https://dramariaeline.pages.dev>.
 
+![Início do site no desktop](docs/imagens/inicio-desktop.png)
+
+<img src="docs/imagens/inicio-celular.png" alt="Início do site no celular" width="260">
+
 ## Stack
 
 | Área       | Escolha                                                                         |
@@ -12,7 +16,7 @@ Publicado em <https://dramariaeline.pages.dev>.
 | Linguagem  | TypeScript estrito (`any` proibido pelo ESLint)                                 |
 | Estilo     | Tailwind CSS 4, com tokens em `src/styles/`                                     |
 | Validação  | Zod (dados de contato)                                                          |
-| Testes     | Vitest (unitários) e Playwright (navegador, com `axe` para acessibilidade)      |
+| Testes     | Vitest (unitários e de componentes) e Playwright (navegador, com `axe`)         |
 | Qualidade  | ESLint, Prettier, gitleaks e GitHub Actions                                     |
 | Hospedagem | Cloudflare Pages (plano gratuito), publicação automática a cada merge na `main` |
 
@@ -27,14 +31,16 @@ npm install
 npm run dev          # servidor de desenvolvimento em http://localhost:3000
 ```
 
-| Comando                | O que faz                                                             |
-| ---------------------- | --------------------------------------------------------------------- |
-| `npm run lint`         | ESLint                                                                |
-| `npm run typecheck`    | Gera os tipos do Next e roda o `tsc`                                  |
-| `npm run format:check` | Confere a formatação (Prettier); `npm run format` corrige             |
-| `npm test`             | Testes unitários (Vitest)                                             |
-| `npm run build`        | Gera o site estático na pasta `out/`                                  |
-| `npm run test:e2e`     | Testes de navegador (Playwright) sobre o `out/`; rode o `build` antes |
+| Comando                  | O que faz                                                                     |
+| ------------------------ | ----------------------------------------------------------------------------- |
+| `npm run lint`           | ESLint                                                                        |
+| `npm run typecheck`      | Gera os tipos do Next e roda o `tsc`                                          |
+| `npm run format:check`   | Confere a formatação (Prettier); `npm run format` corrige                     |
+| `npm test`               | Testes unitários (Vitest)                                                     |
+| `npm run test:cobertura` | Testes com cobertura da lógica (`lib` e `content`), mínimo de 90%             |
+| `npm run build`          | Gera o site estático na pasta `out/`                                          |
+| `npm run test:e2e`       | Testes de navegador (Playwright) sobre o `out/`; rode o `build` antes         |
+| `npm run test:csp`       | Confere que o site não viola a Content-Security-Policy (rode o `build` antes) |
 
 Para o Playwright pela primeira vez: `npx playwright install chromium`.
 
@@ -49,7 +55,7 @@ app/                 Página e layout do Next.js, robots e sitemap. Sem regra de
 src/
   components/
     secoes/<nome>/   Cada seção do site. Tem a versão para telas grandes (Sobre.tsx)
-                     e a versão para telas menores que 1180 px (SobreCelular.tsx).
+                     e a versão para telas menores que 1180 px (SobreCompacta.tsx).
     layout/          Cabeçalho e rodapé.
     ui/              Peças reutilizáveis (logo, ícones, cabeçalho de seção...).
     comportamento/   Componentes só de comportamento, sem visual: navegação entre
@@ -62,6 +68,7 @@ src/
 public/images/       Imagens otimizadas (WebP).
 tests/
   unit/              Vitest. Espelha content/ e lib/.
+  componentes/       Vitest + Testing Library. Menu, links e animação ao rolar.
   e2e/               Playwright. Um arquivo por assunto.
 scripts/             Preparo das imagens (corte e otimização) a partir dos originais.
 docs/                PRD, plano, registro de decisões e referência de design.
@@ -69,15 +76,21 @@ docs/                PRD, plano, registro de decisões e referência de design.
 
 A direção das dependências é `app → components → content/lib`. `content` e `lib` nunca importam componentes nem a pasta `app`. Todos os nomes são em português, exceto os que o framework impõe.
 
+As seções com duas versões (`Sobre.tsx` e `SobreCompacta.tsx`) dividem as peças iguais em `components/ui/` (por exemplo `ParagrafoComDestaque` e `LinkExterno`); só o layout muda entre elas. O breakpoint `largo:` (1180 px) é o que troca de uma versão para a outra.
+
 ### Decisões de projeto que valem saber
 
 - **Conteúdo fora dos componentes.** Textos, serviços e contatos ficam em `src/content/` como objetos tipados. Os componentes só apresentam. Isso permite testar o conteúdo (por exemplo, que os tratamentos batem com o PRD) sem renderizar nada.
-- **Duas versões de cada seção.** O design do celular é outro layout, não só uma versão menor do desktop. Por isso cada seção tem um componente para telas pequenas (`celular/`) e outro para telas grandes, e o CSS mostra um ou outro no ponto de quebra de 1180 px. O padrão fica num só lugar, o componente `SecaoPagina`. O conteúdo vem da mesma fonte, então os textos não se duplicam à mão.
+- **Duas versões de cada seção.** O design do celular é outro layout, não só uma versão menor do desktop. Por isso cada seção tem um componente para telas pequenas (`*Compacta.tsx`) e outro para telas grandes, e o CSS mostra um ou outro no ponto de quebra de 1180 px. O padrão fica num só lugar, o componente `SecaoPagina`. O conteúdo vem da mesma fonte, então os textos não se duplicam à mão.
 - **Medidas repetidas viram utilitários.** Espaço interno das seções, título e rótulo ficam em `src/styles/secoes.css`; a altura do cabeçalho é uma variável CSS (`--altura-cabecalho`) lida também pelo JavaScript, e um teste confere que o valor bate com a altura real.
 - **Lógica separada do navegador.** A conta de onde a página para ao clicar no menu é uma função pura (`src/lib/posicaoDaSecao.ts`), testada sem abrir navegador; o componente só mede a página e entrega as medidas.
 - **Animações em CSS, ativadas ao entrar na tela.** Um observador marca cada bloco que aparece e o CSS faz o resto. Sem JavaScript, ou com "reduzir movimento" ligado no sistema, nada fica escondido.
 - **Site estático.** Gera HTML puro, sem servidor, o que mantém o custo zero e o carregamento rápido.
 - **Acessibilidade e desempenho** são verificados nos testes (axe, teclado, imagens com texto alternativo) e nas métricas do Lighthouse.
+
+## Desenvolvimento com IA
+
+O código foi escrito em pares com o Claude Code, seguindo as regras de [`CLAUDE.md`](CLAUDE.md). Cada mudança entra por pull request, com CI verde e revisão humana antes do merge. As escolhas técnicas e o motivo de cada uma ficam em [`docs/DECISOES.md`](docs/DECISOES.md).
 
 ## Fluxo de trabalho
 

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { consultorio } from "@/src/content/consultorio";
-import { CabecalhoDeSecaoCelular } from "@/src/components/ui/CabecalhoDeSecaoCelular";
+import { CabecalhoDeSecaoCompacta } from "@/src/components/ui/CabecalhoDeSecaoCompacta";
 import { RotuloDeSecao } from "@/src/components/ui/RotuloDeSecao";
 
 const [mesa, atendimento, modelo, familiaEspelho] = consultorio.fotos;
@@ -19,19 +19,19 @@ function Foto({ foto, sizes }: FotoProps) {
       width={foto.largura}
       height={foto.altura}
       sizes={sizes}
-      className="revelar block h-auto w-full rounded-[18px]"
+      className="revelar block h-auto w-full rounded-moldura"
     />
   );
 }
 
-export function ConsultorioCelular() {
+export function ConsultorioCompacta() {
   return (
-    <div className="flex min-h-dvh flex-col justify-center px-5 py-[72px] nav:hidden">
-      <div className="mx-auto w-full max-w-[640px] flex flex-col gap-7">
-        <CabecalhoDeSecaoCelular
+    <div className="flex min-h-dvh flex-col justify-center px-5 py-secao-compacta largo:hidden">
+      <div className="mx-auto w-full max-w-conteudo-compacto flex flex-col gap-7">
+        <CabecalhoDeSecaoCompacta
           rotulo={consultorio.rotulo}
           titulo={consultorio.titulo}
-          idTitulo="titulo-consultorio-celular"
+          idTitulo="titulo-consultorio-compacta"
         />
 
         <div className="flex flex-col gap-2">
@@ -47,7 +47,7 @@ export function ConsultorioCelular() {
           </div>
         </div>
 
-        <div className="revelar grid grid-cols-[112px_minmax(0,1fr)] items-center gap-3.5 rounded-[22px] bg-white p-2.5 shadow-[0_8px_24px_rgb(35_63_69/0.06)]">
+        <div className="revelar grid grid-cols-[112px_minmax(0,1fr)] items-center gap-3.5 rounded-cartao-medio bg-white p-2.5 shadow-cartao-compacto">
           <Image
             src={exclusivo.foto.src}
             alt={exclusivo.foto.alt}
@@ -58,7 +58,7 @@ export function ConsultorioCelular() {
           />
           <div className="flex flex-col gap-2 pr-1.5">
             <RotuloDeSecao tamanho="minimo">{exclusivo.rotulo}</RotuloDeSecao>
-            <span className="text-[17px] leading-[1.3] font-medium text-pretty text-petroleo">
+            <span className="text-leitura leading-[1.3] font-medium text-pretty text-petroleo">
               {exclusivo.destaque}
             </span>
             <span className="text-xs text-petroleo/75">

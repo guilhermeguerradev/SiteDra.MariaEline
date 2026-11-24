@@ -2,7 +2,7 @@ import { rodape } from "@/src/content/rodape";
 
 export type Trecho = {
   texto: string;
-  destaque?: boolean;
+  emDestaque?: boolean;
 };
 
 // Textos da seção Sobre. Fonte: docs/design/Site Completo.dc.html, usados a
@@ -12,7 +12,7 @@ export const sobre = {
   rotulo: "Sobre a Dra. Maria Eline",
   titulo: "Prevenir antes de doer é a minha forma de cuidar.",
   foto: {
-    src: "/images/sobre.jpg",
+    src: "/images/sobre.webp",
     alt: "Dra. Maria Eline analisando um raio-x",
     largura: 854,
     altura: 1280,
@@ -20,11 +20,11 @@ export const sobre = {
   paragrafos: [
     [
       { texto: "Sou cirurgiã-dentista formada pela " },
-      { texto: "UFJF", destaque: true },
+      { texto: "UFJF", emDestaque: true },
       { texto: ", especialista em " },
-      { texto: "Saúde da Família", destaque: true },
+      { texto: "Saúde da Família", emDestaque: true },
       { texto: " e preceptora na " },
-      { texto: "Faculdade Estácio", destaque: true },
+      { texto: "Faculdade Estácio", emDestaque: true },
       { texto: ", onde acompanho a formação de novos dentistas." },
     ],
     [
@@ -34,7 +34,7 @@ export const sobre = {
       },
       {
         texto: "crianças, adolescentes, adultos e idosos",
-        destaque: true,
+        emDestaque: true,
       },
       { texto: " com o mesmo carinho." },
     ],
@@ -49,5 +49,5 @@ export const sobre = {
 } as const;
 
 export function textoDoParagrafo(trechos: readonly Trecho[]): string {
-  return trechos.map((t) => t.texto).join("");
+  return trechos.map((trecho) => trecho.texto).join("");
 }

@@ -36,12 +36,12 @@ Objetivo: o código entra no GitHub já com as regras de qualidade ativas. Nenhu
 - [x] Selos e chips do design
 - [x] Botão Agendar e botão WhatsApp com o número configurado (link testado em unitário; teste de fumaça na Etapa 3)
 - [ ] 🔴 Foto da família no lugar do PLACEHOLDER (o design usa a foto da Dra., ver D10; confirmar se a foto da família ainda será usada)
-- [x] 🔴 Número de WhatsApp em `src/domain/` (D09)
+- [x] 🔴 Número de WhatsApp em `src/content/` (D09)
 
 ## Etapa 3 — Qualidade
 
 - [x] Teste de fumaça com Playwright: página carrega, botões de WhatsApp com o número certo, nenhum link quebrado (24 execuções passando, desktop e 360px)
-- [x] Testes de `src/domain/` (dados válidos) (14 testes unitários)
+- [x] Testes de `src/content/` (dados válidos) (14 testes unitários)
 - [x] Lighthouse com a meta a confirmar (medido: 100 nas quatro categorias, mobile e desktop; meta de 90+ proposta em D12, aguardando confirmação)
 - [x] Revisão de acessibilidade: contraste, teclado, texto alternativo (axe sem violações; contraste corrigido nos chips, D11; foco visível)
 - [x] Revisão em 360px (captura de tela com viewport real e testes em 360px)
@@ -79,7 +79,7 @@ Ordem sugerida, da mais pronta para a mais sensível:
 
 ### 5.3 Sobre (`#sobre`)
 
-- [x] Foto `raio-x` (a Dra. analisando um raio-x), em `public/images/sobre.jpg` (D20).
+- [x] Foto `raio-x` (a Dra. analisando um raio-x), em `public/images/sobre.webp` (D20).
 - [x] 🔴 Texto do design usado a pedido da dona do projeto (D20). Registro de especialista em Saúde da Família confirmado por ela (D24). Pendente: confirmar com o CRO-MG a divulgação do curso de aperfeiçoamento em Cirurgia Oral.
 - [x] Frase "Prevenir antes de doer é a minha forma de cuidar." usada como no design (D20).
 

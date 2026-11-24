@@ -1,4 +1,4 @@
-import { z } from "zod";
+import { z } from "@/src/content/zod";
 
 const urlSchema = z.url({ protocol: /^https?$/ });
 

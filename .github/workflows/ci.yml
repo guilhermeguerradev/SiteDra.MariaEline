@@ -28,10 +28,11 @@ jobs:
       - run: npm run lint
       - run: npm run typecheck
       - run: npm run format:check
-      - run: npm run test
+      - run: npm run test:cobertura
       - run: npm run build
       - run: npx playwright install --with-deps chromium
       - run: npm run test:e2e
+      - run: npm run test:csp
 
   segredos:
     name: gitleaks (segredos no histórico)

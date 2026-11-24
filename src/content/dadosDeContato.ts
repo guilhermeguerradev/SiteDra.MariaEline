@@ -1,4 +1,4 @@
-import { z } from "zod";
+import { z } from "@/src/content/zod";
 
 export const dadosDeContatoSchema = z.object({
   whatsapp: z

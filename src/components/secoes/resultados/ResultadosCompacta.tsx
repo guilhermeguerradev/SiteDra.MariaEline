@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { resultados } from "@/src/content/resultados";
-import { CabecalhoDeSecaoCelular } from "@/src/components/ui/CabecalhoDeSecaoCelular";
+import { CabecalhoDeSecaoCompacta } from "@/src/components/ui/CabecalhoDeSecaoCompacta";
 
 const { clareamento, casos } = resultados;
 
@@ -19,10 +19,10 @@ function Figura({
   return (
     <li className="revelar m-0 flex list-none flex-col gap-2">
       <figure className="m-0 flex flex-col gap-2">
-        <div className="overflow-hidden rounded-[18px] bg-petroleo p-[3px]">
+        <div className="overflow-hidden rounded-moldura bg-petroleo p-[3px]">
           {children}
         </div>
-        <figcaption className="text-[13px] leading-[1.3] font-medium text-petroleo">
+        <figcaption className="text-miudo leading-[1.3] font-medium text-petroleo">
           {legenda}
         </figcaption>
       </figure>
@@ -71,17 +71,17 @@ function ParEmpilhado() {
   );
 }
 
-export function ResultadosCelular() {
+export function ResultadosCompacta() {
   const [limpeza, restauracao, extracao] = casos;
   const ordem = [extracao, limpeza, restauracao];
 
   return (
-    <div className="flex min-h-dvh flex-col justify-center px-5 py-[72px] nav:hidden">
-      <div className="mx-auto w-full max-w-[640px] flex flex-col gap-7">
-        <CabecalhoDeSecaoCelular
+    <div className="flex min-h-dvh flex-col justify-center px-5 py-secao-compacta largo:hidden">
+      <div className="mx-auto w-full max-w-conteudo-compacto flex flex-col gap-7">
+        <CabecalhoDeSecaoCompacta
           rotulo={resultados.rotulo}
           titulo={resultados.titulo}
-          idTitulo="titulo-resultados-celular"
+          idTitulo="titulo-resultados-compacta"
         />
 
         <ul className="m-0 grid list-none grid-cols-2 gap-x-2.5 gap-y-[18px] p-0">

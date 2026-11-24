@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { familia } from "@/src/content/familia";
-import { CabecalhoDeSecaoCelular } from "@/src/components/ui/CabecalhoDeSecaoCelular";
+import { CabecalhoDeSecaoCompacta } from "@/src/components/ui/CabecalhoDeSecaoCompacta";
 
 function IconeSorriso() {
   return (
@@ -22,19 +22,19 @@ function IconeSorriso() {
   );
 }
 
-export function FamiliaCelular() {
+export function FamiliaCompacta() {
   return (
-    <div className="flex min-h-dvh flex-col justify-center px-5 py-16 nav:hidden">
-      <div className="mx-auto w-full max-w-[640px] flex flex-col gap-[22px]">
-        <CabecalhoDeSecaoCelular
+    <div className="flex min-h-dvh flex-col justify-center px-5 py-16 largo:hidden">
+      <div className="mx-auto w-full max-w-conteudo-compacto flex flex-col gap-[22px]">
+        <CabecalhoDeSecaoCompacta
           rotulo={familia.rotulo}
           titulo={familia.titulo}
-          idTitulo="titulo-familia-celular"
+          idTitulo="titulo-familia-compacta"
           tamanho="medio"
         />
 
         <div className="revelar grid grid-cols-[minmax(0,1.35fr)_minmax(0,1fr)] gap-2">
-          <div className="revelar-foto relative aspect-[1/1.2] overflow-hidden rounded-[20px]">
+          <div className="revelar-foto relative aspect-[1/1.2] overflow-hidden rounded-cartao-compacto">
             <Image
               src={familia.fotoPrincipal.src}
               alt={familia.fotoPrincipal.alt}
@@ -44,7 +44,7 @@ export function FamiliaCelular() {
               className="size-full object-cover object-[50%_25%]"
             />
           </div>
-          <div className="revelar-foto relative overflow-hidden rounded-[20px]">
+          <div className="revelar-foto relative overflow-hidden rounded-cartao-compacto">
             <Image
               src={familia.fotoDestaque.src}
               alt={familia.fotoDestaque.alt}
@@ -60,7 +60,7 @@ export function FamiliaCelular() {
           {familia.perguntas.map((pergunta) => (
             <li
               key={pergunta}
-              className="flex items-center gap-3.5 rounded-[18px] border border-petroleo/10 bg-creme px-4 py-3.5 text-[15px] leading-[1.35] font-medium text-petroleo"
+              className="flex items-center gap-3.5 rounded-moldura border border-petroleo/10 bg-creme px-4 py-3.5 text-corpo leading-[1.35] font-medium text-petroleo"
             >
               <span className="flex size-9 flex-none items-center justify-center rounded-full border border-azul/50 bg-white text-azul-escuro">
                 <IconeSorriso />
@@ -77,7 +77,7 @@ export function FamiliaCelular() {
           <p className="m-0 text-base leading-[1.6] text-petroleo">
             {familia.paragrafos[1]}
           </p>
-          <p className="m-0 text-[17px] leading-[1.45] font-semibold text-petroleo">
+          <p className="m-0 text-leitura leading-[1.45] font-semibold text-petroleo">
             {familia.fecho}
           </p>
         </div>

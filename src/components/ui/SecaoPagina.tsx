@@ -6,9 +6,9 @@ type Props = {
   className?: string;
   /**
    * Versão da seção para telas menores que 1180 px. Quando existe, o conteúdo
-   * de `children` só aparece nas telas grandes e `celular` só nas pequenas.
+   * de `children` só aparece nas telas grandes e `compacta` só nas pequenas.
    */
-  celular?: React.ReactNode;
+  compacta?: React.ReactNode;
   children: React.ReactNode;
 };
 
@@ -19,17 +19,17 @@ export function SecaoPagina({
   id,
   idTitulo,
   className = "",
-  celular,
+  compacta,
   children,
 }: Props) {
-  const aparencia = celular ? "hidden nav:block" : "";
+  const aparencia = compacta ? "hidden largo:block" : "";
   return (
     <section
       id={id}
       aria-labelledby={idTitulo}
       className={`scroll-mt-(--altura-cabecalho) ${className}`}
     >
-      {celular}
+      {compacta}
       <div className={`secao-px secao-py relative ${aparencia}`}>
         {children}
       </div>
