@@ -305,3 +305,11 @@ Decisões propostas. Confirme antes de criar o projeto. Decisão substituída: m
 - **Cobertura:** `npm run test:cobertura` mede `src/lib` e `src/content` (100% das linhas hoje; mínimo exigido: 90%) e roda no CI no lugar de `npm test`. Os componentes visuais ficam de fora porque quem os cobre são os testes de navegador.
 - **Lighthouse local (2026-11-24, build desta branch servido com `serve`, sem CDN):** desktop 100/100/100/100; celular simulado: desempenho 94 (LCP 3,0 s) e as outras três categorias 100. O "100 no celular" registrado antes foi medido no site publicado; confirmar de novo depois do deploy.
 - **Não feito:** unificar o layout dos pares `X`/`XCompacta` (decisão de design da D27).
+
+## D32 — Content-Security-Policy ativa e testada (2026-11-24)
+
+- **Decisão:** a política de `public/_headers` deixou de ser `Report-Only` e passou a bloquear de verdade. Ela libera só o próprio site, `data:` para imagens e `https://www.google.com` para o mapa (`frame-src`); proíbe `<object>`, formulários e ser embutido em outro site.
+- **Como foi validada:** `scripts/testar-csp.mjs` (`npm run test:csp`) serve o `out/` com a política **bloqueante**, abre a página em desktop e celular, rola até o fim e falha se houver violação ou erro de JavaScript. Antes da correção abaixo havia 1 violação; agora são 0. O teste roda no CI depois do e2e.
+- **Causa da violação:** o Zod tenta compilar esquemas com `Function(...)` (modo JIT), o que a CSP sem `unsafe-eval` bloqueia (ele voltava sozinho ao modo comum, mas o console registrava a violação). Escolha 🟡: `src/content/zod.ts` liga `jitless` num lugar só e os três arquivos que usam Zod importam `z` de lá. Um teste confere a configuração.
+- **`unsafe-inline` continua em `script-src` e `style-src`:** o Next injeta os scripts de hidratação inline, e o Tailwind usa `style`. Trocar por nonces ou hashes exigiria servidor ou um passo de build; para um site estático sem dados de usuário o ganho é pequeno. Revisar se entrar formulário ou conteúdo de terceiros.
+- **Limite do teste:** ele vale para o site exportado servido localmente. Se o Cloudflare Pages injetar algo (por exemplo, o Web Analytics, se for ligado no painel), pode surgir violação só no ar. Conferir o console uma vez após o deploy.

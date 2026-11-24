@@ -12,7 +12,8 @@
     "test:cobertura": "vitest run --coverage",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "test:csp": "node scripts/testar-csp.mjs"
   },
   "dependencies": {
     "next": "16.4.6",

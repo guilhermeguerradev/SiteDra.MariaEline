@@ -31,15 +31,16 @@ npm install
 npm run dev          # servidor de desenvolvimento em http://localhost:3000
 ```
 
-| Comando                  | O que faz                                                             |
-| ------------------------ | --------------------------------------------------------------------- |
-| `npm run lint`           | ESLint                                                                |
-| `npm run typecheck`      | Gera os tipos do Next e roda o `tsc`                                  |
-| `npm run format:check`   | Confere a formatação (Prettier); `npm run format` corrige             |
-| `npm test`               | Testes unitários (Vitest)                                             |
-| `npm run test:cobertura` | Testes com cobertura da lógica (`lib` e `content`), mínimo de 90%     |
-| `npm run build`          | Gera o site estático na pasta `out/`                                  |
-| `npm run test:e2e`       | Testes de navegador (Playwright) sobre o `out/`; rode o `build` antes |
+| Comando                  | O que faz                                                                     |
+| ------------------------ | ----------------------------------------------------------------------------- |
+| `npm run lint`           | ESLint                                                                        |
+| `npm run typecheck`      | Gera os tipos do Next e roda o `tsc`                                          |
+| `npm run format:check`   | Confere a formatação (Prettier); `npm run format` corrige                     |
+| `npm test`               | Testes unitários (Vitest)                                                     |
+| `npm run test:cobertura` | Testes com cobertura da lógica (`lib` e `content`), mínimo de 90%             |
+| `npm run build`          | Gera o site estático na pasta `out/`                                          |
+| `npm run test:e2e`       | Testes de navegador (Playwright) sobre o `out/`; rode o `build` antes         |
+| `npm run test:csp`       | Confere que o site não viola a Content-Security-Policy (rode o `build` antes) |
 
 Para o Playwright pela primeira vez: `npx playwright install chromium`.
 
