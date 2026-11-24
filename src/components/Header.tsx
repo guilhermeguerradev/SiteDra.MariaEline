@@ -40,16 +40,18 @@ export function Header() {
       className={`animar-menu fixed inset-x-0 top-0 z-50 backdrop-blur-[14px] transition-[background-color] duration-300 ${fundo}`}
     >
       <div
-        className={`mx-auto flex max-w-[1440px] items-center justify-between gap-6 px-5 py-3.5 text-creme transition-[padding] duration-300 nav:px-16 ${espaco}`}
+        className={`mx-auto flex max-w-[1440px] items-center justify-between gap-3 px-4 py-3 text-creme nav:gap-6 transition-[padding] duration-300 nav:px-16 ${espaco}`}
       >
         <a
           href="#inicio"
           className="flex min-w-0 items-center gap-3 text-creme nav:flex-none nav:whitespace-nowrap"
         >
           <Logo />
-          <span className="flex flex-col gap-0.5">
-            <span className="text-[15px] font-medium">{cabecalho.nome}</span>
-            <span className="text-[11px] tracking-[.06em] opacity-70">
+          <span className="flex min-w-0 flex-col gap-0.5">
+            <span className="truncate text-[15px] font-medium">
+              {cabecalho.nome}
+            </span>
+            <span className="truncate text-[11px] tracking-[.06em] opacity-70">
               {cabecalho.descricao}
             </span>
           </span>

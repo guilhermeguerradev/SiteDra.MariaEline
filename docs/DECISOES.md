@@ -196,6 +196,11 @@ Decisões propostas. Confirme antes de criar o projeto. Decisão substituída: m
   - **Textos de saúde (Por que prevenir? e Dúvidas) e a foto do atendimento em andamento** seguem no ar a pedido da dona do projeto, mas pendentes de confirmação do CRO-MG.
   - O CRO-AL oferece consultoria gratuita de publicidade antes da postagem. Vale perguntar se o CRO-MG tem serviço equivalente.
 
+## D24 — Título de especialista confirmado (2026-11-22)
+
+- A dona do projeto informou que a Dra. **tem o título de especialista em Saúde da Família registrado no CRO-MG**, e pediu para manter o texto do design na seção Sobre ("especialista em Saúde da Família" e a etiqueta "Especialista em Saúde da Família · UFJF/HU"). Mantido como está (D20 e D23).
+- **Responsabilidade:** a confirmação é da dona do projeto. Se o registro mudar ou não existir, o texto deve virar "área de atuação" (D23). A etiqueta "Aperfeiçoamento em Cirurgia Oral · Suprema" é um curso, e não um título de especialista; a Dra. deve confirmar com o CRO-MG se pode ser divulgada assim.
+
 ## D25 — Seções Resultados e Depoimentos implementadas, com ressalvas (2026-11-22)
 
 - **Decisão:** a dona do projeto pediu para implementar as duas seções, mesmo sabendo que a conferência do CFO estava pendente (D23). A implementação está pronta, mas **o merge só deve acontecer depois** da confirmação do que está listado abaixo. Publicar é o merge: o PR deixa as imagens visíveis no repositório público.
@@ -216,3 +221,39 @@ Decisões propostas. Confirme antes de criar o projeto. Decisão substituída: m
 - **Decisão:** a dona do projeto informou que as doutoras têm o TCLE de cada paciente e pediu para publicar. O PR #15 foi mesclado e as seções estão no ar.
 - **Continua pendente:** posição do CRO-MG sobre depoimentos e sobre as frases "com naturalidade e segurança" e "Resultado de apenas 1 semana". Se o conselho pedir ajuste, o texto muda.
 - **Arquivo dos termos:** os TCLE ficam com a Dra., fora do repositório (o Git não os guarda).
+
+## D27 — Versão do celular conforme o design (2026-11-23)
+
+- **Decisão:** a dona do projeto refez o design do celular no Claude Design (o "Site Completo" ganhou um layout próprio abaixo de 1180 px) e pediu para implementar. Cada seção ganhou um componente em `src/components/celular/`, mostrado até 1179 px (`nav:hidden`); o desktop fica como estava (`hidden nav:block`). O conteúdo vem do mesmo `src/domain/`, sem duplicar texto à mão.
+- **Textos (perguntados à dona do projeto):**
+  - Tratamentos: títulos e frases curtas do design, em três grupos (Prevenção, Restaurações e cuidados, Reabilitação), guardadas em `celular` em `src/domain/tratamentos.ts`. Os cartões abrem o WhatsApp com a mensagem inicial "Olá, Dra. Maria Eline! Gostaria de saber mais sobre {tratamento}." (texto do design).
+  - Depoimentos: falas encurtadas e origem abreviada, como no design (`celular` em `src/domain/depoimentos.ts`).
+  - **Não usados**, por decisão dela: a linha "Imagens com autorização por escrito dos pacientes.", as legendas novas de Resultados e a frase sobre a Suprema no Sobre. Sobre, Família, Consultório, Resultados e Contato mantêm os textos atuais, só com o layout novo. Em Resultados, a frase do clareamento aparece como nota abaixo das fotos.
+- **Escolhas 🟡:**
+  - Rótulos e números de seção usam `azul-escuro` (e não o azul claro do design) para manter o contraste AA.
+  - Os selos flutuantes do hero não aparecem no celular (o design não tem).
+  - Resultados no celular reaproveita os mesmos recortes (antes e depois empilhados), sem novas imagens.
+  - Tratamentos e Depoimentos do celular são links/figuras no HTML, e a marcação do desktop fica oculta (`display: none`), então o leitor de tela lê só uma versão.
+- **Testes:** os de fumaca passaram a olhar só o conteúdo visível (`:visible`). Novo teste dos 3 grupos e 8 cartões do celular. O teste dos botões de WhatsApp aceita o link puro ou com `?text=`.
+- **Verificado:** lint, typecheck, build, 57 testes unitários e e2e (axe incluído) passando; Lighthouse mobile 100/100/100/100 (LCP 0,9 s); capturas em 390 px.
+
+## D28 — Animações iguais às do design (2026-11-23)
+
+- **Decisão:** a dona do projeto pediu as animações como no Claude Design. O design as faz com JavaScript; aqui continuam em CSS puro (`src/styles/animacoes.css`), exceto a paralaxe do mouse, que precisa de um componente de cliente (`ParallaxSelos`).
+- **Entrou:**
+  - Hero: foto aparece com varredura em máscara, foco e escala (desktop); título em letras que entram uma a uma, com foco; selo com o espaçamento das letras se fechando; chips entram com foco e escala; indicador de rolagem aparece depois; linha decorativa é desenhada; paralaxe dos chips com o mouse.
+  - Seções, ao rolar: blocos entram com atraso escalonado e leve escala; rótulos abrem o espaçamento das letras; fotos abrem por uma janela e descem do zoom; linhas decorativas são desenhadas.
+- **Escolhas 🟡:**
+  - No celular, a foto do hero usa só uma entrada curta (fade e foco), sem varredura nem escala, para não pesar.
+  - As letras do título são decorativas (`aria-hidden`); o texto completo fica em `sr-only` para leitores de tela.
+  - Tudo é desligado com `prefers-reduced-motion`, e a paralaxe só liga com mouse (`pointer: fine`).
+  - Nos navegadores sem `animation-timeline: view()` o conteúdo aparece direto, sem animar.
+- **Lighthouse (celular):** 91 a 95 em desempenho, com LCP de 3,0 s na simulação (acessibilidade, boas práticas e SEO em 100). Antes era 100 e 0,9 s. Na simulação a foto do hero passou a ser o maior elemento medido; com a rede e a CPU lentas emuladas no navegador, o LCP real da foto foi 1,4 s. Desktop segue em 100. A meta de Lighthouse continua pendente de confirmação (D12).
+
+- **Correção (2026-11-23):** as animações de rolagem não rodavam em Sobre e Por que prevenir. A linha do tempo da rolagem se prende ao elemento de rolagem mais próximo, e a seção com `overflow-hidden` virava esse elemento (sem rolar nada), então a animação já nascia terminada. Trocado por `overflow-clip` nas seções e no cartão de Contato, e a foto passou a usar uma linha do tempo nomeada (`view-timeline: --foto`) para o zoom da imagem. Regra: elemento com `revelar`, `revelar-foto` ou `animar-rotulo` não pode ter ancestral com `overflow: hidden`, `auto` ou `scroll` (use `clip`).
+- **Plano B para outros navegadores (2026-11-23):** onde o navegador não tem animação por rolagem (`animation-timeline`, como versões antigas do Safari e do iOS), o componente `RevelarAoRolar` marca os blocos que entram na tela (IntersectionObserver) e o CSS faz transições equivalentes. Onde há suporte, ele não faz nada; sem JavaScript ou com redução de movimento, o conteúdo fica visível.
+- **Revisão das animações ao rolar (2026-11-23):** a animação ligada ao movimento da rolagem (`animation-timeline`) foi trocada pelo mesmo modelo do design: ao entrar na tela, cada bloco anima uma vez, em tempo fixo. O componente `RevelarAoRolar` (IntersectionObserver) marca a página com `.anim-js` e cada bloco com `.is-visivel`; o CSS esconde o bloco até lá e roda a animação. Motivos: funciona em todos os navegadores (sem plano B separado), não ficava "meio transparente" conforme a rolagem e não dependia de ancestral sem `overflow`. As linhas decorativas observam o elemento pai, porque o `clip-path` que as esconde as tira da área visível. Sem JavaScript, ou com redução de movimento, nada é escondido.
+- **Posição ao abrir uma seção pelo menu, no celular (2026-11-23):** o cabeçalho fixo tem 70 px e cobria o início de algumas seções (Família, Depoimentos, Contato). Cada seção ganhou uma margem de rolagem própria (`scroll-mt-*`), calculada pelo espaço interno da seção, para o primeiro texto ficar a cerca de 96 px do topo (26 px abaixo do cabeçalho). No desktop continua `scroll-mt-24`. Medido no Edge em 390×844 e 360×640. Em Sobre o texto fica mais abaixo (cerca de 170 px) porque a seção ocupa a tela toda e centraliza o conteúdo.
+- **Posição ao abrir uma seção pelo menu, no desktop (2026-11-23):** o componente `NavegacaoPorSecao` trata o clique nos links internos (a partir de 1180 px): se a seção é mais alta que a área livre sob o cabeçalho (81 px), ela para encostada nele, sem mostrar a seção de cima; se é mais baixa (como Depoimentos), fica centralizada, com a mesma sobra em cima e embaixo. O `scroll-mt` do desktop passou de 96 px para 80 px, para links abertos direto pelo endereço. No celular continua a margem de rolagem de cada seção. Medido no Edge em 1440×900, 1920×1080 e 1366×768, e coberto pelo teste `navegacao.spec.ts`.
+- **Ajuste fino no desktop (2026-11-23):** (1) o início passou a ocupar a altura toda da tela no desktop (`min-height: max(100dvh, 780px)`), com o conteúdo centralizado na vertical; antes eram 860 px fixos e, em 1920×1080, aparecia a seção de baixo. (2) A posição ao clicar no menu passou a se basear no conteúdo da seção, sem o espaço interno: o conteúdo fica centralizado na área livre sob o cabeçalho e, nas seções de fundo liso (Tratamentos, Sobre, Família, Dúvidas), sobe 40 px acima do centro. Depoimentos e Contato ficam no centro exato. Se o conteúdo não cabe, para 24 px abaixo do cabeçalho. Substitui a regra anterior (que olhava a caixa inteira da seção).
+- **Padronização para todas as telas (2026-11-23):** (1) a navegação pelo menu usa a mesma regra no celular, no tablet, no notebook e no desktop (`NavegacaoPorSecao`): o conteúdo real da seção fica centralizado na área livre sob o cabeçalho (70 px abaixo de 1180 px, 81 px a partir daí), com 40 px de subida nas seções de fundo liso; se não cabe, para 24 px abaixo do cabeçalho. (2) O início ocupa a altura da tela em todos os tamanhos (`min-height: max(100dvh, 560px)` no desktop, `100svh` no celular), com título, espaços e margens proporcionais à altura (`vh`), para caber em notebooks. (3) O espaço vertical das seções acompanha a menor entre largura e altura (`clamp(64px, min(10vw, 13vh), 140px)`). (4) Foto do Sobre e cartões de Tratamentos encolhem em telas baixas. (5) O layout do celular, que vale até 1179 px, fica limitado a 640 px de largura em tablets. Testado no Edge em 14 tamanhos (360×640 a 2560×1300) e coberto por teste de navegador em 7 deles.

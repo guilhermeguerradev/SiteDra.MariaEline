@@ -18,6 +18,9 @@ export const contato = {
   abrirRota: "Abrir rota →",
 } as const;
 
+// Nome de usuário exibido no celular, igual ao endereço do Instagram em contatos.
+export const instagramUsuario = "@dramariaeline";
+
 // Endereço em três linhas, como no design.
 export function linhasEndereco(): string[] {
   const { logradouro, bairro, cidade, uf } = contatos.endereco;
