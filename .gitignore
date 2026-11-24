@@ -47,3 +47,6 @@ docs/design/img/
 # Originais das fotos enviadas pela dona do projeto (pacientes e famílias), fora do Git.
 # Ver DECISOES D17.
 /img/
+
+# Gerado pelo Next.js (recriado no dev, no build e no typegen)
+next-env.d.ts
