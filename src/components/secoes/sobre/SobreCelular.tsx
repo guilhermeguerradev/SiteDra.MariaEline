@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { sobre } from "@/src/content/sobre";
+import { RotuloDeSecao } from "@/src/components/ui/RotuloDeSecao";
 
 export function SobreCelular() {
   return (
@@ -17,9 +18,7 @@ export function SobreCelular() {
             />
           </div>
           <div className="flex flex-col gap-2.5">
-            <span className="text-xs font-medium animar-rotulo tracking-[.14em] text-azul-escuro uppercase">
-              {sobre.rotulo}
-            </span>
+            <RotuloDeSecao tamanho="pequeno">{sobre.rotulo}</RotuloDeSecao>
             <h2
               id="titulo-sobre-celular"
               className="m-0 text-[26px] leading-[1.1] font-medium tracking-[-0.01em] text-pretty text-petroleo"

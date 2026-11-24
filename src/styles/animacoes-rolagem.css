@@ -1,0 +1,86 @@
+/* Animações ao rolar a página: cada bloco aparece quando entra na tela. O nome
+   das classes e do estado vive em src/lib/revelacao.ts, que também diz como o
+   componente RevelarAoRolar as usa. */
+@keyframes revelar {
+  from {
+    opacity: 0;
+    transform: translateY(28px) scale(0.985);
+  }
+}
+
+@keyframes rotulo-abrir {
+  from {
+    opacity: 0;
+    letter-spacing: 0.32em;
+  }
+}
+
+@keyframes foto-revelar {
+  from {
+    opacity: 0;
+    clip-path: inset(12% 0 12% 0 round 28px);
+  }
+  to {
+    opacity: 1;
+    clip-path: inset(-80px round 0);
+  }
+}
+
+@keyframes foto-zoom {
+  from {
+    transform: scale(1.12);
+  }
+}
+
+/* Animações ao rolar. O componente RevelarAoRolar marca a página com .anim-js
+   e cada bloco que entra na tela com .is-visivel; o bloco fica escondido até lá
+   e então anima uma vez (como no design). Sem JavaScript, ou com redução de
+   movimento, a classe .anim-js não existe e tudo aparece direto.
+   Classes: .revelar (bloco), .revelar-foto (foto), .animar-rotulo (rótulo de
+   seção) e .desenhar-linha (linha decorativa). */
+.anim-js .revelar:nth-child(2) {
+  --i: 1;
+}
+.anim-js .revelar:nth-child(3) {
+  --i: 2;
+}
+.anim-js .revelar:nth-child(4) {
+  --i: 3;
+}
+.anim-js .revelar:nth-child(5) {
+  --i: 4;
+}
+.anim-js .revelar:nth-child(n + 6) {
+  --i: 5;
+}
+
+.anim-js .revelar:not(.is-visivel),
+.anim-js .revelar-foto:not(.is-visivel),
+.anim-js .animar-rotulo:not(.is-visivel) {
+  opacity: 0;
+}
+
+.anim-js .desenhar-linha:not(.is-visivel) {
+  clip-path: inset(0 100% 0 0);
+}
+
+.anim-js .revelar.is-visivel {
+  animation: revelar 0.9s var(--ease-suave) backwards;
+  animation-delay: calc(var(--i, 0) * 90ms);
+}
+
+.anim-js .animar-rotulo.is-visivel {
+  animation: rotulo-abrir 1.1s var(--ease-suave) backwards;
+}
+
+.anim-js .revelar-foto.is-visivel {
+  animation: foto-revelar 1.2s var(--ease-suave) backwards;
+}
+
+.anim-js .revelar-foto.is-visivel img {
+  animation: foto-zoom 1.6s var(--ease-suave) backwards;
+}
+
+.anim-js .desenhar-linha.is-visivel {
+  animation: desenhar 2.8s var(--ease-suave) backwards;
+}

@@ -25,3 +25,19 @@ test("no desktop não há botão de menu", async ({ page }, info) => {
   await expect(page.getByRole("button", { name: "Menu" })).toBeHidden();
   await expect(page.getByRole("banner").getByRole("navigation")).toBeVisible();
 });
+
+test("a altura do cabeçalho depois de rolar bate com --altura-cabecalho", async ({
+  page,
+}) => {
+  await page.evaluate(() => window.scrollTo(0, 600));
+  await page.waitForTimeout(600);
+  const { altura, token } = await page.evaluate(() => ({
+    altura: document.querySelector("header")!.getBoundingClientRect().height,
+    token: parseFloat(
+      getComputedStyle(document.documentElement).getPropertyValue(
+        "--altura-cabecalho",
+      ),
+    ),
+  }));
+  expect(Math.abs(altura - token)).toBeLessThanOrEqual(1);
+});

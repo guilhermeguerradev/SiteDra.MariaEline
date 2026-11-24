@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { consultorio } from "@/src/content/consultorio";
 import { CabecalhoDeSecaoCelular } from "@/src/components/ui/CabecalhoDeSecaoCelular";
+import { RotuloDeSecao } from "@/src/components/ui/RotuloDeSecao";
 
 const [mesa, atendimento, modelo, familiaEspelho] = consultorio.fotos;
 const { exclusivo } = consultorio;
@@ -56,9 +57,7 @@ export function ConsultorioCelular() {
             className="block h-auto w-full rounded-[14px]"
           />
           <div className="flex flex-col gap-2 pr-1.5">
-            <span className="text-[11px] font-medium animar-rotulo tracking-[.14em] text-azul-escuro uppercase">
-              {exclusivo.rotulo}
-            </span>
+            <RotuloDeSecao tamanho="minimo">{exclusivo.rotulo}</RotuloDeSecao>
             <span className="text-[17px] leading-[1.3] font-medium text-pretty text-petroleo">
               {exclusivo.destaque}
             </span>

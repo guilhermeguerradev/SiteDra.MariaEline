@@ -1,3 +1,5 @@
+import { RotuloDeSecao } from "./RotuloDeSecao";
+
 type Props = {
   rotulo: string;
   titulo: string;
@@ -16,13 +18,9 @@ export function CabecalhoDeSecaoCelular({
 }: Props) {
   return (
     <div className="revelar flex flex-col gap-3">
-      <span
-        className={`text-[13px] font-medium animar-rotulo tracking-[.14em] uppercase ${
-          escuro ? "text-menta" : "text-azul-escuro"
-        }`}
-      >
+      <RotuloDeSecao tamanho="medio" fundo={escuro ? "escuro" : "claro"}>
         {rotulo}
-      </span>
+      </RotuloDeSecao>
       <h2
         id={idTitulo}
         className={`m-0 leading-[1.08] font-medium tracking-[-0.015em] text-pretty ${

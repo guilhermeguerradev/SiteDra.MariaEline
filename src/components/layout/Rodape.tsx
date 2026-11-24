@@ -18,7 +18,7 @@ export function Rodape() {
   return (
     <footer
       id="rodape"
-      className="bg-petroleo px-[clamp(20px,5vw,64px)] pt-[72px] pb-10 text-creme"
+      className="bg-petroleo secao-px pt-[72px] pb-10 text-creme"
     >
       <div className="mx-auto flex max-w-[1240px] flex-col gap-12">
         <div className="flex flex-wrap justify-between gap-10">
