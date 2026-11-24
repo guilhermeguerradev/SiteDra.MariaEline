@@ -1,0 +1,34 @@
+/* Medidas e estilos que se repetem em todas as seções. Mudar aqui muda o site
+   inteiro de uma vez. */
+
+/* Espaço interno lateral das seções. */
+@utility secao-px {
+  padding-inline: clamp(20px, 5vw, 64px);
+}
+
+/* Espaço interno vertical: acompanha a menor medida entre largura e altura da
+   tela, para as seções não ficarem enormes em notebooks. */
+@utility secao-py {
+  padding-block: clamp(64px, min(10vw, 13vh), 140px);
+}
+
+/* Rótulo pequeno em maiúsculas que fica acima do título. A cor vem de fora e o
+   tamanho e a altura da linha podem ser trocados com --rotulo-tamanho e
+   --rotulo-altura-linha. */
+@utility rotulo-secao {
+  font-size: var(--rotulo-tamanho, var(--text-sm));
+  line-height: var(--rotulo-altura-linha, var(--text-sm--line-height));
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* Título (h2) das seções (a cor vem de fora). */
+@utility titulo-secao {
+  margin: 0;
+  font-size: clamp(36px, 4.4vw, 56px);
+  line-height: 1.05;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  text-wrap: pretty;
+}

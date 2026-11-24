@@ -1,27 +1,21 @@
 import { dadosDeContato } from "@/src/content/dadosDeContato";
 import { perguntas, secaoDuvidas } from "@/src/content/duvidas";
 import { montarLinkWhatsapp } from "@/src/lib/whatsapp";
+import { SecaoPagina } from "@/src/components/ui/SecaoPagina";
+import { RotuloDeSecao } from "@/src/components/ui/RotuloDeSecao";
+import { TituloDeSecao } from "@/src/components/ui/TituloDeSecao";
 
 const linkWhatsapp = montarLinkWhatsapp(dadosDeContato.whatsapp);
 
 export function Duvidas() {
   return (
-    <section
-      id="duvidas"
-      aria-labelledby="titulo-duvidas"
-      className="scroll-mt-4 nav:scroll-mt-20 px-[clamp(20px,5vw,64px)] py-[clamp(64px,min(10vw,13vh),140px)]"
-    >
+    <SecaoPagina id="duvidas" idTitulo="titulo-duvidas">
       <div className="mx-auto grid max-w-[1240px] grid-cols-[repeat(auto-fit,minmax(min(100%,360px),1fr))] items-start gap-[clamp(40px,6vw,96px)]">
         <div className="revelar flex flex-col gap-4">
-          <span className="text-sm font-medium animar-rotulo tracking-[.14em] text-azul-escuro uppercase">
-            {secaoDuvidas.rotulo}
-          </span>
-          <h2
-            id="titulo-duvidas"
-            className="m-0 text-[clamp(36px,4.4vw,56px)] leading-[1.05] font-medium tracking-[-0.015em] text-petroleo"
-          >
+          <RotuloDeSecao>{secaoDuvidas.rotulo}</RotuloDeSecao>
+          <TituloDeSecao id="titulo-duvidas">
             {secaoDuvidas.titulo}
-          </h2>
+          </TituloDeSecao>
           <p className="m-0 text-lg leading-relaxed text-pretty">
             {secaoDuvidas.antesDoLink}
             <a
@@ -60,6 +54,6 @@ export function Duvidas() {
           ))}
         </div>
       </div>
-    </section>
+    </SecaoPagina>
   );
 }

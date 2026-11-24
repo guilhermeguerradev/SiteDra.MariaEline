@@ -1,7 +1,10 @@
 @import "tailwindcss";
 @import "../src/styles/tokens.css";
-@import "../src/styles/animacoes.css";
+@import "../src/styles/animacoes-inicio.css";
+@import "../src/styles/animacoes-rolagem.css";
+@import "../src/styles/movimento-reduzido.css";
 @import "../src/styles/componentes.css";
+@import "../src/styles/secoes.css";
 
 html {
   scroll-behavior: smooth;

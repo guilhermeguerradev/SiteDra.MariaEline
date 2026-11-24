@@ -4,6 +4,7 @@ import { formatarTelefone } from "@/src/lib/formatacao";
 import { montarLinkWhatsapp } from "@/src/lib/whatsapp";
 import { IconeWhatsapp } from "@/src/components/ui/IconeWhatsapp";
 import { MapaConsultorio } from "@/src/components/secoes/contato/MapaConsultorio";
+import { RotuloDeSecao } from "@/src/components/ui/RotuloDeSecao";
 
 const linkWhatsapp = montarLinkWhatsapp(dadosDeContato.whatsapp);
 
@@ -20,9 +21,9 @@ export function ContatoCelular() {
     <div className="flex min-h-dvh flex-col justify-center px-3.5 py-14 nav:hidden">
       <div className="mx-auto w-full max-w-[640px] revelar relative flex flex-col gap-[22px] overflow-clip rounded-[28px] bg-petroleo px-[18px] pt-7 pb-[18px]">
         <div className="flex flex-col gap-3.5 px-1">
-          <span className="text-[13px] font-medium animar-rotulo tracking-[.14em] text-menta uppercase">
+          <RotuloDeSecao tamanho="medio" fundo="escuro">
             {secaoContato.rotulo}
-          </span>
+          </RotuloDeSecao>
           <h2
             id="titulo-contato-celular"
             className="m-0 text-[34px] leading-[1.05] font-medium tracking-[-0.02em] text-pretty text-creme"

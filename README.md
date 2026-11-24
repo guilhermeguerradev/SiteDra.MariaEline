@@ -72,7 +72,9 @@ A direção das dependências é `app → components → content/lib`. `content`
 ### Decisões de projeto que valem saber
 
 - **Conteúdo fora dos componentes.** Textos, serviços e contatos ficam em `src/content/` como objetos tipados. Os componentes só apresentam. Isso permite testar o conteúdo (por exemplo, que os tratamentos batem com o PRD) sem renderizar nada.
-- **Duas versões de cada seção.** O design do celular é outro layout, não só uma versão menor do desktop. Por isso cada seção tem um componente para telas pequenas (`celular/`) e outro para telas grandes, e o CSS mostra um ou outro no ponto de quebra de 1180 px. O conteúdo vem da mesma fonte, então os textos não se duplicam à mão.
+- **Duas versões de cada seção.** O design do celular é outro layout, não só uma versão menor do desktop. Por isso cada seção tem um componente para telas pequenas (`celular/`) e outro para telas grandes, e o CSS mostra um ou outro no ponto de quebra de 1180 px. O padrão fica num só lugar, o componente `SecaoPagina`. O conteúdo vem da mesma fonte, então os textos não se duplicam à mão.
+- **Medidas repetidas viram utilitários.** Espaço interno das seções, título e rótulo ficam em `src/styles/secoes.css`; a altura do cabeçalho é uma variável CSS (`--altura-cabecalho`) lida também pelo JavaScript, e um teste confere que o valor bate com a altura real.
+- **Lógica separada do navegador.** A conta de onde a página para ao clicar no menu é uma função pura (`src/lib/posicaoDaSecao.ts`), testada sem abrir navegador; o componente só mede a página e entrega as medidas.
 - **Animações em CSS, ativadas ao entrar na tela.** Um observador marca cada bloco que aparece e o CSS faz o resto. Sem JavaScript, ou com "reduzir movimento" ligado no sistema, nada fica escondido.
 - **Site estático.** Gera HTML puro, sem servidor, o que mantém o custo zero e o carregamento rápido.
 - **Acessibilidade e desempenho** são verificados nos testes (axe, teclado, imagens com texto alternativo) e nas métricas do Lighthouse.

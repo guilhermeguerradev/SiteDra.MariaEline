@@ -272,3 +272,14 @@ Decisões propostas. Confirme antes de criar o projeto. Decisão substituída: m
 - **Testes:** os unitários passaram a espelhar `content/` e `lib/`, um arquivo por assunto. O teste que só fazia `1 + 1` saiu. O `fumaca.spec.ts` (272 linhas, vários assuntos) foi dividido em `pagina`, `whatsapp`, `acessibilidade`, `cabecalho`, `rodape` e `tratamentos`; os arquivos que juntavam duas seções foram separados; helpers repetidos foram para `tests/e2e/auxiliares.ts`.
 - **Repositório:** `next-env.d.ts` (gerado) deixou de ser versionado.
 - **Sem mudança visual:** nenhum texto, estilo ou comportamento mudou. Conferido comparando o HTML publicado com o da branch e rodando todos os testes.
+
+## D30 — Medidas e lógica em um só lugar (2026-11-23)
+
+- **Decisão:** continuação do D29, voltada ao que se repetia e ao que estava misturado.
+- **Medidas repetidas viraram utilitários** em `src/styles/secoes.css`: `secao-px`, `secao-py`, `rotulo-secao` e `titulo-secao`. Antes, os mesmos valores estavam copiados em 8 a 10 arquivos, contra a regra de `CLAUDE.md` §4.
+- **Peças reutilizáveis em `components/ui/`:** `SecaoPagina` (a casca de toda seção, com as duas versões lado a lado), `CabecalhoDeSecao`, `RotuloDeSecao` e `TituloDeSecao`. Cada seção deixou de repetir o `<section>`, a margem de rolagem e o espaço interno.
+- **Altura do cabeçalho** passou a ser a variável `--altura-cabecalho` (`tokens.css`), lida pelas seções e pela navegação. Antes eram números soltos (70 e 81) no TypeScript e no CSS. Um teste de navegador confere que a altura real do cabeçalho rolado bate com a variável.
+- **Lógica fora do componente:** a conta de onde a página para ao clicar no menu virou a função pura `calcularTopoDaSecao` (`src/lib/posicaoDaSecao.ts`), com 7 testes unitários; `NavegacaoPorSecao` só mede a página. Os nomes das classes da animação ao rolar ficam em `src/lib/revelacao.ts`, e um teste confere que o CSS usa todos.
+- **CSS de animações dividido** (361 linhas) em `animacoes-inicio.css`, `animacoes-rolagem.css` e `movimento-reduzido.css`.
+- **Escolha 🟡:** os títulos de Depoimentos, Dúvidas e Tratamentos passaram a usar `text-wrap: pretty`, como os das outras seções (antes só alguns tinham). Não mudou a quantidade de linhas em nenhum tamanho de tela testado.
+- **Sem mudança visual, conferida:** capturas de tela de página inteira, publicado contra a branch, em 6 tamanhos (360, 390, 820, 1366, 1440 e 1920 px): iguais pixel a pixel por seção, exceto 1,3% a 1,7% de diferença de suavização do texto em Dúvidas e Contato no tamanho 1366×650 (posição fracionária de pixel; geometria idêntica).

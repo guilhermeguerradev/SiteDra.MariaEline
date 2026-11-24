@@ -22,3 +22,16 @@
 
   --spacing-gutter: clamp(40px, 6.7vw, 96px);
 }
+
+/* Altura do cabeçalho fixo depois que a página rola. Lida pelas seções (margem
+   de rolagem) e pela navegação (NavegacaoPorSecao). O teste do cabeçalho
+   confere que a altura real bate com este valor. */
+:root {
+  --altura-cabecalho: 70px;
+}
+
+@media (width >= 1180px) {
+  :root {
+    --altura-cabecalho: 81px;
+  }
+}
