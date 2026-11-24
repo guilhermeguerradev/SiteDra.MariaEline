@@ -29,7 +29,7 @@ test("a seção Sobre mostra o texto, as credenciais e o CRO", async ({
 test("a foto da seção Sobre carrega e tem texto alternativo", async ({
   page,
 }) => {
-  const foto = page.locator("#sobre img");
+  const foto = page.locator("#sobre img:visible");
   await expect(foto).toHaveAttribute(
     "alt",
     "Dra. Maria Eline analisando um raio-x",

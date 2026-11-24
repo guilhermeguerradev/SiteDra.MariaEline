@@ -96,15 +96,22 @@ Ordem sugerida, da mais pronta para a mais sensível:
 
 ### 5.6 Resultados (`#resultados`)
 
-- [ ] Recortes das fotos (D17), sem textos de terceiros, otimizados.
+- [x] Recortes das fotos (D17), sem textos de terceiros, otimizados (D25). A imagem de cárie em andamento ficou de fora.
 - [ ] 🔴 TCLE de cada paciente cobrindo o uso no site, com nome da Dra. e CRO visíveis (D23). EM ESPERA.
 - [ ] 🔴 Regras do CFO para "diagnóstico e resultado": permitido com TCLE, pelo dentista que fez o tratamento (D23). Confirmar com o CRO-MG, e usar fotos clínicas da Dra., não capturas de Instagram de pacientes.
 
 ### 5.7 Depoimentos (`#depoimentos`)
 
-- [ ] Três depoimentos do design, com nome omitido ("Paciente · via WhatsApp").
+- [x] Três depoimentos do design, com nome omitido ("Paciente · via WhatsApp") (D25).
 - [ ] 🔴 Autorização de cada pessoa que falou, inclusive a captura do Instagram com "@" de terceiros. EM ESPERA.
 - [ ] 🔴 A cartilha consultada não trata de depoimentos (D23): sem base oficial. Só publicar com a posição do CRO-MG. EM ESPERA.
+
+### 5.8 Versão do celular (design "Site Completo", abaixo de 1180 px)
+
+- [x] Layout próprio do celular em Sobre, Família, Tratamentos, Por que prevenir, Consultório, Resultados, Depoimentos e Contato, mais ajustes no cabeçalho e no hero (D27).
+- [x] Tratamentos e Depoimentos com os textos curtos do design, como a dona do projeto pediu (D27). Os demais textos seguem os atuais.
+- [ ] 🔴 A Dra. precisa confirmar os textos curtos de Tratamentos ("Mais claros, com segurança e acompanhamento.", "Aparência natural.") e as falas encurtadas dos depoimentos (D27).
+- [ ] Revisão no celular real junto com a Dra.
 
 ### Em todas as seções
 
