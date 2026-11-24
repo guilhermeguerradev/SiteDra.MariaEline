@@ -25,7 +25,7 @@ function IconeSorriso() {
 export function FamiliaCelular() {
   return (
     <div className="flex min-h-dvh flex-col justify-center px-5 py-16 nav:hidden">
-      <div className="flex flex-col gap-[22px]">
+      <div className="mx-auto w-full max-w-[640px] flex flex-col gap-[22px]">
         <CabecalhoCelular
           rotulo={familia.rotulo}
           titulo={familia.titulo}
@@ -34,7 +34,7 @@ export function FamiliaCelular() {
         />
 
         <div className="revelar grid grid-cols-[minmax(0,1.35fr)_minmax(0,1fr)] gap-2">
-          <div className="relative aspect-[1/1.2] overflow-hidden rounded-[20px]">
+          <div className="revelar-foto relative aspect-[1/1.2] overflow-hidden rounded-[20px]">
             <Image
               src={familia.fotoPrincipal.src}
               alt={familia.fotoPrincipal.alt}
@@ -44,7 +44,7 @@ export function FamiliaCelular() {
               className="size-full object-cover object-[50%_25%]"
             />
           </div>
-          <div className="relative overflow-hidden rounded-[20px]">
+          <div className="revelar-foto relative overflow-hidden rounded-[20px]">
             <Image
               src={familia.fotoDestaque.src}
               alt={familia.fotoDestaque.alt}

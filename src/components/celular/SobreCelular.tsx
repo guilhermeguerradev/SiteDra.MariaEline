@@ -4,9 +4,9 @@ import { sobre } from "@/src/domain/sobre";
 export function SobreCelular() {
   return (
     <div className="flex min-h-dvh flex-col justify-center px-5 py-16 nav:hidden">
-      <div className="flex flex-col gap-[22px]">
+      <div className="mx-auto w-full max-w-[640px] flex flex-col gap-[22px]">
         <div className="revelar grid grid-cols-[140px_minmax(0,1fr)] items-end gap-4">
-          <div className="relative aspect-[4/5] overflow-hidden rounded-[20px] shadow-[0_14px_30px_rgb(35_63_69/0.14)]">
+          <div className="revelar-foto relative aspect-[4/5] overflow-hidden rounded-[20px] shadow-[0_14px_30px_rgb(35_63_69/0.14)]">
             <Image
               src={sobre.foto.src}
               alt={sobre.foto.alt}
@@ -17,7 +17,7 @@ export function SobreCelular() {
             />
           </div>
           <div className="flex flex-col gap-2.5">
-            <span className="text-xs font-medium tracking-[.14em] text-azul-escuro uppercase">
+            <span className="text-xs font-medium animar-rotulo tracking-[.14em] text-azul-escuro uppercase">
               {sobre.rotulo}
             </span>
             <h2

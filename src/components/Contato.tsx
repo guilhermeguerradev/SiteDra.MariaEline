@@ -16,17 +16,17 @@ export function Contato() {
     <section
       id="contato"
       aria-labelledby="titulo-contato"
-      className="scroll-mt-0 nav:scroll-mt-24 bg-[linear-gradient(120deg,var(--color-ceu)_0%,var(--color-creme)_50%,var(--color-pessego)_100%)]"
+      className="scroll-mt-5 nav:scroll-mt-20 bg-[linear-gradient(120deg,var(--color-ceu)_0%,var(--color-creme)_50%,var(--color-pessego)_100%)]"
     >
       <ContatoCelular />
-      <div className="hidden px-[clamp(20px,5vw,64px)] py-[clamp(80px,10vw,140px)] nav:block">
-        <div className="revelar relative mx-auto grid max-w-[1240px] grid-cols-[repeat(auto-fit,minmax(min(100%,380px),1fr))] gap-[clamp(40px,5vw,72px)] overflow-hidden rounded-[clamp(28px,4vw,48px)] bg-petroleo p-[clamp(32px,6vw,80px)]">
+      <div className="hidden px-[clamp(20px,5vw,64px)] py-[clamp(64px,min(10vw,13vh),140px)] nav:block">
+        <div className="revelar relative mx-auto grid max-w-[1240px] grid-cols-[repeat(auto-fit,minmax(min(100%,380px),1fr))] gap-[clamp(40px,5vw,72px)] overflow-clip rounded-[clamp(28px,4vw,48px)] bg-petroleo p-[clamp(32px,6vw,80px)]">
           <svg
             viewBox="0 0 1240 600"
             preserveAspectRatio="none"
             fill="none"
             aria-hidden="true"
-            className="pointer-events-none absolute inset-0 size-full opacity-[.14]"
+            className="desenhar-linha pointer-events-none absolute inset-0 size-full opacity-[.14]"
           >
             <path
               d="M-40 500 C 240 380, 420 600, 660 460 S 1040 260, 1280 360"
@@ -38,7 +38,7 @@ export function Contato() {
           </svg>
 
           <div className="relative flex flex-col items-start gap-6">
-            <span className="text-sm font-medium tracking-[.14em] text-menta uppercase">
+            <span className="text-sm font-medium animar-rotulo tracking-[.14em] text-menta uppercase">
               {contato.rotulo}
             </span>
             <h2

@@ -6,13 +6,13 @@ export function Depoimentos() {
     <section
       id="depoimentos"
       aria-labelledby="titulo-depoimentos"
-      className="scroll-mt-0 nav:scroll-mt-24 bg-gelo"
+      className="scroll-mt-10 nav:scroll-mt-20 bg-gelo"
     >
       <DepoimentosCelular />
-      <div className="relative hidden px-[clamp(20px,5vw,64px)] py-[clamp(80px,10vw,140px)] nav:block">
+      <div className="relative hidden px-[clamp(20px,5vw,64px)] py-[clamp(64px,min(10vw,13vh),140px)] nav:block">
         <div className="mx-auto flex max-w-[1240px] flex-col gap-14">
           <div className="revelar flex max-w-[680px] flex-col gap-4">
-            <span className="text-sm font-medium tracking-[.14em] text-azul-escuro uppercase">
+            <span className="text-sm font-medium animar-rotulo tracking-[.14em] text-azul-escuro uppercase">
               {secaoDepoimentos.rotulo}
             </span>
             <h2

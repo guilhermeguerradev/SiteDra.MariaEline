@@ -8,13 +8,13 @@ export function Consultorio() {
     <section
       id="consultorio"
       aria-labelledby="titulo-consultorio"
-      className="scroll-mt-0 nav:scroll-mt-24 bg-gelo"
+      className="scroll-mt-6 nav:scroll-mt-20 bg-gelo"
     >
       <ConsultorioCelular />
-      <div className="relative hidden px-[clamp(20px,5vw,64px)] py-[clamp(80px,10vw,140px)] nav:block">
+      <div className="relative hidden px-[clamp(20px,5vw,64px)] py-[clamp(64px,min(10vw,13vh),140px)] nav:block">
         <div className="mx-auto flex max-w-[1240px] flex-col gap-14">
           <div className="revelar flex max-w-[680px] flex-col gap-4">
-            <span className="text-sm font-medium tracking-[.14em] text-azul-escuro uppercase">
+            <span className="text-sm font-medium animar-rotulo tracking-[.14em] text-azul-escuro uppercase">
               {consultorio.rotulo}
             </span>
             <h2
@@ -29,7 +29,7 @@ export function Consultorio() {
             {consultorio.fotos.map((foto) => (
               <li
                 key={foto.src}
-                className="revelar group h-[340px] overflow-hidden rounded-[28px]"
+                className="revelar-foto group h-[340px] overflow-hidden rounded-[28px]"
               >
                 <Image
                   src={foto.src}
@@ -57,7 +57,7 @@ export function Consultorio() {
               />
             </div>
             <div className="flex flex-col gap-4 px-[clamp(8px,2vw,24px)] pt-3 pb-5">
-              <span className="text-sm font-medium tracking-[.14em] text-azul-escuro uppercase">
+              <span className="text-sm font-medium animar-rotulo tracking-[.14em] text-azul-escuro uppercase">
                 {exclusivo.rotulo}
               </span>
               <p className="m-0 text-[clamp(26px,2.6vw,34px)] leading-[1.15] font-medium text-pretty text-petroleo">

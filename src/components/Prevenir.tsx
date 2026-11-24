@@ -6,16 +6,16 @@ export function Prevenir() {
     <section
       id="prevenir"
       aria-labelledby="titulo-prevenir"
-      className="relative scroll-mt-0 nav:scroll-mt-24 overflow-hidden bg-petroleo"
+      className="relative scroll-mt-10 nav:scroll-mt-20 overflow-clip bg-petroleo"
     >
       <PrevenirCelular />
-      <div className="relative hidden px-[clamp(20px,5vw,64px)] py-[clamp(80px,10vw,140px)] nav:block">
+      <div className="relative hidden px-[clamp(20px,5vw,64px)] py-[clamp(64px,min(10vw,13vh),140px)] nav:block">
         <svg
           viewBox="0 0 1440 600"
           preserveAspectRatio="none"
           fill="none"
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 size-full opacity-[.14]"
+          className="desenhar-linha pointer-events-none absolute inset-0 size-full opacity-[.14]"
         >
           <path
             d="M-40 460 C 260 320, 420 580, 720 400 S 1180 180, 1500 320"
@@ -35,7 +35,7 @@ export function Prevenir() {
 
         <div className="relative mx-auto flex max-w-[1240px] flex-col gap-16">
           <div className="revelar flex max-w-[680px] flex-col gap-4">
-            <span className="text-sm font-medium tracking-[.14em] text-menta uppercase">
+            <span className="text-sm font-medium animar-rotulo tracking-[.14em] text-menta uppercase">
               {secaoPrevenir.rotulo}
             </span>
             <h2

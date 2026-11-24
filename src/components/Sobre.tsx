@@ -7,16 +7,16 @@ export function Sobre() {
     <section
       id="sobre"
       aria-labelledby="titulo-sobre"
-      className="relative scroll-mt-0 nav:scroll-mt-24 overflow-hidden"
+      className="relative scroll-mt-8 nav:scroll-mt-20 overflow-clip"
     >
       <SobreCelular />
-      <div className="relative hidden px-[clamp(20px,5vw,64px)] py-[clamp(80px,10vw,140px)] nav:block">
+      <div className="relative hidden px-[clamp(20px,5vw,64px)] py-[clamp(64px,min(10vw,13vh),140px)] nav:block">
         <svg
           viewBox="0 0 1440 600"
           preserveAspectRatio="none"
           fill="none"
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 size-full opacity-25"
+          className="desenhar-linha pointer-events-none absolute inset-0 size-full opacity-25"
         >
           <path
             d="M-20 480 C 300 380, 520 600, 820 460 S 1240 300, 1460 380"
@@ -28,7 +28,7 @@ export function Sobre() {
         </svg>
 
         <div className="relative mx-auto grid max-w-[1240px] grid-cols-[repeat(auto-fit,minmax(min(100%,420px),1fr))] items-center gap-[clamp(40px,6vw,96px)]">
-          <div className="revelar relative aspect-[4/5] overflow-hidden rounded-[36px] shadow-[0_30px_60px_rgb(35_63_69/0.14)]">
+          <div className="revelar-foto relative h-[clamp(420px,68vh,720px)] w-full overflow-hidden rounded-[36px] shadow-[0_30px_60px_rgb(35_63_69/0.14)]">
             <Image
               src={sobre.foto.src}
               alt={sobre.foto.alt}
@@ -40,7 +40,7 @@ export function Sobre() {
           </div>
 
           <div className="revelar flex flex-col gap-6">
-            <span className="text-sm font-medium tracking-[.14em] text-azul-escuro uppercase">
+            <span className="text-sm font-medium animar-rotulo tracking-[.14em] text-azul-escuro uppercase">
               {sobre.rotulo}
             </span>
             <h2

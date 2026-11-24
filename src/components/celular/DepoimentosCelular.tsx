@@ -4,7 +4,7 @@ import { CabecalhoCelular } from "./CabecalhoCelular";
 export function DepoimentosCelular() {
   return (
     <div className="px-5 py-14 nav:hidden">
-      <div className="flex flex-col gap-6">
+      <div className="mx-auto w-full max-w-[640px] flex flex-col gap-6">
         <CabecalhoCelular
           rotulo={secaoDepoimentos.rotulo}
           titulo={secaoDepoimentos.titulo}

@@ -17,7 +17,7 @@ export function CabecalhoCelular({
   return (
     <div className="revelar flex flex-col gap-3">
       <span
-        className={`text-[13px] font-medium tracking-[.14em] uppercase ${
+        className={`text-[13px] font-medium animar-rotulo tracking-[.14em] uppercase ${
           escuro ? "text-menta" : "text-azul-escuro"
         }`}
       >
