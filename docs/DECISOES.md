@@ -216,6 +216,12 @@ Decisões propostas. Confirme antes de criar o projeto. Decisão substituída: m
 - **Navegação:** `resultados` e `depoimentos` entraram em `secoesExistentes`. O link "Depoimentos" aparece no cabeçalho, no menu do celular e no rodapé (6 links, e o cabeçalho cabe em 1180 px).
 - **Verificado:** Lighthouse 100 nas quatro categorias (mobile e desktop), 57 testes unitários e 81 de fumaça.
 
+## D26 — Resultados e Depoimentos publicados (2026-11-23)
+
+- **Decisão:** a dona do projeto informou que as doutoras têm o TCLE de cada paciente e pediu para publicar. O PR #15 foi mesclado e as seções estão no ar.
+- **Continua pendente:** posição do CRO-MG sobre depoimentos e sobre as frases "com naturalidade e segurança" e "Resultado de apenas 1 semana". Se o conselho pedir ajuste, o texto muda.
+- **Arquivo dos termos:** os TCLE ficam com a Dra., fora do repositório (o Git não os guarda).
+
 ## D27 — Versão do celular conforme o design (2026-11-23)
 
 - **Decisão:** a dona do projeto refez o design do celular no Claude Design (o "Site Completo" ganhou um layout próprio abaixo de 1180 px) e pediu para implementar. Cada seção ganhou um componente em `src/components/celular/`, mostrado até 1179 px (`nav:hidden`); o desktop fica como estava (`hidden nav:block`). O conteúdo vem do mesmo `src/domain/`, sem duplicar texto à mão.
