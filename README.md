@@ -47,24 +47,31 @@ Para o Playwright pela primeira vez: `npx playwright install chromium`.
 ```
 app/                 Página e layout do Next.js, robots e sitemap. Sem regra de negócio.
 src/
-  components/        Peças visuais (uma por arquivo). A pasta celular/ tem a versão
-                     de cada seção para telas menores que 1180 px.
-  domain/            Conteúdo do site e funções puras: textos, tratamentos, contatos
-                     (validados com Zod), SEO, formatação.
+  components/
+    secoes/<nome>/   Cada seção do site. Tem a versão para telas grandes (Sobre.tsx)
+                     e a versão para telas menores que 1180 px (SobreCelular.tsx).
+    layout/          Cabeçalho e rodapé.
+    ui/              Peças reutilizáveis (logo, ícones, cabeçalho de seção...).
+    comportamento/   Componentes só de comportamento, sem visual: navegação entre
+                     seções, animações ao rolar, paralaxe.
+    seo/             Dados estruturados (schema.org).
+  content/           Conteúdo do site como objetos tipados: textos, tratamentos,
+                     contatos (validados com Zod).
+  lib/               Funções puras: formatação, links do WhatsApp e do mapa, SEO, URL.
   styles/            Tokens de cor, fonte e espaço, e as animações.
 public/images/       Imagens otimizadas (WebP).
 tests/
-  unit/              Vitest.
-  e2e/               Playwright.
+  unit/              Vitest. Espelha content/ e lib/.
+  e2e/               Playwright. Um arquivo por assunto.
 scripts/             Preparo das imagens (corte e otimização) a partir dos originais.
 docs/                PRD, plano, registro de decisões e referência de design.
 ```
 
-A direção das dependências é `app → components → domain`. O `domain` nunca importa componentes nem a pasta `app`.
+A direção das dependências é `app → components → content/lib`. `content` e `lib` nunca importam componentes nem a pasta `app`. Todos os nomes são em português, exceto os que o framework impõe.
 
 ### Decisões de projeto que valem saber
 
-- **Conteúdo fora dos componentes.** Textos, serviços e contatos ficam em `src/domain/` como objetos tipados. Os componentes só apresentam. Isso permite testar o conteúdo (por exemplo, que os tratamentos batem com o PRD) sem renderizar nada.
+- **Conteúdo fora dos componentes.** Textos, serviços e contatos ficam em `src/content/` como objetos tipados. Os componentes só apresentam. Isso permite testar o conteúdo (por exemplo, que os tratamentos batem com o PRD) sem renderizar nada.
 - **Duas versões de cada seção.** O design do celular é outro layout, não só uma versão menor do desktop. Por isso cada seção tem um componente para telas pequenas (`celular/`) e outro para telas grandes, e o CSS mostra um ou outro no ponto de quebra de 1180 px. O conteúdo vem da mesma fonte, então os textos não se duplicam à mão.
 - **Animações em CSS, ativadas ao entrar na tela.** Um observador marca cada bloco que aparece e o CSS faz o resto. Sem JavaScript, ou com "reduzir movimento" ligado no sistema, nada fica escondido.
 - **Site estático.** Gera HTML puro, sem servidor, o que mantém o custo zero e o carregamento rápido.
